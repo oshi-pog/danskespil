@@ -1,0 +1,25 @@
+{
+  "name": "danskespil",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shared.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josh-kea/danskespil.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josh-kea/danskespil/issues"
+  },
+  "homepage": "https://github.com/josh-kea/danskespil#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "sass": "^1.20.1"
+  }
+}
