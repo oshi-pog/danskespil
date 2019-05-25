@@ -52,10 +52,9 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-window.addEventListener("DOMContentLoaded", event => {
+window.addEventListener("DOMContentLoaded", () => {
   setTimeout(function() {
-    console.log("klhjdgaskldéaj");
-    document.getElementById("game").style.transform = "";
+    document.getElementById("game").style.transform = "translateX(0)";
   }, 2000);
 });
 
