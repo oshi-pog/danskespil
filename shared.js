@@ -39,6 +39,13 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+window.addEventListener('DOMContentLoaded', (event) => {
+  setTimeout(function(){ 
+    console.log("klhjdgaskldéaj");
+    document.getElementById('game').style.transform = "";
+   }, 2000);
+});
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
