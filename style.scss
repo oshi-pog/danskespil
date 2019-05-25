@@ -1,6 +1,9 @@
+@import "game";
+
 $bottom-menu-height: 10%;
 $top-menu-height: 10%;
 $overlay-menu-height: calc(100% - #{$bottom-menu-height} - #{$top-menu-height});
+
 
 * {
   margin: 0;
