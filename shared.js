@@ -5,10 +5,15 @@ const burgerIcon = document.querySelector(".bottom-menu-middle");
 const bottomMenuOverlay = document.querySelector("#bottom-menu-overlay");
 const bottomMenuContent = document.querySelector(".bottom-menu-content");
 const bottomOverlay = document.querySelector("#bottom-menu-overlay");
+const game = document.querySelector("#game");
+
 let menuStatus = burgerIcon.dataset.status;
 let bottomMenuOverlayHeight = null;
 
 window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    game.style.transform = "translate(-50%,-50%)";
+  }, 4000);
   //Add event listener to burger icon and run function to open or close it based on it's current status
   burgerIcon.addEventListener("click", () => {
     event.preventDefault();
@@ -18,7 +23,6 @@ window.addEventListener("DOMContentLoaded", () => {
       closeOverlayMenu();
     }
   });
-  runOdometer();
 });
 
 function openOverlayMenu() {
@@ -43,7 +47,6 @@ function closeOverlayMenu() {
   console.log(menuStatus);
 }
 
-
 // THE MEMORY GAME
 
 const cards = document.querySelectorAll(".memory-card");
@@ -51,15 +54,6 @@ const cards = document.querySelectorAll(".memory-card");
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
-
-
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(function() {
-    document.getElementById("game").style.transform = "translateX(0)";
-  }, 4000);
-
-});
 
 function flipCard() {
   if (lockBoard) return;

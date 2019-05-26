@@ -1,16 +1,20 @@
 .memory-game {
-  width: 700px;
-  height: 600px;
+  width: 80%;
+  height: 80%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
+  z-index: 1;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(250%, -50%);
 }
 
 #game {
-  transform: translateX(-1500px);
-  transition: 0.3s ease-in-out;
-
+  transition: 0.5s ease-in-out;
 }
 
 .memory-card {
