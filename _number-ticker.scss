@@ -1,0 +1,40 @@
+:root {
+  background-color: #555;
+  color: white;
+
+  font-family: Roboto Light;
+}
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+}
+
+.number-ticker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.number-ticker-content {
+  text-align: center;
+}
+
+.number-ticker {
+  overflow: hidden;
+  height: 1em;
+  background-color: #333;
+  box-shadow: 0 0 0.05em black inset;
+  font-size: 3vw;
+
+  .digit {
+    float: left;
+    line-height: 1;
+    transition: margin-top 1.75s ease;
+    border-right: 1px solid #555;
+    padding: 0 0.075em;
+  }
+}
