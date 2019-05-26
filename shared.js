@@ -1,3 +1,19 @@
+// FETCH DATA
+
+function fetchdata(){
+  fetch("https://danskespil-6ea1.restdb.io/", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": "5cea5dcd5f86251ddebe1a94",
+        "cache-control": "no-cache"
+      }
+    })
+      .then(e => e.json())
+      .then(e => console.log(e));
+}
+
+
 //BOTTOM MENU
 
 //Variables
@@ -30,7 +46,6 @@ function closeOverlayMenu() {
 }
 
 
-
 // THE MEMORY GAME
 
 const cards = document.querySelectorAll('.memory-card');
@@ -44,6 +59,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     console.log("klhjdgaskldéaj");
     document.getElementById('game').style.transform = "";
    }, 2000);
+   fetchdata();
 });
 
 function flipCard() {
