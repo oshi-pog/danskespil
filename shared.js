@@ -117,7 +117,7 @@ function checkTurns () {
 
 function checkForMatch() {
 
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
 
   isMatch ? disableCards() : unflipCards();
 }
