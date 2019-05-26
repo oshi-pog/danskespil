@@ -1,4 +1,5 @@
 //BOTTOM MENU
+import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 
 //Variables
 const burgerIcon = document.querySelector(".bottom-menu-middle");
@@ -6,14 +7,17 @@ const bottomMenuOverlay = document.querySelector("#bottom-menu-overlay");
 const bottomMenuContent = document.querySelector(".bottom-menu-content");
 const bottomOverlay = document.querySelector("#bottom-menu-overlay");
 const game = document.querySelector("#game");
+// storing the fixed game-container as variable, to be animated with greensock below
+const gameContainer = document.querySelector('.game-container');
 
 let menuStatus = burgerIcon.dataset.status;
 let bottomMenuOverlayHeight = null;
 
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
-    game.style.transform = "translate(-50%,-50%)";
-  }, 4000);
+    TweenMax.from(gameContainer,1, {x:1500});
+    TweenMax.to(gameContainer,1, {opacity:1});
+  }, 1000);
   //Add event listener to burger icon and run function to open or close it based on it's current status
   burgerIcon.addEventListener("click", () => {
     event.preventDefault();
@@ -24,6 +28,26 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   setTimeout(() => {
+//     game.style.transform = "translate(-50%,-50%)";
+//   }, 1000);
+//   //Add event listener to burger icon and run function to open or close it based on it's current status
+//   burgerIcon.addEventListener("click", () => {
+//     event.preventDefault();
+//     if (menuStatus == "closed") {
+//       openOverlayMenu();
+//     } else {
+//       closeOverlayMenu();
+//     }
+//   });
+// });
+
+// New greensock animation when page is loaded
+
 
 function openOverlayMenu() {
   bottomMenuContent.style.height = "100%";
@@ -55,7 +79,15 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+//turns variable
+let turnsCounter = 10;
+const turns = document.querySelector('#turns');
+const turnsCount = document.querySelector('#turns span');
+
+turnsCount.textContent = turnsCounter;
+
 function flipCard() {
+  
   if (lockBoard) return;
   if (this === firstCard) return;
 
@@ -70,9 +102,21 @@ function flipCard() {
 
   secondCard = this;
   checkForMatch();
+  checkTurns();
+}
+
+// When two cards are flipped, the users turns will be lowered by one, and when those turns reach zero, the game is hidden, TO DO IMPORTANT
+function checkTurns () {
+  turnsCounter--;
+  turnsCount.textContent = turnsCounter;
+  if (turnsCounter === 0){
+    cards.forEach(card => card.removeEventListener("click", flipCard));
+
+  }
 }
 
 function checkForMatch() {
+
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
@@ -93,7 +137,7 @@ function unflipCards() {
     secondCard.classList.remove("flip");
 
     resetBoard();
-  }, 1500);
+  }, 750);
 }
 
 function resetBoard() {
