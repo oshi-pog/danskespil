@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "grunt": "^1.0.4",
-    "odometer": "^0.4.8"
+    "parcel": "^1.12.3"
   }
 }
