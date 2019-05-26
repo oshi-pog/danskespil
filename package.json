@@ -23,7 +23,11 @@
     "sass": "^1.20.1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "grunt": "^1.0.4",
     "odometer": "^0.4.8"
+=======
+    "parcel": "^1.12.3"
+>>>>>>> 2da7a4d15eaeee8b8eb395d0f65130512f97ffcd
   }
 }
