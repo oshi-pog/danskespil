@@ -55,7 +55,7 @@ let firstCard, secondCard;
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(function() {
     document.getElementById("game").style.transform = "translateX(0)";
-  }, 2000);
+  }, 4000);
 });
 
 function flipCard() {
