@@ -34,62 +34,104 @@
       </div>
     </nav>
 
-    <section id="game" class="memory-game">
-      <div class="memory-card" data-framework="aurelia">
-        <img class="front-face" src="img/aurelia.svg" alt="Aurelia" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+    <div class="number-ticker-container">
+      <div class="number-ticker-content">
+        <h3>Our customers have already won:</h3>
       </div>
-      <div class="memory-card" data-framework="aurelia">
-        <img class="front-face" src="img/aurelia.svg" alt="Aurelia" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+      <div class="number-ticker" data-value="1000"></div>
+      <div class="number-ticker-content">
+        <h3>
+          with us. <br />
+          Join today and
+        </h3>
       </div>
+      <button class="number-ticker-cta">Start winning now!</button>
+    </div>
 
-      <div class="memory-card" data-framework="vue">
-        <img class="front-face" src="img/vue.svg" alt="Vue" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
-      <div class="memory-card" data-framework="vue">
-        <img class="front-face" src="img/vue.svg" alt="Vue" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
+    <div class="game-container">
+      <section id="game" class="memory-game">
+        <div class="memory-card" data-framework="aurelia">
+          <img class="front-face" src="img/aurelia.svg" alt="Aurelia" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="aurelia">
+          <img class="front-face" src="img/aurelia.svg" alt="Aurelia" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
 
-      <div class="memory-card" data-framework="angular">
-        <img class="front-face" src="img/angular.svg" alt="Angular" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
-      <div class="memory-card" data-framework="angular">
-        <img class="front-face" src="img/angular.svg" alt="Angular" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
+        <div class="memory-card" data-framework="vue">
+          <img class="front-face" src="img/vue.svg" alt="Vue" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="vue">
+          <img class="front-face" src="img/vue.svg" alt="Vue" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
 
-      <div class="memory-card" data-framework="ember">
-        <img class="front-face" src="img/ember.svg" alt="Ember" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
-      <div class="memory-card" data-framework="ember">
-        <img class="front-face" src="img/ember.svg" alt="Ember" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
+        <div class="memory-card" data-framework="angular">
+          <img class="front-face" src="img/angular.svg" alt="Angular" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="angular">
+          <img class="front-face" src="img/angular.svg" alt="Angular" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
 
-      <div class="memory-card" data-framework="backbone">
-        <img class="front-face" src="img/backbone.svg" alt="Backbone" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
-      <div class="memory-card" data-framework="backbone">
-        <img class="front-face" src="img/backbone.svg" alt="Backbone" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
+        <div class="memory-card" data-framework="ember">
+          <img class="front-face" src="img/ember.svg" alt="Ember" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="ember">
+          <img class="front-face" src="img/ember.svg" alt="Ember" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
 
-      <div class="memory-card" data-framework="react">
-        <img class="front-face" src="img/react.svg" alt="React" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
-      <div class="memory-card" data-framework="react">
-        <img class="front-face" src="img/react.svg" alt="React" />
-        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
-      </div>
-    </section>
+        <div class="memory-card" data-framework="backbone">
+          <img class="front-face" src="img/backbone.svg" alt="Backbone" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="backbone">
+          <img class="front-face" src="img/backbone.svg" alt="Backbone" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+
+        <div class="memory-card" data-framework="react">
+          <img class="front-face" src="img/react.svg" alt="React" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="react">
+          <img class="front-face" src="img/react.svg" alt="React" />
+          <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+      </section>
+    </div>
     <script src="shared.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+    <script src="number-ticker.js"></script>
+    <script src="database.js"></script>
+    <script>
+      let databaseLink = "http://danskespil-6ea1.restdb.io/";
+
+      let personObject = {
+        name: "Kis Grofó",
+        email: "grofovagyok@gmail.com",
+        prize: 88
+      };
+
+      function postData(personObject) {
+        const postData = JSON.stringify(personObject);
+        fetch(databaseLink, {
+          method: "post",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json; charset=utf-8",
+            "x-apikey": "5cea5dcd5f86251ddebe1a94",
+            "cache-control": "no-cache"
+          },
+          body: postData
+        })
+          .then(data => data.json())
+          .then(data => console.log(data));
+      }
+    </script>
   </body>
 </html>

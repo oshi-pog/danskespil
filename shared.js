@@ -4,9 +4,14 @@
 const burgerIcon = document.querySelector(".bottom-menu-middle");
 const bottomMenuContent = document.querySelector(".bottom-menu-content");
 const bottomOverlay = document.querySelector("#bottom-menu-overlay");
+const game = document.querySelector("#game");
+
 let menuStatus = burgerIcon.dataset.status;
 
 window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    game.style.transform = "translate(-50%,-50%)";
+  }, 4000);
   //Add event listener to burger icon and run function to open or close it based on it's current status
   burgerIcon.addEventListener("click", () => {
     event.preventDefault();
@@ -42,14 +47,6 @@ const cards = document.querySelectorAll(".memory-card");
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
-window.addEventListener("DOMContentLoaded", event => {
-  setTimeout(function() {
-    console.log("klhjdgaskldéaj");
-    document.getElementById("game").style.transform = "";
-  }, 2000);
-  fetchdata();
-});
 
 function flipCard() {
   if (lockBoard) return;
