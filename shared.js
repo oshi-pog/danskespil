@@ -4,6 +4,7 @@
 const burgerIcon = document.querySelector(".bottom-menu-middle");
 const bottomMenuOverlay = document.querySelector("#bottom-menu-overlay");
 const bottomMenuContent = document.querySelector(".bottom-menu-content");
+const bottomOverlay = document.querySelector("#bottom-menu-overlay");
 let menuStatus = burgerIcon.dataset.status;
 let bottomMenuOverlayHeight = null;
 
@@ -23,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function openOverlayMenu() {
   bottomMenuContent.style.height = "100%";
   bottomMenuOverlay.style.height = "80%";
+
   menuStatus = "open";
   console.log(menuStatus);
 }
@@ -34,15 +36,13 @@ function closeOverlayMenu() {
     bottomMenuOverlay.style.height = "0";
   }, 300);
   menuStatus = "closed";
+
+  setTimeout(() => {
+    bottomOverlay.style.height = "0";
+  }, 300);
   console.log(menuStatus);
 }
 
-//COUNTER
-function runOdometer() {
-  setTimeout(() => {
-    odometer.innerHTML = 43600000;
-  }, 1000);
-}
 
 // THE MEMORY GAME
 
@@ -52,10 +52,13 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+
+
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(function() {
     document.getElementById("game").style.transform = "translateX(0)";
   }, 4000);
+
 });
 
 function flipCard() {
