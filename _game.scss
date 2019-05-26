@@ -9,11 +9,8 @@
 }
 
 #game {
-  position: absolute;
-  top: 50%;
-  left: 44%;
-  transform: translate(-250%, -50%);
-  transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: translateX(-1500px);
+  transition: 0.3s ease-in-out;
 }
 
 .memory-card {
