@@ -1,4 +1,5 @@
 @import "game";
+
 $bottom-menu-height: 10%;
 $top-menu-height: 10%;
 $overlay-menu-height: calc(100% - #{$bottom-menu-height} - #{$top-menu-height});
@@ -67,7 +68,6 @@ ul {
   left: 0;
   width: 100%;
   height: 0;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .bottom-menu-content {
