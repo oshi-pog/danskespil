@@ -16,7 +16,7 @@ let bottomMenuOverlayHeight = null;
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     TweenMax.from(gameContainer,1, {x:1500});
-    TweenMax.to(gameContainer,1, {opacity:1});
+    TweenMax.to(gameContainer,1, {display:'grid'});
   }, 1000);
   //Add event listener to burger icon and run function to open or close it based on it's current status
   burgerIcon.addEventListener("click", () => {
