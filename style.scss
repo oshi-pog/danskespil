@@ -1,6 +1,10 @@
 @import "game";
 @import "number-ticker";
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700&display=swap');
+
+$theFont: 'Open Sans', sans-serif;
+
 $bottom-menu-height: 10%;
 $top-menu-height: 10%;
 $overlay-menu-height: calc(100% - #{$bottom-menu-height} - #{$top-menu-height});
@@ -8,7 +12,7 @@ $overlay-menu-height: calc(100% - #{$bottom-menu-height} - #{$top-menu-height});
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: $theFont;
 }
 
 ul {
