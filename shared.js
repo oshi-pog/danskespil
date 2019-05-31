@@ -16,8 +16,8 @@ let bottomMenuOverlayHeight = null;
 window.addEventListener("DOMContentLoaded", () => {
   
   setTimeout(() => {
-    TweenMax.from(gameContainer,1, {x:1500});
-    TweenMax.to(gameContainer,1, {display:'grid'});
+    // TweenMax.from(gameContainer,1, {x:1500});
+    // TweenMax.to(gameContainer,1, {display:'grid'});
   }, 1000);
   //Add event listener to burger icon and run function to open or close it based on it's current status
   burgerIcon.addEventListener("click", () => {
@@ -28,15 +28,36 @@ window.addEventListener("DOMContentLoaded", () => {
       closeOverlayMenu();
     }
   });
+
+  
 });
+
+// Code for the landing page, number ticker and button etc
+const startBtn = document.querySelector('.number-ticker-cta');
+const numberTicker = document.querySelector('.number-ticker-container');
+
+startBtn.addEventListener('click', function (e){
+  startGame(e);
+  TweenMax.to(numberTicker,1, {opacity: 0, display:'none'});
+});
+
+
+//Function to run when the start button is clicked, under the number ticker
+function startGame (e) {
+  e.preventDefault();
+  // The game slides out
+  TweenMax.from(gameContainer,1, {x:1500});
+  TweenMax.to(gameContainer,1, {display:'grid'});
+
+}
 
 // Code for the birthday input form
 const playBtn = document.querySelector('#play-btn');
 const ageModal = document.querySelector('#age-modal');
 const birthdayForm = document.querySelector('#birthday-form');
 
-playBtn.addEventListener('click', function(){
-  playStart();
+playBtn.addEventListener('click', function(e){
+  playStart(e);
 });
 
 //Function below will be run when the playBtn is clicked
