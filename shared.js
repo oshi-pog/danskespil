@@ -40,10 +40,12 @@ playBtn.addEventListener('click', function(){
 });
 
 //Function below will be run when the playBtn is clicked
-function playStart () {
+function playStart (e) {
   console.log('play button clicked')
   //TO DO, if statement to check if the input form is done correctly
   TweenMax.to(ageModal,1, {opacity:0, display:'none'});
+  // Preventing the page from reloading
+  e.preventDefault();
 }
 
 
