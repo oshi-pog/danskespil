@@ -14,6 +14,7 @@ let menuStatus = burgerIcon.dataset.status;
 let bottomMenuOverlayHeight = null;
 
 window.addEventListener("DOMContentLoaded", () => {
+  
   setTimeout(() => {
     TweenMax.from(gameContainer,1, {x:1500});
     TweenMax.to(gameContainer,1, {display:'grid'});
@@ -28,6 +29,22 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Code for the birthday input form
+const playBtn = document.querySelector('#play-btn');
+const ageModal = document.querySelector('#age-modal');
+const birthdayForm = document.querySelector('#birthday-form');
+
+playBtn.addEventListener('click', function(){
+  playStart();
+});
+
+//Function below will be run when the playBtn is clicked
+function playStart () {
+  console.log('play button clicked')
+  //TO DO, if statement to check if the input form is done correctly
+  TweenMax.to(ageModal,1, {opacity:0, display:'none'});
+}
 
 
 

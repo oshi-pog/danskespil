@@ -1,4 +1,9 @@
 // setting main game-container to be a grid, so that it is easy to align and justify items, setting position to fixed for good positioning when landing page is loaded
+
+
+
+
+
 //TO DO, add greensock animation when the dom is loaded
 
 .game-container {
@@ -12,7 +17,7 @@
   position:fixed;
   top:20%;
   left:0;
-  z-index:2000;
+  z-index:10;
   display:none;
 
   #game-topbar {

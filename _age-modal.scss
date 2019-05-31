@@ -1,0 +1,66 @@
+#age-modal {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+
+    display:grid;
+    z-index:20;
+
+    #age-container {
+        width:70%;
+        height:60%;
+        border-radius: 4px;
+        background: #C4C4C4;
+        align-self:center;
+        justify-self:center;
+        display:grid;
+        justify-items:center;
+        align-items:center;
+
+        #warning-h1 {
+            color:black;
+            text-align: center;
+
+            width:60%;
+            font-size:4.5vmin;
+        }
+        #description-p {
+            text-align: center;
+        }
+
+        #birthday-form {
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            justify-items:center;
+            align-items:center;
+
+            input {
+                width:100%;
+            }
+
+            #label-month {
+
+            }
+
+            #month, #label-month{
+                grid-column: 1/2;
+               
+            }
+
+            #day, #label-day {
+                grid-column:2/3;
+            }
+
+            #year,#label-year{
+                grid-column:3/4;
+            }
+
+            #play-btn {
+                grid-column:1/4;
+                width:100%;
+            }
+        }
+    }
+}
