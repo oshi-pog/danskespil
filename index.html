@@ -66,11 +66,13 @@
       </div>
     </div>
 
-    <!-- Stling of the game container, that is below the age-modal above, this loads second-->
-    <div class="game-container">
+    <!-- Styling of the first page with instructions -->
 
+    <!-- Stling of the game container, that is below the age-modal above, this loads second-->
+    <section id='game-page'>
+    <div class="game-container">
       <div id="game-topbar">
-        <div id="bonus-text"><p>Bonus Unlocked!</p></div>
+        <div id="player-hearts"><p>Hearts</p></div>
         <div id="turns"><p>Turns:<span>0</span></p></div>
       </div>
       
@@ -129,7 +131,16 @@
           <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
         </div>
       </section>
+      <!-- Bottom of the game, the unlockable prizes, below-->
+      <section id='prize-grid'>
+        
+        <div class='prize inactive' id='lvl4'><p>1000 DKK</p></div>
+        <div class='prize inactive' id='lvl3'><p>500 DKK</p></div>
+        <div class='prize inactive' id='lvl2'><p>250 DKK</p></div>
+        <div class='prize active' id='lvl1'><p>100 DKK</p></div>
+      </section>
     </div>
+  </section>
     <script src="shared.js"></script>
     <script src="number-ticker.js"></script>
     <script>
