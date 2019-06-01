@@ -1,25 +1,31 @@
 // setting main game-container to be a grid, so that it is easy to align and justify items, setting position to fixed for good positioning when landing page is loaded
 
-
-
-
-
 //TO DO, add greensock animation when the dom is loaded
 
-.game-container {
-  
+// ADDED GAME-PAGE, THIS CONTAINS THE WHOLE GAME, SO IT CAN BE CENTERED PROPERLY
+
+#game-page {
   width:100%;
-  height:50%;
-  
+  height:100%;
+  display:none;
+  align-items:center;
+  justify-items:center;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10;
+}
+
+.game-container {
+
+  width:90%;
+  height:80%;
+  display:grid;
+
   grid-template-columns:1fr 1fr 1fr;
   grid-template-rows:0.2fr 0.8fr;
   align-items:center;
   justify-items:center;
-  position:fixed;
-  top:20%;
-  left:0;
-  z-index:10;
-  display:none;
 
   #game-topbar {
     display:grid;
@@ -28,7 +34,7 @@
     width:80%;
     height:100%;
   }
-    #bonus-text{
+    #player-hearts{
       grid-column:1/4;
    
       display:grid;
@@ -94,15 +100,19 @@
   display:grid;
   justify-items:center;
   align-items:center;
+  cursor:pointer;
+ 
 }
 
 .memory-card:active {
   transform: scale(0.97);
   transition: transform 0.2s;
+  
 }
 
 .memory-card.flip {
   transform: rotateY(180deg);
+  cursor:default;
 }
 
 .front-face,
@@ -119,4 +129,37 @@
 .front-face {
   transform: rotateY(180deg);
   
+}
+
+// Styling of the prize grid below the game - setting width of section to be same as the game above, just change later
+#prize-grid {
+  grid-column:1/4;
+  width:80%;
+  display:grid;
+  grid-row-gap:2vmin;
+  margin-top:2vmin;
+
+  .prize {
+    //3 column grid, text in middle, icon on right
+    box-sizing: border-box;
+    border-radius: 50px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    p {
+      grid-column:2/3;
+      justify-self:center;
+    }
+  }
+
+  .active {
+    background-color: #A88852;
+    color: #FFFFFF;
+    border: 1px solid #A88852;
+  }
+
+  .inactive {
+    background-color: #484848;
+    border: 1px solid #A88852;
+    color: #6C6C6C;
+  }
 }

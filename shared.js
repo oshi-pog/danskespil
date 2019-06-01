@@ -8,10 +8,15 @@ const bottomMenuContent = document.querySelector(".bottom-menu-content");
 const bottomOverlay = document.querySelector("#bottom-menu-overlay");
 const game = document.querySelector("#game");
 // storing the fixed game-container as variable, to be animated with greensock below
-const gameContainer = document.querySelector('.game-container');
+// const gameContainer = document.querySelector('.game-container');
+// EDIT ABOVE: changing the animations from the game container to be the game page, which contains the game container
+const gamePage = document.querySelector('#game-page');
 
 let menuStatus = burgerIcon.dataset.status;
 let bottomMenuOverlayHeight = null;
+
+// Selecting the bottom menu, to be animated out when the game starts
+const bottomMenu = document.querySelector('#bottom-menu');
 
 window.addEventListener("DOMContentLoaded", () => {
   
@@ -45,9 +50,13 @@ startBtn.addEventListener('click', function (e){
 //Function to run when the start button is clicked, under the number ticker
 function startGame (e) {
   e.preventDefault();
+  console.log('it should run')
   // The game slides out
-  TweenMax.from(gameContainer,1, {x:1500});
-  TweenMax.to(gameContainer,1, {display:'grid'});
+  TweenMax.from(gamePage,1, {x:1500});
+  TweenMax.to(gamePage,1, {display:'grid'});
+
+  // Bottom menu slides away
+  TweenMax.to(bottomMenu,1, {y:500, display:'none'});
 
 }
 
@@ -119,12 +128,25 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+// Score variable
+let playerScore = 0;
+let playerWrong = 0;
+
 //turns variable
 let turnsCounter = 10;
 const turns = document.querySelector('#turns');
 const turnsCount = document.querySelector('#turns span');
 
 turnsCount.textContent = turnsCounter;
+
+//Level variables, to change style based on score
+let prizeLvl1 = document.querySelector('#lvl1');
+let prizeLvl2 = document.querySelector('#lvl2');
+let prizeLvl3 = document.querySelector('#lvl3');
+let prizeLvl4 = document.querySelector('#lvl4');
+
+
+
 
 function flipCard() {
   
@@ -143,6 +165,7 @@ function flipCard() {
   secondCard = this;
   checkForMatch();
   checkTurns();
+
 }
 
 // When two cards are flipped, the users turns will be lowered by one, and when those turns reach zero, the game is hidden, TO DO IMPORTANT
@@ -159,18 +182,41 @@ function checkForMatch() {
 
   let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
 
+    // Disables the cards if they are correct, unflips the cards if they dont match, running functions based on this.
   isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards() {
+
+
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
 
   resetBoard();
+
+  // Adding 1 to player score, because the cards have matched
+  playerScore++;
+  console.log(playerScore);
+  // Applying styling to levels based on score 
+  if (playerScore === 2){
+    console.log('level1')
+    prizeLvl2.classList.remove('inactive');
+    prizeLvl2.classList.add('active');
+
+  } else if (playerScore === 4){
+    prizeLvl3.classList.remove('inactive');
+    prizeLvl3.classList.add('active');
+  } else if (playerScore === 6){
+    prizeLvl4.classList.remove('inactive');
+    prizeLvl4.classList.add('active');
+  }
+
 }
 
 function unflipCards() {
   lockBoard = true;
+  playerWrong++;
+  console.log(playerWrong)
 
   setTimeout(() => {
     firstCard.classList.remove("flip");
