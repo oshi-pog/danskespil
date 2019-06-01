@@ -200,8 +200,8 @@ function disableCards() {
   // Applying styling to levels based on score 
   if (playerScore === 2){
     console.log('level1')
-    prizeLvl2.classList.remove('inactive');
-    prizeLvl2.classList.add('active');
+    
+    TweenMax.to(prizeLvl2,0.5, {backgroundColor:'#A88852', color:'white'});
 
   } else if (playerScore === 4){
     prizeLvl3.classList.remove('inactive');
