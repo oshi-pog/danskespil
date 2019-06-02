@@ -1,5 +1,5 @@
 :root {
-  background-color: #555;
+  background-color: #CAB188;
   color: white;
 
   font-family: Roboto Light;
@@ -13,31 +13,61 @@ html {
   height: 100%;
 }
 
-.number-ticker-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width:100%;
+#number-ticker-landing-page {
+  height:100vh;
+  display:grid;
+  align-items:center;
 }
 
-.number-ticker-content {
+.number-ticker-container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin:auto;
+
+  height: 80%;
+  width:90%;
+}
+
+.number-ticker-content-1 {
   text-align: center;
+  font-size:8vmin;
+}
+
+.number-ticker-content-2 {
+  text-align: center;
+  font-size:5vmin;
 }
 
 .number-ticker {
   overflow: hidden;
   height: 1em;
-  background-color: #333;
-  box-shadow: 0 0 0.05em black inset;
-  font-size: 3vw;
+  background-color:#81693B;
+  
+  font-size: 10vmin;
 
   .digit {
     float: left;
     line-height: 1;
     transition: margin-top 1.75s ease;
-    border-right: 1px solid #555;
+    
     padding: 0 0.075em;
+  }
+}
+
+.number-ticker-cta {
+  border-radius: 50px;
+  border:none;
+  background:white;
+  height:40px;
+  width:80%;
+  color:#CAB188;
+  font-weight:800;
+  font-size:100%;
+  box-shadow:0 2px 10px 3px rgba(0,0,0,.1);
+  cursor:pointer;
+  transition: 0.2s;
+  &:hover{
+      box-shadow:0 6px 20px 5px rgba(0,0,0,.2);
   }
 }

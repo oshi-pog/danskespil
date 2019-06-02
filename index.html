@@ -34,20 +34,20 @@
         </ul>
       </div>
     </nav>
-
+<section id='number-ticker-landing-page'>
     <div class="number-ticker-container">
-      <div class="number-ticker-content">
-        <h3>Our customers have already won:</h3>
+      <div class="number-ticker-content-1">
+        <h3>Our players have already won:</h3>
       </div>
       <div class="number-ticker" data-value="1000"></div>
-      <div class="number-ticker-content">
+      <div class="number-ticker-content-2">
         <h3>
-          with us. <br />
-          Join today and
+          Now's your chance to win up to 1000 DKK!
         </h3>
       </div>
-      <button class="number-ticker-cta">Start winning now!</button>
+      <button class="number-ticker-cta">START PLAYING</button>
     </div>
+  </section>
 
     <!-- Styling of the age modal on the landing page-->
     <div id="age-modal">
@@ -60,10 +60,10 @@
           <label for="month" id="label-month">Month</label>
           <label for="day" id="label-day">Day</label>
           <label for="year" id="label-year">Year</label>
-          <input type="number" name="month" id="month" />
-          <input type="number" name="day" id="day" />
-          <input type="number" name="year" id="year" />
-          <input type="button" value="Start Playing!" id="play-btn" />
+          <input type="number" name="month" id="month" min="1" max="12" maxlength="2" required/>
+          <input type="number" name="day" id="day" min="1" max="31" maxlength="2" required/>
+          <input type="number" name="year" id="year" maxlength="2" required/>
+          <input type="button" value="START WINNING" id="play-btn" />
         </form>
       </div>
     </div>
@@ -74,13 +74,13 @@
     <section id="game-page">
       <div class="game-container">
         <div id="game-description">
-          <h2 class="game-description-header">Lorem ipsum dolor sit amet.</h2>
+          <h2 class="game-description-header">I have a game for you!</h2>
           <h3 class="game-description-subheader">
-            Lorem ipsum dolor sit amet.
+            with our special offer, you have the chance to win up to 1000.kr with a quick, FREE game.
           </h3>
           <button class="game-description-cta">I understand</button>
           <div class="game-description-subheader">
-            Lorem ipsum dolor sit amet.
+            Find the matching pairs! Each time you find two pairs, you can collect a prize. You have 10 turns (5 hearts)!
           </div>
           <div class="game-description-hearts-container">
             <img
@@ -103,6 +103,8 @@
             <p>Turns:<span>0</span></p>
           </div>
         </div>
+        <!-- Game name, after the game description below -->
+        <section id='game-name-input-page'>
         <div id="game-name-input">
           <div class="game-name-input-hearts-container">
             <img
@@ -111,9 +113,9 @@
               class="game-name-input-hearts-image"
             />
           </div>
-          <h2 class="game-name-input-header">Lorem ipsum dolor sit amet.</h2>
-          <h3 class="game-name-input-subheader">Lorem ipsum dolor sit amet.</h3>
-          <input type="text" name="name" id="name-input-field" required />
+          <h2 class="game-name-input-header">What's your name, friend?</h2>
+          <h3 class="game-name-input-subheader">Enter your full name to continue playing.</h3>
+          <input type="text" name="name" id="name-input-field" required placeholder='eg. John Smith'/>
           <input
             type="submit"
             name="name-submit"
@@ -121,6 +123,7 @@
             value="Start Playing!"
           />
         </div>
+        </section>
         <div id="game-email-input">
           <div class="game-email-input-hearts-container">
             <img

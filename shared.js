@@ -16,7 +16,7 @@ const gameDescription = document.querySelector("#game-description");
 const gamePage = document.querySelector("#game-page");
 const nameInputCTA = document.querySelector(".game-name-input-cta");
 const emailInputCTA = document.querySelector(".game-input-input-cta");
-const gameNameInputCont = document.querySelector("#game-name-input");
+const gameNameInputCont = document.querySelector("#game-name-input-page");
 const gameEmailInputCont = document.querySelector("#game-email-input");
 
 const winnerInputCont = document.querySelector("#game-form-input");
@@ -50,10 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
         checkNameInput();
       }
     });
-    gameDescription.style.opacity = 0;
-    setTimeout(() => {
-      gameDescription.style.display = "none";
-    }, 300);
+    TweenMax.to(gameDescription, 1, {display: "none", x:-1500,});
   });
 
   nameInputCTA.addEventListener("click", checkNameInput);
@@ -106,10 +103,7 @@ function checkNameInput() {
     alert("Please add your name to start winning the trillions.");
     return false;
   } else {
-    gameNameInputCont.style.opacity = 0;
-    setTimeout(() => {
-      gameNameInputCont.style.display = "none";
-    }, 300);
+    TweenMax.to(gameNameInputCont, 1, { display: "none", x:-1500 });
   }
 }
 
@@ -271,3 +265,23 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener("click", flipCard));
+
+// GAME NAME INPUT AREA BELOW
+
+// VALIDATING THE INPUT FOR NAME
+    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    let fullName = nameInput.value;
+  
+    nameInput.addEventListener('input', () => {
+      fullName = nameInput.value;
+      if(!regName.test(fullName)){
+        nameInput.style.border = '1px solid red'
+        console.log(nameInput.value)
+        return false;
+        
+    } else {
+      nameInput.style.border = 'green'
+      return true;
+    }});
+
+
