@@ -30,6 +30,8 @@ let emailHeader = document.querySelector(".game-email-input-header");
 const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
+  //ELF ANIMATING IN, ON AGE PAGE (1st PAGE)
+  elfAgeAnimation();
   setTimeout(() => {
     // TweenMax.from(gameContainer,1, {x:1500});
     // TweenMax.to(gameContainer,1, {display:'grid'});
@@ -54,6 +56,9 @@ const numberTicker = document.querySelector(".number-ticker-container");
 numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
   TweenMax.to(numberTicker, 1, { opacity: 0, display: "none" });
+  // Elf Animation
+  elfDescriptionAnimation();
+
 });
 
 // Storing the game description here
@@ -295,3 +300,17 @@ cards.forEach(card => card.addEventListener("click", flipCard));
     }});
 
 
+// ELF ANIMATIONS
+
+let elfAge = document.querySelector ('#elf-age')
+function elfAgeAnimation (){
+  TweenMax.to(elfAge, 0, {opacity:1})
+  TweenMax.from(elfAge, 1, {x:-500});
+}
+
+let elfDescription = document.querySelector('#elf-description');
+function elfDescriptionAnimation(){
+  setTimeout(()=> { TweenMax.to(elfDescription, 0, {opacity:1}),TweenMax.from(elfDescription, 1, {x:-1500}) },1000)
+
+  
+}

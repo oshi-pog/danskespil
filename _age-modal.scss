@@ -9,8 +9,8 @@
     z-index:4;
     background-color: #CAB188;
     #age-container {
-        width:70%;
-        height:60%;
+        width:80%;
+        height:50%;
         border-radius: 4px;
         background: #A88852;
         align-self:center;
@@ -21,11 +21,11 @@
         
 
         #warning-h1 {
-            color:black;
+            color:white;
             text-align: center;
 
-            width:60%;
-            font-size:4.5vmin;
+            
+            font-size:7vmin;
         }
         #description-p {
             text-align: center;
@@ -36,6 +36,7 @@
             grid-template-columns:1fr 1fr 1fr;
             justify-items:center;
             align-items:center;
+            grid-row-gap:20px;
             
 
             input {
@@ -63,14 +64,30 @@
 
             #play-btn {
                 grid-column:1/4;
+                border:none;
+                
+                background:white;
+                height:40px;
                 width:80%;
-                height:50px;
-                margin-top:20px;
-                background:#A61F6C;
-                color:white;
+                color:#CAB188;
+                font-weight:800;
                 font-size:100%;
+                box-shadow:0 2px 10px 3px rgba(0,0,0,.1);
+                cursor:pointer;
+                transition: 0.2s;
+                &:hover{
+                    box-shadow:0 6px 20px 5px rgba(0,0,0,.2);
+                }
                 
             }
         }
+    }
+    #elf-age {
+        position:fixed;
+        bottom:5%;
+        left:-10%;
+        opacity:0;
+        
+
     }
 }
