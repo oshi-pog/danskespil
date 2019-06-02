@@ -8,8 +8,8 @@ const bottomMenuOverlay = document.querySelector("#bottom-menu-overlay");
 const bottomMenuContent = document.querySelector(".bottom-menu-content");
 const bottomOverlay = document.querySelector("#bottom-menu-overlay");
 const game = document.querySelector("#game");
-const gameDescriptionCTA = document.querySelector(".game-description-cta");
-const gameDescription = document.querySelector("#game-description");
+
+
 // storing the fixed game-container as variable, to be animated with greensock below
 // const gameContainer = document.querySelector('.game-container');
 // EDIT ABOVE: changing the animations from the game container to be the game page, which contains the game container
@@ -44,38 +44,47 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  gameDescriptionCTA.addEventListener("click", () => {
-    document.addEventListener("keydown", event => {
-      if (event.key == "Enter") {
-        checkNameInput();
-      }
-    });
-    TweenMax.to(gameDescription, 1, {display: "none", x:-1500,});
-  });
-
   nameInputCTA.addEventListener("click", checkNameInput);
 });
 
 // Code for the landing page, number ticker and button etc
-const startBtn = document.querySelector(".number-ticker-cta");
+const numberTickerCTA = document.querySelector(".number-ticker-cta");
 const numberTicker = document.querySelector(".number-ticker-container");
 
-startBtn.addEventListener("click", function(e) {
-  startGame(e);
+numberTickerCTA.addEventListener("click", function(e) {
+  startDescription(e);
   TweenMax.to(numberTicker, 1, { opacity: 0, display: "none" });
 });
 
+// Storing the game description here
+const gameDescriptionPage = document.querySelector("#game-description-page");
+
 //Function to run when the start button is clicked, under the number ticker
-function startGame(e) {
+function startDescription(e) {
   e.preventDefault();
   console.log("it should run");
-  // The game slides out
-  TweenMax.from(gamePage, 1, { x: 1500 });
-  TweenMax.to(gamePage, 1, { display: "grid" });
+  TweenMax.from(gameDescriptionPage, 1, { x: 1500 });
+  TweenMax.to(gameDescriptionPage, 1, { display: "grid" });
 
   // Bottom menu slides away
   TweenMax.to(bottomMenu, 1, { y: 500, display: "none" });
 }
+
+//Code for after description accept is clicked
+const gameDescriptionCTA = document.querySelector(".game-description-cta");
+
+gameDescriptionCTA.addEventListener('click', ()=> {
+  // The game slides out
+  TweenMax.from(gamePage, 1, { x: 1500 });
+  TweenMax.to(gamePage, 1, { display: "grid" });
+
+  document.addEventListener("keydown", event => {
+    if (event.key == "Enter") {
+      checkNameInput();
+    }
+  });
+  TweenMax.to(gameDescriptionPage, 1, {display: "none", x:-1500,});
+})
 
 // Code for the birthday input form
 const playBtn = document.querySelector("#play-btn");
@@ -275,12 +284,13 @@ cards.forEach(card => card.addEventListener("click", flipCard));
     nameInput.addEventListener('input', () => {
       fullName = nameInput.value;
       if(!regName.test(fullName)){
-        nameInput.style.border = '1px solid red'
+        TweenMax.to(nameInput, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
+        
         console.log(nameInput.value)
         return false;
         
     } else {
-      nameInput.style.border = 'green'
+      TweenMax.to(nameInput, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
       return true;
     }});
 

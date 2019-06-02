@@ -29,6 +29,8 @@
         </ul>
       </div>
     </nav>
+
+    <!-- Number TICKER LANDING PAGE!-->
 <section id="number-ticker-landing-page">
     <div class="number-ticker-container">
       <div class="number-ticker-content-1">
@@ -65,17 +67,17 @@
 
     <!-- Styling of the first page with instructions -->
 
-    <!-- Stling of the game container, that is below the age-modal above, this loads second-->
-    <section id="game-page">
-      <div class="game-container">
+
+    <!-- GAME RULES AND DESCRIPTION, MAKING IT INSIDE OF A PAGE TO SET BACKGROUND AND CENTER IT EASILY.-->
+    <section id="game-description-page">
         <div id="game-description">
-          <h2 class="game-description-header">I have a game for you!</h2>
+          <h2 class="game-description-header">We have a game for you!</h2>
           <h3 class="game-description-subheader">
-            with our special offer, you have the chance to win up to 1000.kr with a quick, FREE game.
+            With our special offer, you have the chance to win up to 1000DKK with a quick, FREE game.
           </h3>
-          <button class="game-description-cta">I understand</button>
+          
           <div class="game-description-subheader">
-            Find the matching pairs! Each time you find two pairs, you can collect a prize. You have 10 turns (5 hearts)!
+            <p><span>HOW TO WIN:</span><br> Find the matching pairs! Each time you find two pairs, you can collect a prize. You have 10 turns (5 hearts)!</p>
           </div>
           <div class="game-description-hearts-container">
             <img src="/hearts.acd89fc3.svg" alt="5 hearts, indicating the players turns in the game, each missed pair equals minus half heart" class="game-description-hearts-image">
@@ -87,7 +89,14 @@
             <div class="prize inactive"><p>250 DKK</p></div>
             <div class="prize active"><p>100 DKK</p></div>
           </section>
+          <button class="game-description-cta">I understand</button>
         </div>
+      </section>
+    <!-- Stling of the game container, that is below the age-modal above, this loads second-->
+    <section id="game-page">
+      <div class="game-container">
+        
+      
         <div id="game-topbar">
           <div id="player-hearts"><p>Hearts</p></div>
           <div id="turns">
@@ -102,7 +111,7 @@
           </div>
           <h2 class="game-name-input-header">What's your name, friend?</h2>
           <h3 class="game-name-input-subheader">Enter your full name to continue playing.</h3>
-          <input type="text" name="name" id="name-input-field" required="" placeholder="eg. John Smith">
+          <input type="text" name="name" id="name-input-field" required="" placeholder="eg. John Smith" spellcheck="false">
           <input type="submit" name="name-submit" class="game-name-input-cta" value="Start Playing!">
         </div>
         </section>
