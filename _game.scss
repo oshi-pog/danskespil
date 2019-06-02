@@ -5,82 +5,135 @@
 // ADDED GAME-PAGE, THIS CONTAINS THE WHOLE GAME, SO IT CAN BE CENTERED PROPERLY
 
 #game-page {
-  width:100%;
-  height:100%;
-  display:none;
-  align-items:center;
-  justify-items:center;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:10;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .game-container {
+  width: 100%;
+  height: 80%;
+  display: grid;
 
-  width:100%;
-  height:80%;
-  display:grid;
-
-  grid-template-columns:1fr 1fr 1fr;
-  grid-template-rows:0.2fr 0.8fr;
-  align-items:center;
-  justify-items:center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 0.8fr;
+  align-items: center;
+  justify-items: center;
 
   #game-topbar {
-    display:grid;
-    grid-column:1/4;
-    grid-template-columns:repeat(4, 1fr);
-    width:80%;
-    height:100%;
+    display: grid;
+    grid-column: 1/4;
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    height: 100%;
   }
-    #player-hearts{
-      grid-column:1/4;
-   
-      display:grid;
-      align-items:center;
-      p {
-        font-size:7vmin;
-      }
+  #player-hearts {
+    grid-column: 1/4;
+
+    display: grid;
+    align-items: center;
+    p {
+      font-size: 7vmin;
     }
-    #turns {
-      display:grid;
-      align-items:center;
-      margin:auto;
-      border-radius:20px;
-      height:50%;
-      width:100%;
-      grid-column:4/5;
-      background-color:white;
-      color:black;
+  }
+  #turns {
+    display: grid;
+    align-items: center;
+    margin: auto;
+    border-radius: 20px;
+    height: 50%;
+    width: 100%;
+    grid-column: 4/5;
+    background-color: white;
+    color: black;
 
-      p {
-        font-size:4vmin;
-        margin:auto;
-        text-align: start;
-      }
-
-      .turns {
-
-      }
+    p {
+      font-size: 4vmin;
+      margin: auto;
+      text-align: start;
     }
+  }
 }
 
+#game-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background-color: gray;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
 
+#game-name-input {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  bottom: 0;
+  left: 0;
+  background-color: darkgray;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
+#game-email-input {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  bottom: 0;
+  left: 0;
+  background-color: darkblue;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#game-form-input {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  bottom: 0;
+  left: 0;
+  background-color: darkolivegreen;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
 
 .memory-game {
-  grid-column:1/4;
+  grid-column: 1/4;
   width: 80%;
   height: 100%;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
-  grid-row-gap:4vmin;
-  grid-column-gap:4vmin;
-  grid-template-columns: repeat(3,1fr);
+  grid-row-gap: 4vmin;
+  grid-column-gap: 4vmin;
+  grid-template-columns: repeat(3, 1fr);
   z-index: 1;
-
-
 }
 
 #game {
@@ -92,74 +145,71 @@
   transform-style: preserve-3d;
   transition: transform 0.5s;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-  background: #A88952;
-  width:100%;
-  height:100%;
+  background: #a88952;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
-  margin:auto;
-  display:grid;
-  justify-items:center;
-  align-items:center;
-  cursor:pointer;
- 
+  margin: auto;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .memory-card:active {
   transform: scale(0.97);
   transition: transform 0.2s;
-  
 }
 
 .memory-card.flip {
   transform: rotateY(180deg);
-  cursor:default;
+  cursor: default;
 }
 
 .front-face,
 .back-face {
   width: auto;
-  
+
   height: 80%;
   position: absolute;
   border-radius: 5px;
-  
+
   backface-visibility: hidden;
 }
 
 .front-face {
   transform: rotateY(180deg);
-  
 }
 
 // Styling of the prize grid below the game - setting width of section to be same as the game above, just change later
 #prize-grid {
-  grid-column:1/4;
-  width:80%;
-  display:grid;
-  grid-row-gap:2vmin;
-  margin-top:2vmin;
+  grid-column: 1/4;
+  width: 80%;
+  display: grid;
+  grid-row-gap: 2vmin;
+  margin-top: 2vmin;
 
   .prize {
     //3 column grid, text in middle, icon on right
     box-sizing: border-box;
     border-radius: 50px;
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     p {
-      grid-column:2/3;
-      justify-self:center;
+      grid-column: 2/3;
+      justify-self: center;
     }
   }
 
   .active {
-    background-color: #A88852;
-    color: #FFFFFF;
-    border: 1px solid #A88852;
+    background-color: #a88852;
+    color: #ffffff;
+    border: 1px solid #a88852;
   }
 
   .inactive {
     background-color: #484848;
-    border: 1px solid #A88852;
-    color: #6C6C6C;
+    border: 1px solid #a88852;
+    color: #6c6c6c;
   }
 }

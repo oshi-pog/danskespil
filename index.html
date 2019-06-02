@@ -17,7 +17,7 @@
   <body>
     <nav id="main-navigation">
       <div id="top-menu">
-          <img src="img/full-logo.svg" alt="">
+        <img src="img/full-logo.svg" alt="" />
       </div>
       <div id="bottom-menu">
         <div class="bottom-menu-left"><i class="fas fa-globe-europe"></i></div>
@@ -49,19 +49,21 @@
       <button class="number-ticker-cta">Start winning now!</button>
     </div>
 
-      <!-- Styling of the age modal on the landing page-->
+    <!-- Styling of the age modal on the landing page-->
     <div id="age-modal">
       <div id="age-container">
-        <h1 id='warning-h1'>To start playing, we have to make sure you're over 18.</h1>
-        <p id='description-p'>Enter your birthday to start playing!</p>
+        <h1 id="warning-h1">
+          To start playing, we have to make sure you're over 18.
+        </h1>
+        <p id="description-p">Enter your birthday to start playing!</p>
         <form id="birthday-form">
-            <label for="month" id='label-month'>Month</label>
-            <label for="day" id='label-day'>Day</label>
-            <label for="year" id='label-year'>Year</label>
-            <input type="number" name="month" id="month">
-            <input type="number" name="day" id="day"> 
-            <input type="number" name="year" id="year">
-            <input type="button" value="Start Playing!" id='play-btn'>
+          <label for="month" id="label-month">Month</label>
+          <label for="day" id="label-day">Day</label>
+          <label for="year" id="label-year">Year</label>
+          <input type="number" name="month" id="month" />
+          <input type="number" name="day" id="day" />
+          <input type="number" name="year" id="year" />
+          <input type="button" value="Start Playing!" id="play-btn" />
         </form>
       </div>
     </div>
@@ -69,78 +71,224 @@
     <!-- Styling of the first page with instructions -->
 
     <!-- Stling of the game container, that is below the age-modal above, this loads second-->
-    <section id='game-page'>
-    <div class="game-container">
-      <div id="game-topbar">
-        <div id="player-hearts"><p>Hearts</p></div>
-        <div id="turns"><p>Turns:<span>0</span></p></div>
+    <section id="game-page">
+      <div class="game-container">
+        <div id="game-description">
+          <h2 class="game-description-header">Lorem ipsum dolor sit amet.</h2>
+          <h3 class="game-description-subheader">
+            Lorem ipsum dolor sit amet.
+          </h3>
+          <button class="game-description-cta">I understand</button>
+          <div class="game-description-subheader">
+            Lorem ipsum dolor sit amet.
+          </div>
+          <div class="game-description-hearts-container">
+            <img
+              src="/img/hearts.svg"
+              alt="5 hearts, indicating the players turns in the game, each missed pair equals minus half heart"
+              class="game-description-hearts-image"
+            />
+          </div>
+
+          <section id="prize-grid">
+            <div class="prize inactive"><p>1000 DKK</p></div>
+            <div class="prize inactive"><p>500 DKK</p></div>
+            <div class="prize inactive"><p>250 DKK</p></div>
+            <div class="prize active"><p>100 DKK</p></div>
+          </section>
+        </div>
+        <div id="game-topbar">
+          <div id="player-hearts"><p>Hearts</p></div>
+          <div id="turns">
+            <p>Turns:<span>0</span></p>
+          </div>
+        </div>
+        <div id="game-name-input">
+          <div class="game-name-input-hearts-container">
+            <img
+              src="/img/hearts.svg"
+              alt="5 hearts, indicating the players turns in the game, each missed pair equals minus half heart"
+              class="game-name-input-hearts-image"
+            />
+          </div>
+          <h2 class="game-name-input-header">Lorem ipsum dolor sit amet.</h2>
+          <h3 class="game-name-input-subheader">Lorem ipsum dolor sit amet.</h3>
+          <input type="text" name="name" id="name-input-field" required />
+          <input
+            type="submit"
+            name="name-submit"
+            class="game-name-input-cta"
+            value="Start Playing!"
+          />
+        </div>
+        <div id="game-email-input">
+          <div class="game-email-input-hearts-container">
+            <img
+              src="/img/hearts.svg"
+              alt="5 hearts, indicating the players turns in the game, each missed pair equals minus half heart"
+              class="game-email-input-hearts-image"
+            />
+          </div>
+          <h2 class="game-email-input-header">Lorem ipsum dolor sit amet.</h2>
+          <input type="email" name="email" id="email-input-field" required />
+          <input
+            type="submit"
+            name="email-submit"
+            class="game-input-input-cta"
+            value="Send me my prize!"
+          />
+        </div>
+        <div id="game-form-input">
+          <div class="game-description-hearts-container">
+            <img
+              src="/img/hearts.svg"
+              alt="5 hearts, indicating the players turns in the game, each missed pair equals minus half heart"
+              class="game-description-hearts-image"
+            />
+          </div>
+          <h2 class="game-winner-header">Lorem ipsum dolor sit amet.</h2>
+          <h3 class="game-winner-subheader">Lorem ipsum dolor sit amet.</h3>
+          <button class="game-winner-cta">Give me my reward</button>
+
+          <section id="prize-grid">
+            <div class="prize active"><p>1000 DKK</p></div>
+            <div class="prize active"><p>500 DKK</p></div>
+            <div class="prize active"><p>250 DKK</p></div>
+            <div class="prize active"><p>100 DKK</p></div>
+          </section>
+          <form id="final-form">
+            <label for="name-final" id="label-name-final"
+              >Your full name:</label
+            >
+            <label for="email-final" id="label-email-final">Day</label>
+            <label for="year" id="label-year">Year</label>
+            <input type="number" name="month" id="month" />
+            <input type="number" name="day" id="day" />
+            <input type="number" name="year" id="year" />
+            <input type="button" value="Start Playing!" id="play-btn" />
+            <fieldset id="final-birthdate">
+              <label for="month" id="label-month">Month</label>
+              <label for="day" id="label-day">Day</label>
+              <label for="year" id="label-year">Year</label>
+              <input type="number" name="month" id="month" />
+              <input type="number" name="day" id="day" />
+              <input type="number" name="year" id="year" />
+              <input type="button" value="Start Playing!" id="play-btn" />
+            </fieldset>
+          </form>
+        </div>
+        <section id="game" class="memory-game">
+          <div class="memory-card" data-icon="money">
+            <img class="front-face" src="img/money.svg" alt="money" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+          <div class="memory-card" data-icon="money">
+            <img class="front-face" src="img/money.svg" alt="money" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+
+          <div class="memory-card" data-icon="dice">
+            <img class="front-face" src="img/dice.svg" alt="dice" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+          <div class="memory-card" data-icon="dice">
+            <img class="front-face" src="img/dice.svg" alt="dice" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+
+          <div class="memory-card" data-icon="roulette">
+            <img class="front-face" src="img/roulette.svg" alt="roulette" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+          <div class="memory-card" data-icon="roulette">
+            <img class="front-face" src="img/roulette.svg" alt="roulette" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+
+          <div class="memory-card" data-icon="king">
+            <img class="front-face" src="img/king.svg" alt="king" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+          <div class="memory-card" data-icon="king">
+            <img class="front-face" src="img/king.svg" alt="king" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+
+          <div class="memory-card" data-icon="smiley">
+            <img class="front-face" src="img/smiley.svg" alt="smiley" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+          <div class="memory-card" data-icon="smiley">
+            <img class="front-face" src="img/smiley.svg" alt="smiley" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+
+          <div class="memory-card" data-icon="pirate">
+            <img class="front-face" src="img/pirate.svg" alt="pirate" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+          <div class="memory-card" data-icon="pirate">
+            <img class="front-face" src="img/pirate.svg" alt="pirate" />
+            <img
+              class="back-face"
+              src="img/danskespil.svg"
+              alt="Danskespil Logo"
+            />
+          </div>
+        </section>
+        <!-- Bottom of the game, the unlockable prizes, below-->
+        <section id="prize-grid">
+          <div class="prize inactive" id="lvl4"><p>1000 DKK</p></div>
+          <div class="prize inactive" id="lvl3"><p>500 DKK</p></div>
+          <div class="prize inactive" id="lvl2"><p>250 DKK</p></div>
+          <div class="prize active" id="lvl1"><p>100 DKK</p></div>
+        </section>
       </div>
-      
-      <section id="game" class="memory-game">
-        <div class="memory-card" data-icon="money">
-          <img class="front-face" src="img/money.svg" alt="money" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-        <div class="memory-card" data-icon="money">
-          <img class="front-face" src="img/money.svg" alt="money" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-
-        <div class="memory-card" data-icon="dice">
-          <img class="front-face" src="img/dice.svg" alt="dice" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-        <div class="memory-card" data-icon="dice">
-          <img class="front-face" src="img/dice.svg" alt="dice" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-
-        <div class="memory-card" data-icon="roulette">
-          <img class="front-face" src="img/roulette.svg" alt="roulette" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-        <div class="memory-card" data-icon="roulette">
-          <img class="front-face" src="img/roulette.svg" alt="roulette" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-
-        <div class="memory-card" data-icon="king">
-          <img class="front-face" src="img/king.svg" alt="king" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-        <div class="memory-card" data-icon="king">
-          <img class="front-face" src="img/king.svg" alt="king" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-
-        <div class="memory-card" data-icon="smiley">
-          <img class="front-face" src="img/smiley.svg" alt="smiley" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-        <div class="memory-card" data-icon="smiley">
-          <img class="front-face" src="img/smiley.svg" alt="smiley" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-
-        <div class="memory-card" data-icon="pirate">
-          <img class="front-face" src="img/pirate.svg" alt="pirate" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-        <div class="memory-card" data-icon="pirate">
-          <img class="front-face" src="img/pirate.svg" alt="pirate" />
-          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
-        </div>
-      </section>
-      <!-- Bottom of the game, the unlockable prizes, below-->
-      <section id='prize-grid'>
-        
-        <div class='prize inactive' id='lvl4'><p>1000 DKK</p></div>
-        <div class='prize inactive' id='lvl3'><p>500 DKK</p></div>
-        <div class='prize inactive' id='lvl2'><p>250 DKK</p></div>
-        <div class='prize active' id='lvl1'><p>100 DKK</p></div>
-      </section>
-    </div>
-  </section>
+    </section>
     <script src="shared.js"></script>
     <script src="number-ticker.js"></script>
     <script>
