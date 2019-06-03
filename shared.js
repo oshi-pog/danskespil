@@ -49,6 +49,66 @@ window.addEventListener("DOMContentLoaded", () => {
   nameInputCTA.addEventListener("click", checkNameInput);
 });
 
+// AGE MODAL PAGE VALIDATION !!
+const ageModalDay = document.querySelector('#day');
+const ageModalMonth = document.querySelector('#month');
+const ageModalYear = document.querySelector('#year');
+
+//// VALIDATING THE INPUT FOR DAY, MONTH, YEAR
+// Regular expressions, how they should match
+let regDay = /^[0-9]{2,2}$/;
+let regMonth = /^[0-9]{2,2}$/;
+let regYear = /^[0-9]{4,4}$/;
+
+// The value of the inputs on the age modal
+let userDay = ageModalDay.value;
+let userMonth = ageModalMonth.value;
+let userYear = ageModalYear.value;
+
+// adding input listeners to each input field
+// DAY, also FOCUSING on the next INPUT FIELD
+ageModalDay.addEventListener('input', () => {
+  userDay = ageModalDay.value;
+  if(!regDay.test(userDay)){
+    TweenMax.to(ageModalDay, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
+    
+    console.log(ageModalDay.value)
+    return false;
+    
+} else {
+  TweenMax.to(ageModalDay, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
+  ageModalMonth.focus();
+  return true;
+}});
+// MONTH, also FOCUSING on the next INPUT FIELD
+ageModalMonth.addEventListener('input', () => {
+  userMonth = ageModalMonth.value;
+  if(!regMonth.test(userMonth)){
+    TweenMax.to(ageModalMonth, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
+    
+    console.log(ageModalMonth.value)
+    return false;
+    
+} else {
+  TweenMax.to(ageModalMonth, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
+  ageModalYear.focus();
+  return true;
+}});
+// YEAR, also FOCUSING on the next INPUT FIELD
+ageModalYear.addEventListener('input', () => {
+  userYear = ageModalYear.value;
+  if(!regYear.test(userYear)){
+    TweenMax.to(ageModalYear, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
+    
+    console.log(ageModalYear.value)
+    return false;
+    
+} else {
+  TweenMax.to(ageModalYear, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
+  // ageModalMonth.focus();
+  return true;
+}});
+
 // Code for the landing page, number ticker and button etc
 const numberTickerCTA = document.querySelector(".number-ticker-cta");
 const numberTicker = document.querySelector(".number-ticker-container");
