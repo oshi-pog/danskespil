@@ -149,3 +149,7 @@ ul {
   justify-content: center;
   flex-direction: column;
 }
+
+input:focus {
+  outline: none
+}
