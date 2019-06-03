@@ -8,14 +8,14 @@ for (let i = 0; i < 10; i++) {
 }
 
 [].forEach.call(counters, function(counter) {
-  let currentValue = parseInt(counter.getAttribute("data-value")) || 0;
+  let currentValue = 599995;
   let digits = [];
 
   generateDigits(currentValue.toString().length);
   setValue(currentValue);
 
   setInterval(function() {
-    setValue(Math.floor(Math.random() * 1000000));
+    setValue(currentValue++);
   }, 2000);
 
   function setValue(number) {
