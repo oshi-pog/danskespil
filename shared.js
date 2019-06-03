@@ -66,13 +66,42 @@ let userMonth = ageModalMonth.value;
 let userYear = ageModalYear.value;
 
 // adding input listeners to each input field
+// KEYPRESS CHECKING FOR NUMBERS ONLY!!
+function keyPressCheck(event) {
+  let char=event.which;
+  console.log(char);
+  // Checking to see if characters being input via the key press event, match any alphabetical letters, if so, prevent the textbox from allowing it
+  if (char > 31 && (char < 48 || char > 57)) {
+    event.preventDefault();
+    console.log(userYear[0]);
+  }
+}
+// Maximum days check 
+// function maxDaysCheck(e, regDay){
+//   if (){
+//     e.preventDefault();
+//   }
+// }
+
+// Adding keypress with event when ageModalDay has a value entered
+ageModalDay.addEventListener('keypress', (e)=>{
+  keyPressCheck(e);
+});
+ageModalMonth.addEventListener('keypress', (e)=>{
+  keyPressCheck(e);
+});
+ageModalYear.addEventListener('keypress', (e)=>{
+  keyPressCheck(e);
+});
+
 // DAY, also FOCUSING on the next INPUT FIELD
-ageModalDay.addEventListener('input', () => {
+ageModalDay.addEventListener('input', (e) => {
+  // if (userDay.charAt(0) > 3){
+  //   console.log('hello');  }
+  // console.log(e);
   userDay = ageModalDay.value;
   if(!regDay.test(userDay)){
     TweenMax.to(ageModalDay, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
-    
-    console.log(ageModalDay.value)
     return false;
     
 } else {
