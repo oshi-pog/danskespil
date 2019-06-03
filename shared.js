@@ -9,7 +9,6 @@ const bottomMenuContent = document.querySelector(".bottom-menu-content");
 const bottomOverlay = document.querySelector("#bottom-menu-overlay");
 const game = document.querySelector("#game");
 
-
 // storing the fixed game-container as variable, to be animated with greensock below
 // const gameContainer = document.querySelector('.game-container');
 // EDIT ABOVE: changing the animations from the game container to be the game page, which contains the game container
@@ -50,9 +49,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // AGE MODAL PAGE VALIDATION !!
-const ageModalDay = document.querySelector('#day');
-const ageModalMonth = document.querySelector('#month');
-const ageModalYear = document.querySelector('#year');
+const ageModalDay = document.querySelector("#day");
+const ageModalMonth = document.querySelector("#month");
+const ageModalYear = document.querySelector("#year");
 
 //// VALIDATING THE INPUT FOR DAY, MONTH, YEAR
 // Regular expressions, how they should match
@@ -64,19 +63,18 @@ let regYear = /^[0-9]{4,4}$/;
 let userDay = ageModalDay.value;
 let userMonth = ageModalMonth.value;
 let userYear = ageModalYear.value;
-
 // adding input listeners to each input field
 // KEYPRESS CHECKING FOR NUMBERS ONLY!!
 function keyPressCheck(event) {
-  let char=event.which;
-  console.log(char);
+  let char = event.which;
+  //console.log(char);
   // Checking to see if characters being input via the key press event, match any alphabetical letters, if so, prevent the textbox from allowing it
   if (char > 31 && (char < 48 || char > 57)) {
     event.preventDefault();
     console.log(userYear[0]);
   }
 }
-// Maximum days check 
+// Maximum days check
 // function maxDaysCheck(e, regDay){
 //   if (){
 //     e.preventDefault();
@@ -84,59 +82,100 @@ function keyPressCheck(event) {
 // }
 
 // Adding keypress with event when ageModalDay has a value entered
-ageModalDay.addEventListener('keypress', (e)=>{
+ageModalDay.addEventListener("keypress", e => {
   keyPressCheck(e);
 });
-ageModalMonth.addEventListener('keypress', (e)=>{
+ageModalMonth.addEventListener("keypress", e => {
   keyPressCheck(e);
 });
-ageModalYear.addEventListener('keypress', (e)=>{
+ageModalYear.addEventListener("keypress", e => {
   keyPressCheck(e);
+  //Create date string for validation
+  if (userYear.length == 3) {
+    ageModalYear.addEventListener("keyup", () => {
+      validateAge(userYear, userMonth, userDay);
+      console.log(userYear, userMonth, userDay);
+    });
+  }
 });
 
+//See if user is over 18
+// https://stackoverflow.com/questions/10008050/get-age-from-birthdate/10008175
+function validateAge(userYear, userMonth, userDay) {
+  let today_date = new Date();
+  let today_year = today_date.getFullYear();
+  let today_month = today_date.getMonth();
+  let today_day = today_date.getDate();
+  let age = today_year - userYear;
+  if (today_month < userMonth - 1) {
+    age--;
+  }
+  if (userMonth - 1 == today_month && today_day < userDay) {
+    age--;
+  }
+
+  if (age >= 18) {
+    playStart();
+  } else {
+    alert("you have to be over 18");
+  }
+}
+
 // DAY, also FOCUSING on the next INPUT FIELD
-ageModalDay.addEventListener('input', (e) => {
+ageModalDay.addEventListener("input", e => {
   // if (userDay.charAt(0) > 3){
   //   console.log('hello');  }
   // console.log(e);
   userDay = ageModalDay.value;
-  if(!regDay.test(userDay)){
-    TweenMax.to(ageModalDay, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
+  if (!regDay.test(userDay)) {
+    TweenMax.to(ageModalDay, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+    });
     return false;
-    
-} else {
-  TweenMax.to(ageModalDay, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
-  ageModalMonth.focus();
-  return true;
-}});
+  } else {
+    TweenMax.to(ageModalDay, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"
+    });
+    ageModalMonth.focus();
+    return true;
+  }
+});
 // MONTH, also FOCUSING on the next INPUT FIELD
-ageModalMonth.addEventListener('input', () => {
+ageModalMonth.addEventListener("input", () => {
   userMonth = ageModalMonth.value;
-  if(!regMonth.test(userMonth)){
-    TweenMax.to(ageModalMonth, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
-    
-    console.log(ageModalMonth.value)
+  if (!regMonth.test(userMonth)) {
+    TweenMax.to(ageModalMonth, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+    });
+
+    //console.log(ageModalMonth.value);
     return false;
-    
-} else {
-  TweenMax.to(ageModalMonth, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
-  ageModalYear.focus();
-  return true;
-}});
+  } else {
+    TweenMax.to(ageModalMonth, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"
+    });
+    ageModalYear.focus();
+    return true;
+  }
+});
 // YEAR, also FOCUSING on the next INPUT FIELD
-ageModalYear.addEventListener('input', () => {
+ageModalYear.addEventListener("input", () => {
   userYear = ageModalYear.value;
-  if(!regYear.test(userYear)){
-    TweenMax.to(ageModalYear, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
-    
-    console.log(ageModalYear.value)
+  if (!regYear.test(userYear)) {
+    TweenMax.to(ageModalYear, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+    });
+
+    //console.log(ageModalYear.value);
     return false;
-    
-} else {
-  TweenMax.to(ageModalYear, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
-  // ageModalMonth.focus();
-  return true;
-}});
+  } else {
+    TweenMax.to(ageModalYear, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"
+    });
+    // ageModalMonth.focus();
+    return true;
+  }
+});
 
 // Code for the landing page, number ticker and button etc
 const numberTickerCTA = document.querySelector(".number-ticker-cta");
@@ -147,7 +186,6 @@ numberTickerCTA.addEventListener("click", function(e) {
   TweenMax.to(numberTicker, 1, { opacity: 0, display: "none" });
   // Elf Animation
   elfDescriptionAnimation();
-
 });
 
 // Storing the game description here
@@ -167,7 +205,7 @@ function startDescription(e) {
 //Code for after description accept is clicked
 const gameDescriptionCTA = document.querySelector(".game-description-cta");
 
-gameDescriptionCTA.addEventListener('click', ()=> {
+gameDescriptionCTA.addEventListener("click", () => {
   // The game slides out
   TweenMax.from(gamePage, 1, { x: 1500 });
   TweenMax.to(gamePage, 1, { display: "grid" });
@@ -177,8 +215,8 @@ gameDescriptionCTA.addEventListener('click', ()=> {
       checkNameInput();
     }
   });
-  TweenMax.to(gameDescriptionPage, 1, {display: "none", x:-1500,});
-})
+  TweenMax.to(gameDescriptionPage, 1, { display: "none", x: -1500 });
+});
 
 // Code for the birthday input form
 const playBtn = document.querySelector("#play-btn");
@@ -192,7 +230,6 @@ playBtn.addEventListener("click", function(e) {
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
   console.log("play button clicked");
-  //TO DO, if statement to check if the input form is done correctly
   TweenMax.to(ageModal, 1, { opacity: 0, display: "none" });
   // Preventing the page from reloading
   e.preventDefault();
@@ -206,7 +243,7 @@ function checkNameInput() {
     alert("Please add your name to start winning the trillions.");
     return false;
   } else {
-    TweenMax.to(gameNameInputCont, 1, { display: "none", x:-1500 });
+    TweenMax.to(gameNameInputCont, 1, { display: "none", x: -1500 });
   }
 }
 
@@ -372,34 +409,38 @@ cards.forEach(card => card.addEventListener("click", flipCard));
 // GAME NAME INPUT AREA BELOW
 
 // VALIDATING THE INPUT FOR NAME
-    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-    let fullName = nameInput.value;
-  
-    nameInput.addEventListener('input', () => {
-      fullName = nameInput.value;
-      if(!regName.test(fullName)){
-        TweenMax.to(nameInput, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"})
-        
-        console.log(nameInput.value)
-        return false;
-        
-    } else {
-      TweenMax.to(nameInput, 0, {boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"})
-      return true;
-    }});
+let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+let fullName = nameInput.value;
 
+nameInput.addEventListener("input", () => {
+  fullName = nameInput.value;
+  if (!regName.test(fullName)) {
+    TweenMax.to(nameInput, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+    });
+
+    console.log(nameInput.value);
+    return false;
+  } else {
+    TweenMax.to(nameInput, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"
+    });
+    return true;
+  }
+});
 
 // ELF ANIMATIONS
 
-let elfAge = document.querySelector ('#elf-age')
-function elfAgeAnimation (){
-  TweenMax.to(elfAge, 0, {opacity:1})
-  TweenMax.from(elfAge, 1, {x:-500});
+let elfAge = document.querySelector("#elf-age");
+function elfAgeAnimation() {
+  TweenMax.to(elfAge, 0, { opacity: 1 });
+  TweenMax.from(elfAge, 1, { x: -500 });
 }
 
-let elfDescription = document.querySelector('#elf-description');
-function elfDescriptionAnimation(){
-  setTimeout(()=> { TweenMax.to(elfDescription, 0, {opacity:1}),TweenMax.from(elfDescription, 1, {x:-1500}) },1000)
-
-  
+let elfDescription = document.querySelector("#elf-description");
+function elfDescriptionAnimation() {
+  setTimeout(() => {
+    TweenMax.to(elfDescription, 0, { opacity: 1 }),
+      TweenMax.from(elfDescription, 1, { x: -1500 });
+  }, 1000);
 }
