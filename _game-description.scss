@@ -25,10 +25,8 @@
     margin-top: 10%;
 
     // CHANGING PRIZE GRID, TO TAKE UP ONE COLUMN!
-    #prize-grid {
-      grid-column: 1/1;
-      margin-bottom: 4vmin;
-    }
+    
+      
 
     // STYLING THE HEADINGS AND DESCRIPTION
     .game-description-header {
@@ -83,4 +81,39 @@
   left: -11%;
   opacity: 0;
   z-index: 10;
+}
+
+// PRIZE GRID ON DESCRIPTION PAGE
+#prize-grid-description {
+  grid-column: 1/1;
+  width: 100%;
+  display: grid;
+  grid-row-gap:10%;
+  justify-self:left;
+  
+
+
+  .prize {
+    //3 column grid, text in middle, icon on right
+    box-sizing: border-box;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    p {
+      grid-column: 2/3;
+      justify-self: center;
+    }
+  }
+
+  .active {
+    background-color: #a88852;
+    color: #ffffff;
+    border: 1px solid #a88852;
+  }
+
+  .inactive {
+    background-color: #484848;
+    border: 1px solid #a88852;
+    color: #6c6c6c;
+  }
 }
