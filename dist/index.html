@@ -50,16 +50,16 @@
     <div id="age-modal">
       <div id="age-container">
         <h1 id="warning-h1">
-          To start playing, we have to make sure you're over 18.
+          Are you over 18?
         </h1>
         <p id="description-p">Enter your birthday to start playing!</p>
         <form id="birthday-form">
-          <label for="month" id="label-month">Month</label>
           <label for="day" id="label-day">Day</label>
+          <label for="month" id="label-month">Month</label>
           <label for="year" id="label-year">Year</label>
-          <input type="number" name="month" id="month" min="1" max="12" maxlength="2" required="">
-          <input type="number" name="day" id="day" min="1" max="31" maxlength="2" required="">
-          <input type="number" name="year" id="year" maxlength="2" required="">
+          <input type="number" name="day" id="day" min="1" max="31" maxlength="2" placeholder="DD" required="">
+          <input type="number" name="month" id="month" min="1" max="12" maxlength="2" placeholder="MM" required="">
+          <input type="number" name="year" id="year" maxlength="2" placeholder="YYYY" required="">
           <input type="button" value="START WINNING" id="play-btn">
         </form>
       </div>
