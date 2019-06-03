@@ -37,9 +37,13 @@
   <section id='number-ticker-landing-page'>
     <div class="number-ticker-container">
       <div class="number-ticker-content-1">
-        <h3>Our players have already won:</h3>
+        <h3>Our players have already won</h3>
       </div>
-      <div class="number-ticker" data-value="1000"></div>
+      <div id="number-ticker-numbers-kr">
+      <div class="number-ticker" data-value="1000">
+      </div>
+      <p>kr.</p>
+    </div>
       <div class="number-ticker-content-2">
         <h3>
           Now's your chance to win up to 1000 kr.!
@@ -59,12 +63,14 @@
           <label for="day" id="label-day">Day</label>
           <label for="month" id="label-month">Month</label>
           <label for="year" id="label-year">Year</label>
+          
           <input type="text" name="day" id="day" min="1" max="31" maxlength="2" placeholder="DD" required/>
           <input type="text" name="month" id="month" min="1" max="12" maxlength="2" placeholder="MM" required/>
           <input type="text" name="year" id="year" maxlength="4" placeholder="YYYY" required/>
           <input type="button" value="START WINNING" id="play-btn" />
         </form>
       </div>
+      
       <img src="img/elf.png" alt="" id='elf-age'>
     </div>
     
@@ -82,7 +88,7 @@
       </p>
 
       <div class="game-description-subheader">
-        <h3><span>HOW TO WIN:</span><br> </h3>
+        <h3><span>HOW TO WIN:</span><br><br> </h3>
 
         <p>Find the matching pairs! Each time you find two pairs, you can collect a prize. You have 10 turns (5
           hearts)!
@@ -111,6 +117,7 @@
       <button class="game-description-cta">I understand</button>
     </div>
     <img src="img/elf.png" alt="" id='elf-description'>
+    <!-- <img src="img/white-bottom.svg" alt="" id="white-bottom-description"> -->
   </section>
   <!-- Stling of the game container, that is below the age-modal above, this loads second-->
   <section id="game-page">
@@ -139,6 +146,10 @@
           <input type="text" name="name" id="name-input-field" required placeholder='eg. John Smith'
             spellcheck="false" />
           <input type="submit" name="name-submit" class="game-name-input-cta" value="Start Playing!" />
+        </div>
+        <img src="img/elf.png" alt="leprechaun" id="elf-name-input">
+        <div class='white-bottom-name-input-container'>
+        <img src="img/white-bottom.svg" alt="" id="white-bottom-name-input">
         </div>
       </section>
       <div id="game-email-input">
