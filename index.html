@@ -107,28 +107,18 @@
           <p>100 kr.</p>
         </div>
       </section>
-
-    <!-- Stling of the game container, that is below the age-modal above, this loads second-->
-    <section id="game-page">
-      <div class="game-container">
-        
-      
-        <div id="game-topbar">
-          <div id="player-hearts"><p>Hearts</p></div>
-            <img src="img/fullheart.svg" alt="full heart" id='heart-5' class='player-heart'>
-            <img src="img/fullheart.svg" alt="full heart" id='heart-4' class='player-heart'>
-            <img src="img/fullheart.svg" alt="full heart" id='heart-3' class='player-heart'>
-            <img src="img/fullheart.svg" alt="full heart" id='heart-2' class='player-heart'>
-            <img src="img/fullheart.svg" alt="full heart" id='heart-1' class='player-heart'>
-          <div id="turns">
-            <p>Turns:<span>0</span></p>
-          </div>
       <button class="game-description-cta">I understand</button>
     </div>
     <img src="img/elf.png" alt="" id='elf-description'>
   </section>
+  <!-- Stling of the game container, that is below the age-modal above, this loads second-->
+  <section id="game-page">
+    <div class="game-container">
 
 
+      <div id="game-topbar">
+        <div id="player-hearts">
+          <p>Hearts</p>
         </div>
         <div id="turns">
           <p>Turns:<span>0</span></p>
@@ -244,46 +234,45 @@
           <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
         </div>
 
+        <div class="memory-card" data-icon="pirate">
+          <img class="front-face" src="img/pirate.svg" alt="pirate" />
+          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
+        </div>
+        <div class="memory-card" data-icon="pirate">
+          <img class="front-face" src="img/pirate.svg" alt="pirate" />
+          <img class="back-face" src="img/danskespil.svg" alt="Danskespil Logo" />
+        </div>
+      </section>
+      <!-- Bottom of the game, the unlockable prizes, below-->
+      <section id="prize-grid">
+        <div class="prize inactive" id="lvl4">
+          <p>1000 DKK</p>
+        </div>
+        <div class="prize inactive" id="lvl3">
+          <p>500 DKK</p>
+        </div>
+        <div class="prize inactive" id="lvl2">
+          <p>250 DKK</p>
+        </div>
+        <div class="prize active" id="lvl1">
+          <p>100 DKK</p>
+        </div>
+      </section>
+    </div>
+  </section>
+  <script src="shared.js"></script>
+  <script src="number-ticker.js"></script>
+  <script>
+    let databaseLink = "https://danskespil-6ea1.restdb.io/rest/userlist";
+    let personObject = {
+      Name: "Kis Grofó",
+      Email: "grofovagyok@gmail.com",
+      Prize: 88
+    };
 
-          <div class="memory-card" data-icon="pirate">
-            <img class="front-face" src="img/pirate.svg" alt="pirate" />
-            <img
-              class="back-face"
-              src="img/danskespil.svg"
-              alt="Danskespil Logo"
-            />
-          </div>
-          <div class="memory-card" data-icon="pirate">
-            <img class="front-face" src="img/pirate.svg" alt="pirate" />
-            <img
-              class="back-face"
-              src="img/danskespil.svg"
-              alt="Danskespil Logo"
-            />
-          </div>
-        </section>
-        <!-- Bottom of the game, the unlockable prizes, below-->
-        <section id="prize-grid">
-          <div class="prize inactive" id="lvl4"><p>1000 kr.</p></div>
-          <div class="prize inactive" id="lvl3"><p>500 kr.</p></div>
-          <div class="prize inactive" id="lvl2"><p>250 kr.</p></div>
-          <div class="prize active" id="lvl1"><p>100 kr.</p></div>
-        </section>
-      </div>
-    </section>
-    <script src="shared.js"></script>
-    <script src="number-ticker.js"></script>
-    <script>
-      let databaseLink = "https://danskespil-6ea1.restdb.io/rest/userlist";
-      let personObject = {
-        Name: "Kis Grofó",
-        Email: "grofovagyok@gmail.com",
-        Prize: 88
-      };
-      function postData(personObject) {
-        const postData = JSON.stringify(personObject);
-        fetch(databaseLink, {
-
+    function postData(personObject) {
+      const postData = JSON.stringify(personObject);
+      fetch(databaseLink, {
           method: "post",
           headers: {
             "Content-Type": "application/json; charset=utf-8",
