@@ -14,7 +14,7 @@
 
   #age-container {
     width: 80%;
-    height: 40%;
+    height: 60%;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.445);
     align-self: center;
@@ -53,6 +53,7 @@
         border-radius: 10px;
         border: none;
         background-color: hsla(0, 0, 1, 0.1);
+        text-align: center;
       }
 
       label {
@@ -110,12 +111,10 @@
   }
   #elf-age {
     position: fixed;
-
     bottom: 5%;
-
     left: -10%;
-
     opacity: 0;
+    width: 40%;
   }
 }
 
@@ -127,11 +126,14 @@
       font-size: 5vw !important;
     }
   }
+  #description-p {
+    align-self: baseline;
+  }
 
   #elf-age {
     left: 0% !important;
     bottom: 7.5% !important;
-    width: 20%;
+    width: 20% !important;
   }
 }
 
