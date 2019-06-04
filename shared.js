@@ -329,6 +329,9 @@ let playerHeart3 = document.querySelector('#heart-3');
 let playerHeart4 = document.querySelector('#heart-4');
 let playerHeart5 = document.querySelector('#heart-5');
 
+// ARRAY OF THESE HEARTS
+let playerHearts = [playerHeart1,playerHeart2,playerHeart3,playerHeart4, playerHeart5];
+
 
 
 function flipCard() {
@@ -455,12 +458,12 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+function shuffle() {
   cards.forEach(card => {
     let randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
   });
-})();
+};
 
 cards.forEach(card => card.addEventListener("click", flipCard));
 
@@ -550,6 +553,9 @@ function showEmailInput() {
   emailInputCTA.addEventListener("click", () => {
     gameEmailInputPage.style.opacity = "0";
 
+    // FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
+    resetAfterEmail();
+
     setTimeout(() => {
       gameEmailInputPage.style.display = "none";
     }, 300);
@@ -563,3 +569,25 @@ function showWinnerFormPage(){
   gameWinnerFormPage.style.display = "grid";
     TweenMax.to(gameWinnerFormPage, 1, { opacity: 1 });
 }
+
+// FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
+function resetAfterEmail() {
+  //Reset counters
+  hasFlippedCard = false;
+  lockBoard = false;
+  firstCard, secondCard;
+
+  // Score variable
+  playerScore = 0;
+  playerWrong = 0;
+
+  // CHANGING THE OPACITY OF EACH HEART INSIDE OF THE HEARTS ARRAY BACK TO 1
+  playerHearts.forEach(heart => heart.style.opacity = '1');
+
+  //turns variable
+  turnsCounter = 10;
+  console.log(turnsCounter);
+  resetBoard();
+  shuffle();
+  cards.forEach(card => card.addEventListener("click", flipCard));
+};
