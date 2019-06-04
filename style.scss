@@ -14,6 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+input {
+  text-align: center;
+}
+
 //Font variable
 $theFont: "Open Sans", sans-serif;
 //Specifying the fluid and responsive font size that will always fit the browser
@@ -162,4 +166,35 @@ ul {
 
 input:focus {
   outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+input:focus::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0);
+
+  /* Firefox < 19 */
+  input:-moz-placeholder {
+    color: #999;
+  }
+  input:focus:-moz-placeholder {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  /* Firefox > 19 */
+  input::-moz-placeholder {
+    color: #999;
+  }
+  input:focus::-moz-placeholder {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  /* Internet Explorer 10 */
+  input:-ms-input-placeholder {
+    color: #999;
+  }
+  input:focus:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0);
+  }
 }
