@@ -31,14 +31,10 @@ function showSinglePlayer(player) {
   copy.querySelector(".player-email").innerHTML = player.Email;
   // console.log(player.Email);
 
-  //add it to the global array
-  playerArray.shift(player);
-
   document.querySelector(".student-list-body").appendChild(copy);
 }
 
 //SORT PLAYERS
-
 function sortByFirstName() {
   playerArray.sort(function(a, b) {
     if (a.firstname < b.firstname) {
