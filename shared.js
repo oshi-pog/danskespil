@@ -206,6 +206,7 @@ ageModalYear.addEventListener("input", () => {
 // Code for the landing page, number ticker and button etc
 const numberTickerCTA = document.querySelector(".number-ticker-cta");
 const numberTicker = document.querySelector(".number-ticker-container");
+const numberTickerPage = document.querySelector("#number-ticker-landing-page");
 
 numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
@@ -596,3 +597,16 @@ function resetAfterEmail() {
   shuffle();
   cards.forEach(card => card.addEventListener("click", flipCard));
 }
+
+// FUNCTION FOR SETTING THE MAIN TO BE THE SAME SIZE OF VIEWPORT HEIGHT
+let documentHeight = document.documentElement.clientHeight;
+console.log(documentHeight);
+
+document.querySelector('main').style.height = `${documentHeight}px`;
+ageModal.style.height = `${documentHeight}px`;
+numberTickerPage.style.height = `${documentHeight}px`;
+gameDescriptionPage.style.height = `${documentHeight}px`;
+gameEmailInputPage.style.height = `${documentHeight}px`;
+gameWinnerFormPage.style.height = `${documentHeight}px`;
+document.querySelector('#game-name-input-page').style.height = `${documentHeight}px`;
+document.querySelector('#game-page').style.height = `${documentHeight}px`; 
