@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Danske Spil</title>
 
@@ -239,29 +239,12 @@
   <!-- THE PAGE THAT SHOWS WHEN THE USER WINS THE GAME -->
   <section id="game-winner-form-page">
       <div id="game-form-input">
-        <div class="game-description-hearts-container">
-          <img src="/img/hearts.svg"
-            alt="5 hearts, indicating the players turns in the game, each missed pair equals minus half heart"
-            class="game-description-hearts-image" />
-        </div>
-        <h2 class="game-winner-header">Lorem ipsum dolor sit amet.</h2>
-        <h3 class="game-winner-subheader">Lorem ipsum dolor sit amet.</h3>
-        <button class="game-winner-cta">Give me my reward</button>
+        
+        <h2 class="game-winner-header">Congratulations!</h2>
+        <h3 class="game-winner-subheader">You've won 1000kr.!</h3>
+        
 
-        <section id="prize-grid-game-winner">
-          <div class="prize active">
-            <p>1000 kr.</p>
-          </div>
-          <div class="prize active">
-            <p>500 kr.</p>
-          </div>
-          <div class="prize active">
-            <p>250 kr.</p>
-          </div>
-          <div class="prize active">
-            <p>100 kr.</p>
-          </div>
-        </section>
+        
         <form id="final-form">
           <label for="name-final" id="label-name-final">Your full name:</label>
           <label for="email-final" id="label-email-final">Day</label>
@@ -280,6 +263,7 @@
             <input type="button" value="Start Playing!" id="play-btn" />
           </fieldset>
         </form>
+        <button class="game-winner-cta">Give me my reward</button>
       </div>
     </section>
     <script src="menu.js"></script>

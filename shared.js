@@ -288,6 +288,15 @@ let prizeLvl2 = document.querySelector("#lvl2");
 let prizeLvl3 = document.querySelector("#lvl3");
 let prizeLvl4 = document.querySelector("#lvl4");
 
+// STYLING THE HEARTS
+let playerHeart1 = document.querySelector('#heart-1');
+let playerHeart2 = document.querySelector('#heart-2');
+let playerHeart3 = document.querySelector('#heart-3');
+let playerHeart4 = document.querySelector('#heart-4');
+let playerHeart5 = document.querySelector('#heart-5');
+
+
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -309,6 +318,45 @@ function flipCard() {
 // When two cards are flipped, the users turns will be lowered by one, and when those turns reach zero, the game is hidden, TO DO IMPORTANT
 function checkTurns() {
   turnsCounter--;
+  // if (turnsCounter === 9 ) {
+  //   // playerHeart1.src = `img/halfheart.svg`;
+  //   TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
+  //   console.log('lol turn down')
+  // } else if 
+  // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
+  switch(turnsCounter) {
+    case 9:
+        TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
+        break;
+    case 8:
+        TweenMax.to(playerHeart1, 0.5, {opacity:0});
+        break;
+    case 7:
+        TweenMax.to(playerHeart2, 0.5, {opacity:0.5});
+        break;
+    case 6:
+        TweenMax.to(playerHeart2, 0.5, {opacity:0});
+        break;
+    case 5:
+        TweenMax.to(playerHeart3, 0.5, {opacity:0.5});  
+        break;
+    case 4:
+        TweenMax.to(playerHeart3, 0.5, {opacity:0});
+        break;
+    case 3:
+        TweenMax.to(playerHeart4, 0.5, {opacity:0.5});
+        break;
+    case 2:
+        TweenMax.to(playerHeart4, 0.5, {opacity:0});
+        break;
+    case 1:
+        TweenMax.to(playerHeart5, 0.5, {opacity:0.5});
+        break;
+    case 0:
+        TweenMax.to(playerHeart5, 0.5, {opacity:0});
+        break;
+  }
+
   turnsCount.textContent = turnsCounter;
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
@@ -348,8 +396,10 @@ function disableCards() {
     prizeLvl4.classList.remove("inactive");
     prizeLvl4.classList.add("active");
 
-    winnerInputCont.style.display = "flex";
-    TweenMax.to(winnerInputCont, 1, { opacity: 1 });
+    // FUNCTION TO SHOW THE GAME WINNER INPUT PAGE, WHEN THE PLAYERS SCORE IS 6
+    showWinnerFormPage();
+
+    
   }
 }
 
@@ -441,4 +491,65 @@ function elfDescriptionAnimation() {
     TweenMax.to(elfDescription, 0, { opacity: 1 }),
       TweenMax.from(elfDescription, 1, { x: -1500 });
   }, 1000);
+}
+
+// EMAIL VALIDATION FOR EMAIL INPUT PAGE //
+const emailInputField = document.querySelector('#email-input-field');
+let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let userEmail = emailInputField.value;
+
+emailInputField.addEventListener("input", () => {
+  userEmail = emailInputField.value;
+  if (!regEmail.test(userEmail)) {
+    TweenMax.to(emailInputField, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+    });
+
+    console.log(emailInputField.value);
+    return false;
+  } else {
+    TweenMax.to(emailInputField, 0, {
+      boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"
+    });
+    return true;
+  }
+});
+
+// VARIABLES TO ANIMATE ON EMAIL PAGE - DURING GAMEPLAY
+const emailInputCTA = document.querySelector(".game-input-input-cta");
+const gameNameInputCont = document.querySelector("#game-name-input-page");
+const gameEmailInputCont = document.querySelector("#game-email-input");
+const gameEmailInputPage = document.querySelector('#email-input-page');
+
+// OTHER EMAIL VARIABLES
+let emailStatus = new Boolean();
+let emailHeader = document.querySelector(".game-email-input-header");
+
+// SHOWING THE EMAIL FIELD
+function showEmailInput() {
+  if (turnsCounter === 0) {
+    emailHeader.innerHTML =
+      "Hey, no worries, just tell me your e-mail and have another go!";
+    emailInputCTA.value = "Try again!";
+    emailStatus = true;
+  }
+
+  gameEmailInputPage.style.display = "grid";
+  TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
+  // WHEN THE EMAIL INPUT IS ACCEPTED TO CONTINUE, THE USER GETS MORE TURNS
+  emailInputCTA.addEventListener("click", () => {
+    gameEmailInputPage.style.opacity = "0";
+
+    setTimeout(() => {
+      gameEmailInputPage.style.display = "none";
+    }, 300);
+  });
+}
+
+// FINAL WINNER PAGE VARIABLES, AND ANIMATIONS WHEN THE RIGHT BUTTONS ARE CLICKED OR THE WINNER WINS
+const gameWinnerFormPage = document.querySelector('#game-winner-form-page');
+
+function showWinnerFormPage(){
+  gameWinnerFormPage.style.display = "grid";
+    TweenMax.to(gameWinnerFormPage, 1, { opacity: 1 });
 }

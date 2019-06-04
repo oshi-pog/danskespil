@@ -1,25 +1,31 @@
 
 #game-winner-form-page{
   width:100%;
+  height:100%;
   position:fixed;
-  background:white;
+  // display:grid;
+  display:none;
+  opacity:0;
+  align-items:center;
+  justify-items:center;
+  background:#cab188;
   left:0;
   top:0;
-  z-index:5000;
+  z-index:5;
 }
 
 #game-form-input {
     // position: absolute;
-    width: 100%;
-    height: 90%;
+    width: 80%;
+    height: 70%;
     // bottom: 0;
     // left: 0;
-    background-color: darkolivegreen;
+
     z-index: 2;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-items: center;
+    // flex-direction: column;
     // opacity: 0;
     // display: none;
   }
@@ -56,4 +62,29 @@
       border: 1px solid #a88852;
       color: #6c6c6c;
     }
+  }
+
+  .game-winner-cta {
+    border: none;
+
+      background: #a61f6c;
+      height: 55px;
+      border-radius: 50px;
+      width: 80%;
+      color: white;
+      font-weight: 800;
+      font-size: 100%;
+  }
+
+  .game-winner-header{
+    font-weight:800;
+          font-size:10vmin;
+          line-height: 12vmin;
+          color:white;
+  }
+  
+  .game-winner-subheader {
+    font-weight:200;
+    font-size:8vmin;
+    color:white;
   }
