@@ -41,13 +41,28 @@
       </div>
     </nav>
 
-    <section id="player-list"></section>
+    <div id="player-list-container">
+      <div class="sorting-buttons">
+        <button class="sortby-name-button">
+          Sort by first name
+        </button>
+      </div>
 
-    <div id="template-players">
-      <div class="player-name"></div>
-      <player class="player-email"></player>
-      <player class="player-birth-date"></player>
+      <table id="player-list">
+        <thead>
+          <th class="player-name-header">Name</th>
+          <th class="player-email-header">Email</th>
+        </thead>
+        <tbody class="student-list-body"></tbody>
+      </table>
     </div>
+    <template id="template-players">
+      <tr class="player">
+        <td class="player-name"></td>
+        <td class="player-email"></td>
+        <td class="player-birthdate"></td>
+      </tr>
+    </template>
 
     <script src="menu.js"></script>
     <script src="fetchdata.js"></script>

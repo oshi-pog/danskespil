@@ -21,16 +21,38 @@ getPlayers();
 
 function showPlayers(playerList) {
   playerList.forEach(showSinglePlayer);
-  console.log(playerList);
 }
 
 function showSinglePlayer(player) {
   const copy = playersTemplate.cloneNode(true);
 
   copy.querySelector(".player-name").innerHTML = player.Name;
-  console.log(player.Name);
+  //console.log(player.Name);
   copy.querySelector(".player-email").innerHTML = player.Email;
-  console.log(player.Email);
+  // console.log(player.Email);
 
-  document.querySelector("#player-list").appendChild(copy);
+  //add it to the global array
+  playerArray.shift(player);
+
+  document.querySelector(".student-list-body").appendChild(copy);
 }
+
+//SORT PLAYERS
+
+function sortByFirstName() {
+  playerArray.sort(function(a, b) {
+    if (a.firstname < b.firstname) {
+      return -1;
+    }
+    if (a.firstname > b.firstname) {
+      return 1;
+    }
+    return 0;
+  });
+
+  showPlayers();
+}
+
+document
+  .querySelector(".sortby-name-button")
+  .addEventListener("click", sortByFirstName);

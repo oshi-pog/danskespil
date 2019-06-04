@@ -40,7 +40,7 @@ const game = document.querySelector("#game");
 const gamePage = document.querySelector("#game-page");
 const nameInputCTA = document.querySelector(".game-name-input-cta");
 
-
+const gameWinnerCTA = document.querySelector(".game-winner.cta");
 
 const winnerInputCont = document.querySelector("#game-form-input");
 
@@ -323,16 +323,20 @@ let prizeLvl3 = document.querySelector("#lvl3");
 let prizeLvl4 = document.querySelector("#lvl4");
 
 // STYLING THE HEARTS
-let playerHeart1 = document.querySelector('#heart-1');
-let playerHeart2 = document.querySelector('#heart-2');
-let playerHeart3 = document.querySelector('#heart-3');
-let playerHeart4 = document.querySelector('#heart-4');
-let playerHeart5 = document.querySelector('#heart-5');
+let playerHeart1 = document.querySelector("#heart-1");
+let playerHeart2 = document.querySelector("#heart-2");
+let playerHeart3 = document.querySelector("#heart-3");
+let playerHeart4 = document.querySelector("#heart-4");
+let playerHeart5 = document.querySelector("#heart-5");
 
 // ARRAY OF THESE HEARTS
-let playerHearts = [playerHeart1,playerHeart2,playerHeart3,playerHeart4, playerHeart5];
-
-
+let playerHearts = [
+  playerHeart1,
+  playerHeart2,
+  playerHeart3,
+  playerHeart4,
+  playerHeart5
+];
 
 function flipCard() {
   if (lockBoard) return;
@@ -359,39 +363,39 @@ function checkTurns() {
   //   // playerHeart1.src = `img/halfheart.svg`;
   //   TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
   //   console.log('lol turn down')
-  // } else if 
+  // } else if
   // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
-  switch(turnsCounter) {
+  switch (turnsCounter) {
     case 9:
-        TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
-        break;
+      TweenMax.to(playerHeart1, 0.5, { opacity: 0.5 });
+      break;
     case 8:
-        TweenMax.to(playerHeart1, 0.5, {opacity:0});
-        break;
+      TweenMax.to(playerHeart1, 0.5, { opacity: 0 });
+      break;
     case 7:
-        TweenMax.to(playerHeart2, 0.5, {opacity:0.5});
-        break;
+      TweenMax.to(playerHeart2, 0.5, { opacity: 0.5 });
+      break;
     case 6:
-        TweenMax.to(playerHeart2, 0.5, {opacity:0});
-        break;
+      TweenMax.to(playerHeart2, 0.5, { opacity: 0 });
+      break;
     case 5:
-        TweenMax.to(playerHeart3, 0.5, {opacity:0.5});  
-        break;
+      TweenMax.to(playerHeart3, 0.5, { opacity: 0.5 });
+      break;
     case 4:
-        TweenMax.to(playerHeart3, 0.5, {opacity:0});
-        break;
+      TweenMax.to(playerHeart3, 0.5, { opacity: 0 });
+      break;
     case 3:
-        TweenMax.to(playerHeart4, 0.5, {opacity:0.5});
-        break;
+      TweenMax.to(playerHeart4, 0.5, { opacity: 0.5 });
+      break;
     case 2:
-        TweenMax.to(playerHeart4, 0.5, {opacity:0});
-        break;
+      TweenMax.to(playerHeart4, 0.5, { opacity: 0 });
+      break;
     case 1:
-        TweenMax.to(playerHeart5, 0.5, {opacity:0.5});
-        break;
+      TweenMax.to(playerHeart5, 0.5, { opacity: 0.5 });
+      break;
     case 0:
-        TweenMax.to(playerHeart5, 0.5, {opacity:0});
-        break;
+      TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
+      break;
   }
 
   turnsCount.textContent = turnsCounter;
@@ -435,8 +439,6 @@ function disableCards() {
 
     // FUNCTION TO SHOW THE GAME WINNER INPUT PAGE, WHEN THE PLAYERS SCORE IS 6
     showWinnerFormPage();
-
-    
   }
 }
 
@@ -463,7 +465,7 @@ function shuffle() {
     let randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
   });
-};
+}
 
 cards.forEach(card => card.addEventListener("click", flipCard));
 
@@ -507,7 +509,7 @@ function elfDescriptionAnimation() {
 }
 
 // EMAIL VALIDATION FOR EMAIL INPUT PAGE //
-const emailInputField = document.querySelector('#email-input-field');
+const emailInputField = document.querySelector("#email-input-field");
 let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let userEmail = emailInputField.value;
 
@@ -532,7 +534,7 @@ emailInputField.addEventListener("input", () => {
 const emailInputCTA = document.querySelector(".game-input-input-cta");
 const gameNameInputCont = document.querySelector("#game-name-input-page");
 const gameEmailInputCont = document.querySelector("#game-email-input");
-const gameEmailInputPage = document.querySelector('#email-input-page');
+const gameEmailInputPage = document.querySelector("#email-input-page");
 
 // OTHER EMAIL VARIABLES
 let emailStatus = new Boolean();
@@ -553,6 +555,9 @@ function showEmailInput() {
   emailInputCTA.addEventListener("click", () => {
     gameEmailInputPage.style.opacity = "0";
 
+    personObject.Email = emailInputField.value;
+    postData(personObject);
+
     // FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
     resetAfterEmail();
 
@@ -563,11 +568,11 @@ function showEmailInput() {
 }
 
 // FINAL WINNER PAGE VARIABLES, AND ANIMATIONS WHEN THE RIGHT BUTTONS ARE CLICKED OR THE WINNER WINS
-const gameWinnerFormPage = document.querySelector('#game-winner-form-page');
+const gameWinnerFormPage = document.querySelector("#game-winner-form-page");
 
-function showWinnerFormPage(){
+function showWinnerFormPage() {
   gameWinnerFormPage.style.display = "grid";
-    TweenMax.to(gameWinnerFormPage, 1, { opacity: 1 });
+  TweenMax.to(gameWinnerFormPage, 1, { opacity: 1 });
 }
 
 // FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
@@ -582,7 +587,7 @@ function resetAfterEmail() {
   playerWrong = 0;
 
   // CHANGING THE OPACITY OF EACH HEART INSIDE OF THE HEARTS ARRAY BACK TO 1
-  playerHearts.forEach(heart => heart.style.opacity = '1');
+  playerHearts.forEach(heart => (heart.style.opacity = "1"));
 
   //turns variable
   turnsCounter = 10;
@@ -590,4 +595,4 @@ function resetAfterEmail() {
   resetBoard();
   shuffle();
   cards.forEach(card => card.addEventListener("click", flipCard));
-};
+}
