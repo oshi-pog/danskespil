@@ -4,6 +4,9 @@ let databaseLink = "https://danskespil-6ea1.restdb.io/rest/userlist";
 //WORKS DATA
 const playersTemplate = document.querySelector("#template-players").content;
 
+//Player ARRAY
+let playerArray = new Array();
+
 function getPlayers() {
   fetch(databaseLink, {
     method: "get",
@@ -14,13 +17,28 @@ function getPlayers() {
     }
   })
     .then(data => data.json())
-    .then(data => showPlayers(data));
+    .then(data => prepareObjects(data))
+    .then(data => showPlayers());
 }
 
 getPlayers();
 
-function showPlayers(playerList) {
-  playerList.forEach(showSinglePlayer);
+function prepareObjects(jsonData) {
+  jsonData.forEach(jsonObject => {
+    //create new object
+    let player = Object.create(jsonObject);
+
+    player.Name = jsonObject.Name;
+
+    playerArray.push(player);
+
+    console.log(playerArray);
+  });
+}
+
+function showPlayers() {
+  document.querySelector(".student-list-body").innerHTML = "";
+  playerArray.forEach(showSinglePlayer);
 }
 
 function showSinglePlayer(player) {
@@ -35,20 +53,12 @@ function showSinglePlayer(player) {
 }
 
 //SORT PLAYERS
-function sortByFirstName() {
-  playerArray.sort(function(a, b) {
-    if (a.firstname < b.firstname) {
-      return -1;
-    }
-    if (a.firstname > b.firstname) {
-      return 1;
-    }
-    return 0;
-  });
+function sortByName() {
+  playerArray.sort((a, b) => (a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0));
 
   showPlayers();
 }
 
 document
   .querySelector(".sortby-name-button")
-  .addEventListener("click", sortByFirstName);
+  .addEventListener("click", sortByName);
