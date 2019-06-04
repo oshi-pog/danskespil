@@ -14,7 +14,7 @@ function getPlayers() {
     }
   })
     .then(data => data.json())
-    .then(data => console.log(data));
+    .then(data => showPlayers(data));
 }
 
 getPlayers();
@@ -28,7 +28,9 @@ function showSinglePlayer(player) {
   const copy = playersTemplate.cloneNode(true);
 
   copy.querySelector(".player-name").innerHTML = player.Name;
+  console.log(player.Name);
   copy.querySelector(".player-email").innerHTML = player.Email;
+  console.log(player.Email);
 
-  document.querySelector(".works-container").appendChild(copy);
+  document.querySelector("#player-list").appendChild(copy);
 }
