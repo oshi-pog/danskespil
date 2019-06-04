@@ -1,3 +1,29 @@
+
+#game-winner-form-page{
+  width:100%;
+  position:fixed;
+  background:white;
+  left:0;
+  top:0;
+  z-index:5000;
+}
+
+#game-form-input {
+    // position: absolute;
+    width: 100%;
+    height: 90%;
+    // bottom: 0;
+    // left: 0;
+    background-color: darkolivegreen;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // opacity: 0;
+    // display: none;
+  }
+
 #prize-grid-game-winner {
     grid-column: 1/4;
     width: 50%;
