@@ -322,6 +322,15 @@ let prizeLvl2 = document.querySelector("#lvl2");
 let prizeLvl3 = document.querySelector("#lvl3");
 let prizeLvl4 = document.querySelector("#lvl4");
 
+// STYLING THE HEARTS
+let playerHeart1 = document.querySelector('#heart-1');
+let playerHeart2 = document.querySelector('#heart-2');
+let playerHeart3 = document.querySelector('#heart-3');
+let playerHeart4 = document.querySelector('#heart-4');
+let playerHeart5 = document.querySelector('#heart-5');
+
+
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -343,6 +352,45 @@ function flipCard() {
 // When two cards are flipped, the users turns will be lowered by one, and when those turns reach zero, the game is hidden, TO DO IMPORTANT
 function checkTurns() {
   turnsCounter--;
+  // if (turnsCounter === 9 ) {
+  //   // playerHeart1.src = `img/halfheart.svg`;
+  //   TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
+  //   console.log('lol turn down')
+  // } else if 
+  // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
+  switch(turnsCounter) {
+    case 9:
+        TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
+        break;
+    case 8:
+        TweenMax.to(playerHeart1, 0.5, {opacity:0});
+        break;
+    case 7:
+        TweenMax.to(playerHeart2, 0.5, {opacity:0.5});
+        break;
+    case 6:
+        TweenMax.to(playerHeart2, 0.5, {opacity:0});
+        break;
+    case 5:
+        TweenMax.to(playerHeart3, 0.5, {opacity:0.5});  
+        break;
+    case 4:
+        TweenMax.to(playerHeart3, 0.5, {opacity:0});
+        break;
+    case 3:
+        TweenMax.to(playerHeart4, 0.5, {opacity:0.5});
+        break;
+    case 2:
+        TweenMax.to(playerHeart4, 0.5, {opacity:0});
+        break;
+    case 1:
+        TweenMax.to(playerHeart5, 0.5, {opacity:0.5});
+        break;
+    case 0:
+        TweenMax.to(playerHeart5, 0.5, {opacity:0});
+        break;
+  }
+
   turnsCount.textContent = turnsCounter;
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
@@ -382,8 +430,10 @@ function disableCards() {
     prizeLvl4.classList.remove("inactive");
     prizeLvl4.classList.add("active");
 
-    winnerInputCont.style.display = "flex";
-    TweenMax.to(winnerInputCont, 1, { opacity: 1 });
+    // FUNCTION TO SHOW THE GAME WINNER INPUT PAGE, WHEN THE PLAYERS SCORE IS 6
+    showWinnerFormPage();
+
+    
   }
 }
 
@@ -499,6 +549,7 @@ function showEmailInput() {
 
   gameEmailInputPage.style.display = "grid";
   TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
+  // WHEN THE EMAIL INPUT IS ACCEPTED TO CONTINUE, THE USER GETS MORE TURNS
   emailInputCTA.addEventListener("click", () => {
     gameEmailInputPage.style.opacity = "0";
 
@@ -506,4 +557,12 @@ function showEmailInput() {
       gameEmailInputPage.style.display = "none";
     }, 300);
   });
+}
+
+// FINAL WINNER PAGE VARIABLES, AND ANIMATIONS WHEN THE RIGHT BUTTONS ARE CLICKED OR THE WINNER WINS
+const gameWinnerFormPage = document.querySelector('#game-winner-form-page');
+
+function showWinnerFormPage(){
+  gameWinnerFormPage.style.display = "grid";
+    TweenMax.to(gameWinnerFormPage, 1, { opacity: 1 });
 }
