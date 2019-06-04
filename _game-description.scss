@@ -94,7 +94,7 @@
   .prize {
     //3 column grid, text in middle, icon on right
     box-sizing: border-box;
-    border-radius: 50px;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     p {
@@ -153,6 +153,15 @@
     opacity: 0;
     z-index: 10;
     width: 25%;
+  }
+
+  #prize-grid-description {
+    width: 50%;
+    justify-self: center;
+  }
+
+  .prize {
+    padding: 0.5em;
   }
 }
 
