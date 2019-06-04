@@ -2,6 +2,31 @@
 import { TweenMax, Power2, TimelineLite } from "gsap/TweenMax";
 import { timeout } from "q";
 
+//DATABASE
+
+let databaseLink = "https://danskespil-6ea1.restdb.io/rest/userlist";
+
+let personObject = {
+  BirthDate: 0,
+  Name: null,
+  Email: null
+};
+
+function postData(personObject) {
+  const postData = JSON.stringify(personObject);
+  fetch(databaseLink, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": "5cea5dcd5f86251ddebe1a94",
+      "cache-control": "no-cache"
+    },
+    body: postData
+  })
+    .then(data => data.json())
+    .then(data => console.log(data));
+}
+
 //Variables
 const burgerIcon = document.querySelector(".bottom-menu-middle");
 const bottomMenuOverlay = document.querySelector("#bottom-menu-overlay");
@@ -17,6 +42,7 @@ const nameInputCTA = document.querySelector(".game-name-input-cta");
 const emailInputCTA = document.querySelector(".game-input-input-cta");
 const gameNameInputCont = document.querySelector("#game-name-input-page");
 const gameEmailInputCont = document.querySelector("#game-email-input");
+const emailInputField = document.querySelector("#email-input-field");
 
 const winnerInputCont = document.querySelector("#game-form-input");
 
@@ -90,11 +116,14 @@ ageModalMonth.addEventListener("keypress", e => {
 });
 ageModalYear.addEventListener("keypress", e => {
   keyPressCheck(e);
+
   //Create date string for validation
   if (userYear.length == 3) {
     ageModalYear.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
-      console.log(userYear, userMonth, userDay);
+
+      personObject.BirthDate = userYear + userMonth + userDay;
+      console.log(personObject);
     });
   }
 });
@@ -232,7 +261,6 @@ function playStart(e) {
   console.log("play button clicked");
   TweenMax.to(ageModal, 1, { opacity: 0, display: "none" });
   // Preventing the page from reloading
-  e.preventDefault();
 }
 // Code for name input form
 
@@ -243,6 +271,8 @@ function checkNameInput() {
     alert("Please add your name to start winning the trillions.");
     return false;
   } else {
+    personObject.Name = nameInput.value;
+    console.log(personObject);
     TweenMax.to(gameNameInputCont, 1, { display: "none", x: -1500 });
   }
 }
@@ -317,7 +347,6 @@ function flipCard() {
 function checkTurns() {
   turnsCounter--;
   turnsCount.textContent = turnsCounter;
- 
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
     showEmailInput();
@@ -374,6 +403,11 @@ function showEmailInput() {
   emailInputCTA.addEventListener("click", () => {
     gameEmailInputCont.style.opacity = "0";
 
+    personObject.Email = emailInputField.value;
+    console.log(personObject);
+
+    postData(personObject);
+
     setTimeout(() => {
       gameEmailInputCont.style.display = "none";
     }, 300);
@@ -420,7 +454,7 @@ nameInput.addEventListener("input", () => {
       boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
     });
 
-    console.log(nameInput.value);
+    //console.log(nameInput.value);
     return false;
   } else {
     TweenMax.to(nameInput, 0, {

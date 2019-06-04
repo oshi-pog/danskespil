@@ -277,29 +277,12 @@
   </section>
   <script src="shared.js"></script>
   <script src="number-ticker.js"></script>
-  <script>
-    let databaseLink = "https://danskespil-6ea1.restdb.io/rest/userlist";
-    let personObject = {
-      Name: "Kis Grofó",
-      Email: "grofovagyok@gmail.com",
-      Prize: 88
-    };
+  <script src="database.js"></script>
+ <script>
+ 
+//DATABASE
 
-    function postData(personObject) {
-      const postData = JSON.stringify(personObject);
-      fetch(databaseLink, {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            "x-apikey": "5cea5dcd5f86251ddebe1a94",
-            "cache-control": "no-cache"
-          },
-          body: postData
-        })
-        .then(data => data.json())
-        .then(data => console.log(data));
-    }
-  </script>
+</script>
 </body>
 
 </html>
