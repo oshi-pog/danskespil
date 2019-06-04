@@ -30,8 +30,7 @@ html {
 .number-ticker-content-1 {
   text-align: center;
 
-  font-size:10vmin;
-
+  font-size: 10vmin;
 }
 
 .number-ticker-content-2 {
@@ -39,20 +38,30 @@ html {
   font-size: 5vmin;
 }
 
+// Adding kr to the number ticker
+#number-ticker-numbers-kr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
+
+.number-ticker-currency {
+  font-size: 5vw;
+  margin-left: 12px;
+}
+
 .number-ticker {
   overflow: hidden;
   height: 1em;
 
-  width:auto;
-  
-  
-  
-  
+  width: auto;
 
   background-color: #81693b;
 
   font-size: 10vmin;
-
 
   .digit {
     float: left;
@@ -94,6 +103,10 @@ html {
     width: 40%;
   }
 
+  .number-ticker-currency {
+    font-size: 2.5vw;
+  }
+
   .number-ticker {
     font-size: 5vw;
   }
@@ -118,15 +131,4 @@ html {
   .number-ticker-cta {
     width: 25%;
   }
-}
-
-// Adding kr to the number ticker 
-#number-ticker-numbers-kr {
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 13vmin;
-  align-items:center;
-  font-weight:800;
 }
