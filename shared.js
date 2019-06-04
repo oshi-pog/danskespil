@@ -317,6 +317,7 @@ function flipCard() {
 function checkTurns() {
   turnsCounter--;
   turnsCount.textContent = turnsCounter;
+ 
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
     showEmailInput();
