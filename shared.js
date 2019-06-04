@@ -28,10 +28,7 @@ function postData(personObject) {
 }
 
 //Variables
-const burgerIcon = document.querySelector(".bottom-menu-middle");
-const bottomMenuOverlay = document.querySelector("#bottom-menu-overlay");
-const bottomMenuContent = document.querySelector(".bottom-menu-content");
-const bottomOverlay = document.querySelector("#bottom-menu-overlay");
+
 const game = document.querySelector("#game");
 
 // storing the fixed game-container as variable, to be animated with greensock below
@@ -39,17 +36,17 @@ const game = document.querySelector("#game");
 // EDIT ABOVE: changing the animations from the game container to be the game page, which contains the game container
 const gamePage = document.querySelector("#game-page");
 const nameInputCTA = document.querySelector(".game-name-input-cta");
-
-
+const emailInputCTA = document.querySelector(".game-input-input-cta");
+const gameNameInputCont = document.querySelector("#game-name-input-page");
+const gameEmailInputCont = document.querySelector("#game-email-input");
+const emailInputField = document.querySelector("#email-input-field");
 
 const winnerInputCont = document.querySelector("#game-form-input");
 
-let menuStatus = burgerIcon.dataset.status;
-let bottomMenuOverlayHeight = null;
 let nameInput = document.querySelector("#name-input-field");
-
+let emailStatus = new Boolean();
+let emailHeader = document.querySelector(".game-email-input-header");
 // Selecting the bottom menu, to be animated out when the game starts
-const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
   //ELF ANIMATING IN, ON AGE PAGE (1st PAGE)
@@ -58,15 +55,6 @@ window.addEventListener("DOMContentLoaded", () => {
     // TweenMax.from(gameContainer,1, {x:1500});
     // TweenMax.to(gameContainer,1, {display:'grid'});
   }, 1000);
-  //Add event listener to burger icon and run function to open or close it based on it's current status
-  burgerIcon.addEventListener("click", () => {
-    event.preventDefault();
-    if (menuStatus == "closed") {
-      openOverlayMenu();
-    } else {
-      closeOverlayMenu();
-    }
-  });
 
   nameInputCTA.addEventListener("click", checkNameInput);
 });
@@ -276,28 +264,6 @@ function checkNameInput() {
 
 // New greensock animation when page is loaded
 
-function openOverlayMenu() {
-  bottomMenuContent.style.height = "100%";
-  bottomMenuOverlay.style.height = "80%";
-
-  menuStatus = "open";
-  console.log(menuStatus);
-}
-
-function closeOverlayMenu() {
-  bottomMenuContent.style.height = "0";
-
-  setTimeout(() => {
-    bottomMenuOverlay.style.height = "0";
-  }, 300);
-  menuStatus = "closed";
-
-  setTimeout(() => {
-    bottomOverlay.style.height = "0";
-  }, 300);
-  console.log(menuStatus);
-}
-
 // THE MEMORY GAME
 
 const cards = document.querySelectorAll(".memory-card");
@@ -387,8 +353,29 @@ function disableCards() {
   }
 }
 
+function showEmailInput() {
+  if (turnsCounter === 0) {
+    emailHeader.innerHTML =
+      "Hey, no worries, just tell me your e-mail and have another go!";
+    emailInputCTA.value = "Try again!";
+    emailStatus = true;
+  }
 
+  gameEmailInputCont.style.display = "flex";
+  TweenMax.to(gameEmailInputCont, 1, { opacity: 1 });
+  emailInputCTA.addEventListener("click", () => {
+    gameEmailInputCont.style.opacity = "0";
 
+    personObject.Email = emailInputField.value;
+    console.log(personObject);
+
+    postData(personObject);
+
+    setTimeout(() => {
+      gameEmailInputCont.style.display = "none";
+    }, 300);
+  });
+}
 
 function unflipCards() {
   lockBoard = true;
@@ -454,56 +441,4 @@ function elfDescriptionAnimation() {
     TweenMax.to(elfDescription, 0, { opacity: 1 }),
       TweenMax.from(elfDescription, 1, { x: -1500 });
   }, 1000);
-}
-
-// EMAIL VALIDATION FOR EMAIL INPUT PAGE //
-const emailInputField = document.querySelector('#email-input-field');
-let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-let userEmail = emailInputField.value;
-
-emailInputField.addEventListener("input", () => {
-  userEmail = emailInputField.value;
-  if (!regEmail.test(userEmail)) {
-    TweenMax.to(emailInputField, 0, {
-      boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
-    });
-
-    console.log(emailInputField.value);
-    return false;
-  } else {
-    TweenMax.to(emailInputField, 0, {
-      boxShadow: "inset 0px 0px 2px 2px rgba(0,255,0,0.4)"
-    });
-    return true;
-  }
-});
-
-// VARIABLES TO ANIMATE ON EMAIL PAGE - DURING GAMEPLAY
-const emailInputCTA = document.querySelector(".game-input-input-cta");
-const gameNameInputCont = document.querySelector("#game-name-input-page");
-const gameEmailInputCont = document.querySelector("#game-email-input");
-const gameEmailInputPage = document.querySelector('#email-input-page');
-
-// OTHER EMAIL VARIABLES
-let emailStatus = new Boolean();
-let emailHeader = document.querySelector(".game-email-input-header");
-
-// SHOWING THE EMAIL FIELD
-function showEmailInput() {
-  if (turnsCounter === 0) {
-    emailHeader.innerHTML =
-      "Hey, no worries, just tell me your e-mail and have another go!";
-    emailInputCTA.value = "Try again!";
-    emailStatus = true;
-  }
-
-  gameEmailInputPage.style.display = "grid";
-  TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
-  emailInputCTA.addEventListener("click", () => {
-    gameEmailInputPage.style.opacity = "0";
-
-    setTimeout(() => {
-      gameEmailInputPage.style.display = "none";
-    }, 300);
-  });
 }
