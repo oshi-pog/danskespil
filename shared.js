@@ -261,6 +261,15 @@ function playStart(e) {
   console.log("play button clicked");
   TweenMax.to(ageModal, 1, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
+
+  numberTickerCTA.addEventListener("click", () => {
+    let coinArray = document.querySelectorAll(".number-ticker-coin");
+
+    coinArray.forEach(coin => {
+      coin.style.display = "none";
+    });
+  });
+
   // Preventing the page from reloading
 }
 // Code for name input form
@@ -595,7 +604,7 @@ function resetAfterEmail() {
   firstCard, secondCard;
 
   // Score variable
-  
+
   playerWrong = 0;
 
   // CHANGING THE OPACITY OF EACH HEART INSIDE OF THE HEARTS ARRAY BACK TO 1
