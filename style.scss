@@ -65,15 +65,11 @@ ul {
   // background-color: $lightBrown;
   position: fixed;
   display: flex;
-
+  
   align-items: center;
   justify-content: center;
-  #lb-dice-logo {
-    margin-right: 15px;
-    height: 50%;
-  }
-  #casino-logo {
-    height: 40%;
+  img {
+    
   }
 }
 
@@ -99,7 +95,7 @@ ul {
     position:fixed;
     bottom:7.5%;
     left:-100px;
-    width:1000px;
+    width:260%;
     background:0;
     fill:red;
 
@@ -232,4 +228,55 @@ input:focus::-webkit-input-placeholder {
 // SETTING WIDTH OF MAIN
 main {
   width: 100%;
+}
+
+
+// WEB STYLING 
+
+@media screen and (min-width: 1024px) {
+#bottom-menu {
+  position: fixed;
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+
+  display: flex;
+  height: $bottom-menu-height;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 21;
+
+  #bottom-menu-white {
+    
+    
+  }
+  img {
+    position:fixed;
+    bottom:7.5%;
+    
+    width:115% !important;
+
+    background:0;
+    fill:red;
+
+    
+    object-fit: cover;
+    
+  }
+}
+}
+
+
+// STYLING THE BACKGROUND SVG
+.background-svg { // SVG
+  position:fixed;
+  z-index:-1;
+  height:100%;
+  opacity:0.2;
+  transform:scale(1.4);
+  top:2%;
+  
+ 
 }

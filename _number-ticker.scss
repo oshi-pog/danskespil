@@ -5,7 +5,7 @@
     background: linear-gradient(to bottom, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 
-  font-family: Roboto Light;
+  
 }
 
 body,
@@ -26,7 +26,7 @@ html {
   align-items: center;
   margin: auto;
 
-  height: 70%;
+  height: 60%;
   width: 90%;
 }
 
@@ -39,6 +39,10 @@ html {
 .number-ticker-content-2 {
   text-align: center;
   font-size: 5vmin;
+
+  span {
+
+  }
 }
 
 // Adding kr to the number ticker
@@ -99,10 +103,11 @@ html {
 }
 
 .number-ticker-coin {
-  position: fixed;
+  position:fixed;
   bottom: -50%;
-  z-index: 20;
+  z-index: 0;
   display: none;
+  opacity:0.8;
 }
 
 .number-ticker-coin:nth-child(1) {
@@ -149,15 +154,20 @@ html {
 //DESKTOP STYLES
 @media screen and (min-width: 1024px) {
   .number-ticker-content-1 {
-    font-size: 2.5vw;
-    width: 40%;
+    font-size: 6vmin;
+    width: 100% !important;
   }
   .number-ticker-content-2 {
     font-size: 1.5vw;
-    width: 22.5%;
+    width: 100% !important;
   }
 
   .number-ticker-cta {
     width: 25%;
+  }
+
+  .number-ticker-container {
+    width: 60% !important;
+   
   }
 }
