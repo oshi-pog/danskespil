@@ -210,7 +210,7 @@ const numberTickerPage = document.querySelector("#number-ticker-landing-page");
 
 numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
-  TweenMax.to(numberTicker, 1, { opacity: 0, display: "none" });
+  TweenMax.to(numberTicker, 1, { display: "none", x:-1500 });
   // Elf Animation
   elfDescriptionAnimation();
 });
@@ -259,7 +259,7 @@ playBtn.addEventListener("click", function(e) {
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
   console.log("play button clicked");
-  TweenMax.to(ageModal, 1, { opacity: 0, display: "none" });
+  TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
 
   numberTickerCTA.addEventListener("click", () => {
@@ -565,7 +565,7 @@ let emailHeader = document.querySelector(".game-email-input-header");
 function showEmailInput() {
   if (turnsCounter === 0) {
     emailHeader.innerHTML =
-      "Hey, no worries, just tell me your e-mail and have another go!";
+      "More Hearts!";
     emailInputCTA.value = "Try again!";
     emailStatus = true;
   }
