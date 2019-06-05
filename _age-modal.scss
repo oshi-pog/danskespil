@@ -116,7 +116,7 @@
     }
   }
   #elf-age {
-    position: fixed;
+    position: absolute;
     bottom: 5%;
     left: -10%;
     opacity: 0;
@@ -124,7 +124,7 @@
   }
   // white bottom 
   .white-bottom-age-modal {
-    position: fixed;
+    position: absolute;
     
     bottom:0;
     left:0;
