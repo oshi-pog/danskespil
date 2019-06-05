@@ -618,7 +618,7 @@ const submitBtn3 = document.querySelectorAll("input[type=submit]")[2];
 
 submitBtn1.addEventListener('submit', ()=>{submitBtn1.disabled=true});
 submitBtn2.addEventListener('submit', ()=>{submitBtn2.disabled=true});
-submitBtn3.addEventListener('submit', ()=>{submitBtn3.disabled=true});
+// submitBtn3.addEventListener('submit', ()=>{submitBtn3.disabled=true}); ERROR NOT FOUND, PROBABLY BECAUSE DISPLAY:NONE
 
 
 // .addEventListener('submit', ()=>("input[type=submit]")[0].disabled=true});
