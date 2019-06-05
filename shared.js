@@ -329,7 +329,7 @@ let playerScore = 0;
 let playerWrong = 0;
 
 //turns variable
-let turnsCounter = 10;
+let turnsCounter = 20;
 const turns = document.querySelector("#turns");
 const turnsCount = document.querySelector("#turns span");
 
@@ -383,39 +383,7 @@ function checkTurns() {
   //   console.log('lol turn down')
   // } else if
   // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
-  switch (turnsCounter) {
-    case 9:
-      TweenMax.to(playerHeart1, 0.5, { opacity: 0.5 });
-      break;
-    case 8:
-      TweenMax.to(playerHeart1, 0.5, { opacity: 0 });
-      break;
-    case 7:
-      TweenMax.to(playerHeart2, 0.5, { opacity: 0.5 });
-      break;
-    case 6:
-      TweenMax.to(playerHeart2, 0.5, { opacity: 0 });
-      break;
-    case 5:
-      TweenMax.to(playerHeart3, 0.5, { opacity: 0.5 });
-      break;
-    case 4:
-      TweenMax.to(playerHeart3, 0.5, { opacity: 0 });
-      break;
-    case 3:
-      TweenMax.to(playerHeart4, 0.5, { opacity: 0.5 });
-      break;
-    case 2:
-      TweenMax.to(playerHeart4, 0.5, { opacity: 0 });
-      break;
-    case 1:
-      TweenMax.to(playerHeart5, 0.5, { opacity: 0.5 });
-      break;
-    case 0:
-      TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
-      break;
-  }
-
+  
   turnsCount.textContent = turnsCounter;
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
@@ -464,6 +432,45 @@ function unflipCards() {
   lockBoard = true;
   playerWrong++;
   // console.log(playerWrong);
+  // REDUCING THE OPACITY WHEN PLAYERS ARE WRONG
+  switch (playerWrong) {
+    case 1:
+      TweenMax.to(playerHeart1, 0.5, { opacity: 0.5 });
+      break;
+    case 2:
+      TweenMax.to(playerHeart1, 0.5, { opacity: 0 });
+      break;
+    case 3:
+      TweenMax.to(playerHeart2, 0.5, { opacity: 0.5 });
+      break;
+    case 4:
+      TweenMax.to(playerHeart2, 0.5, { opacity: 0 });
+      break;
+    case 5:
+      TweenMax.to(playerHeart3, 0.5, { opacity: 0.5 });
+      break;
+    case 6:
+      TweenMax.to(playerHeart3, 0.5, { opacity: 0 });
+      break;
+    case 7:
+      TweenMax.to(playerHeart4, 0.5, { opacity: 0.5 });
+      break;
+    case 8:
+      TweenMax.to(playerHeart4, 0.5, { opacity: 0 });
+      break;
+    case 9:
+      TweenMax.to(playerHeart5, 0.5, { opacity: 0.5 });
+      break;
+    case 10:
+      TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
+      // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
+      emailHeader.innerHTML =
+      "More Hearts!";
+      emailInputCTA.value = "Try again!";
+      emailStatusemailStatus = true;
+      break;
+  }
+
 
   setTimeout(() => {
     firstCard.classList.remove("flip");
@@ -569,10 +576,7 @@ let emailHeader = document.querySelector(".game-email-input-header");
 // SHOWING THE EMAIL FIELD
 function showEmailInput() {
   if (turnsCounter === 0) {
-    emailHeader.innerHTML =
-      "More Hearts!";
-    emailInputCTA.value = "Try again!";
-    emailStatus = true;
+    
   }
 
   gameEmailInputPage.style.display = "grid";
