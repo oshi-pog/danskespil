@@ -3,9 +3,9 @@
   width:100%;
   height:100%;
   position:fixed;
-  // display:grid;
-  display:none;
-  opacity:0;
+  display:grid;
+  // display:none;
+  // opacity:0;
   align-items:center;
   justify-items:center;
   background:#cab188;
@@ -23,6 +23,7 @@
 
     z-index: 2;
     display: grid;
+    
     align-items: center;
     justify-items: center;
     // flex-direction: column;
@@ -88,3 +89,13 @@
     font-size:8vmin;
     color:white;
   }
+
+  #final-form {
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    input {
+      width:auto !important;
+    }
+  }
+
