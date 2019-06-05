@@ -327,6 +327,7 @@ let firstCard, secondCard;
 // Score variable
 let playerScore = 0;
 let playerWrong = 0;
+let playerCorrect = 0;
 
 //turns variable
 let turnsCounter = 20;
@@ -335,10 +336,10 @@ const turnsCount = document.querySelector("#turns span");
 
 turnsCount.textContent = turnsCounter;
 //Level variables, to change style based on score
-let prizeLvl1 = document.querySelector("#lvl1");
-let prizeLvl2 = document.querySelector("#lvl2");
-let prizeLvl3 = document.querySelector("#lvl3");
-let prizeLvl4 = document.querySelector("#lvl4");
+// let prizeLvl1 = document.querySelector("#lvl1");
+// let prizeLvl2 = document.querySelector("#lvl2");
+// let prizeLvl3 = document.querySelector("#lvl3");
+// let prizeLvl4 = document.querySelector("#lvl4");
 
 // STYLING THE HEARTS
 let playerHeart1 = document.querySelector("#heart-1");
@@ -409,20 +410,20 @@ function disableCards() {
   console.log(playerScore);
   // Applying styling to levels based on score
   if (playerScore === 2) {
-    prizeLvl2.classList.remove("inactive");
-    prizeLvl2.classList.add("active");
+    // prizeLvl2.classList.remove("inactive");
+    // prizeLvl2.classList.add("active");
   } else if (playerScore === 4) {
-    prizeLvl3.classList.remove("inactive");
-    prizeLvl3.classList.add("active");
+    // prizeLvl3.classList.remove("inactive");
+    // prizeLvl3.classList.add("active");
     if (emailStatus == true) {
       return;
     } else {
       showEmailInput();
     }
   } else if (playerScore === 6) {
-    prizeLvl4.classList.remove("inactive");
-    prizeLvl4.classList.add("active");
-
+    // prizeLvl4.classList.remove("inactive");
+    // prizeLvl4.classList.add("active");
+    console.log('should be now')
     // FUNCTION TO SHOW THE GAME WINNER INPUT PAGE, WHEN THE PLAYERS SCORE IS 6
     showWinnerFormPage();
   }
