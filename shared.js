@@ -610,3 +610,15 @@ gameEmailInputPage.style.height = `${documentHeight}px`;
 gameWinnerFormPage.style.height = `${documentHeight}px`;
 document.querySelector('#game-name-input-page').style.height = `${documentHeight}px`;
 document.querySelector('#game-page').style.height = `${documentHeight}px`; 
+
+// ON SUBMIT, PREVENTING DOUBLE SUBMITTING FUNCTION
+const submitBtn1 = document.querySelectorAll("input[type=submit]")[0];
+const submitBtn2 = document.querySelectorAll("input[type=submit]")[1];
+const submitBtn3 = document.querySelectorAll("input[type=submit]")[2];
+
+submitBtn1.addEventListener('submit', ()=>{submitBtn1.disabled=true});
+submitBtn2.addEventListener('submit', ()=>{submitBtn2.disabled=true});
+submitBtn3.addEventListener('submit', ()=>{submitBtn3.disabled=true});
+
+
+// .addEventListener('submit', ()=>("input[type=submit]")[0].disabled=true});
