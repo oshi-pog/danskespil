@@ -52,8 +52,7 @@ let nameInput = document.querySelector("#name-input-field");
 const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
-  //ELF ANIMATING IN, ON AGE PAGE (1st PAGE)
-
+  speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
   setTimeout(() => {
     // TweenMax.from(gameContainer,1, {x:1500});
     // TweenMax.to(gameContainer,1, {display:'grid'});
@@ -179,6 +178,18 @@ function showSpeechBubble() {
   TweenMax.to(speechBubble, 0, { opacity: 0 });
   TweenMax.to(speechBubbleOverlay, 1, { opacity: 1 });
   TweenMax.to(speechBubble, 1, { opacity: 1 });
+}
+
+function hideSpeechBubble() {
+  TweenMax.to(speechBubbleOverlay, 0, { opacity: 1 });
+  TweenMax.to(speechBubble, 0, { opacity: 1 });
+  TweenMax.to(speechBubbleOverlay, 1, { opacity: 0 });
+  TweenMax.to(speechBubble, 1, { opacity: 0 });
+
+  setTimeout(() => {
+    speechBubbleOverlay.style.display = "none";
+    speechBubble.style.display = "none";
+  }, 1000);
 }
 
 // DAY, also FOCUSING on the next INPUT FIELD
