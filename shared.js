@@ -466,7 +466,7 @@ function unflipCards() {
       // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
       emailHeader.innerHTML = "More Hearts!";
       emailInputCTA.value = "Try again!";
-      emailStatusemailStatus = true;
+      emailStatus = true;
       break;
   }
 
