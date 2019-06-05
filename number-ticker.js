@@ -3,6 +3,7 @@ let counters = document.getElementsByClassName("number-ticker");
 let coinArray = document.querySelectorAll(".number-ticker-coin");
 const playBtn = document.querySelector("#play-btn");
 console.log(coinArray);
+let coinDisplay = "none";
 
 let defaultDigitNode = document.createElement("div");
 defaultDigitNode.classList.add("digit");
@@ -44,6 +45,13 @@ for (let i = 0; i < 10; i++) {
   }
 
   function animateCoins() {
+    if (coinDisplay == "none") {
+      coinArray.forEach(coin => {
+        coin.style.display = "block";
+      });
+      coinDisplay = "block";
+    }
+
     for (let x = 0; x < coinArray.length; x++) {
       setTimeout(() => {
         TweenMax.from(coinArray[x], 1, { y: -1500 });

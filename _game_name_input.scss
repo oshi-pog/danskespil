@@ -49,8 +49,8 @@
 
     .game-name-input-subheader {
       font-weight: 200;
-      span{
-        font-weight:800 !important;
+      span {
+        font-weight: 800 !important;
       }
     }
 
@@ -72,7 +72,7 @@
   bottom: 0;
   left: -10%;
   z-index: 5;
-  height:30%;
+  height: 30%;
 }
 
 // WHITE BOTTOM SVG STYLING
@@ -129,7 +129,6 @@
     bottom: 0;
     left: -5% !important;
     z-index: 100 !important;
-    width: 25% !important;
   }
 }
 
@@ -150,8 +149,8 @@
     margin-top: 0 !important;
     line-height: 1 !important;
 
-    span{
-      font-weight:800 !important;
+    span {
+      font-weight: 800 !important;
     }
 
     h3 {
@@ -160,6 +159,10 @@
         font-size: 2.5vw !important;
       }
     }
+
+    #elf-name-input {
+      width: 25% !important;
+    }
   }
 
   #name-input-field::placeholder {
@@ -167,11 +170,11 @@
   }
 
   .game-name-input-cta {
-    margin-top:0 !important;
+    margin-top: 0 !important;
     // width:60% !important;
   }
 
   #elf-name-input {
-    height:auto !important;
+    height: auto !important;
   }
 }
