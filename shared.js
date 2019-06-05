@@ -647,3 +647,8 @@ submitBtn2.addEventListener("submit", () => {
 // submitBtn3.addEventListener('submit', ()=>{submitBtn3.disabled=true}); ERROR NOT FOUND, PROBABLY BECAUSE DISPLAY:NONE
 
 // .addEventListener('submit', ()=>("input[type=submit]")[0].disabled=true});
+
+
+// let coinGroup = document.querySelector('#coin_copy');
+
+// TweenMax.to(coinGroup, 10, {x:-1500});
