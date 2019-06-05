@@ -291,7 +291,7 @@ function checkNameInput() {
 
 function openOverlayMenu() {
   bottomMenuContent.style.height = "100%";
-  bottomMenuOverlay.style.height = "80%";
+  bottomMenuOverlay.style.height = "82.5%";
 
   menuStatus = "open";
   console.log(menuStatus);
