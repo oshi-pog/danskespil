@@ -6,6 +6,7 @@
 @import "player-list";
 @import "game-winner-form-page";
 @import "age-modal";
+@import "speech-bubble";
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700&display=swap");
 
@@ -65,17 +66,16 @@ ul {
   // background-color: $lightBrown;
   position: fixed;
   display: flex;
-  
+
   align-items: center;
   justify-content: center;
   img {
-    
   }
 }
 
 #bottom-menu {
   position: fixed;
-  position:absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -88,25 +88,21 @@ ul {
   z-index: 21;
 
   #bottom-menu-white {
-    
-    
   }
   img {
-    position:fixed;
-    bottom:7.5%;
-    left:-100px;
-    width:260%;
-    background:0;
-    fill:red;
+    position: fixed;
+    bottom: 7.5%;
+    left: -100px;
+    width: 260%;
+    background: 0;
+    fill: red;
 
-    
     object-fit: cover;
-    
   }
 
   i {
-    color:black;
-    font-size:20px;
+    color: black;
+    font-size: 20px;
   }
 }
 
@@ -122,18 +118,12 @@ ul {
 }
 
 .bottom-menu-left {
- 
-
 }
 
 .bottom-menu-middle {
- 
-
 }
 
 .bottom-menu-right {
-
-
 }
 
 #bottom-menu-overlay {
@@ -230,54 +220,47 @@ main {
   width: 100%;
 }
 
-
-// WEB STYLING 
+// WEB STYLING
 
 @media screen and (min-width: 1024px) {
-#bottom-menu {
-  position: fixed;
-  position:absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
+  #bottom-menu {
+    position: fixed;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
 
-  display: flex;
-  height: $bottom-menu-height;
-  align-items: center;
-  justify-content: space-around;
-  z-index: 21;
+    display: flex;
+    height: $bottom-menu-height;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 21;
 
-  #bottom-menu-white {
-    
-    
-  }
-  img {
-    position:fixed;
-    bottom:7.5%;
-    
-    width:115% !important;
+    #bottom-menu-white {
+    }
+    img {
+      position: fixed;
+      bottom: 7.5%;
 
-    background:0;
-    fill:red;
+      width: 115% !important;
 
-    
-    object-fit: cover;
-    
+      background: 0;
+      fill: red;
+
+      object-fit: cover;
+    }
   }
 }
-}
-
 
 // STYLING THE BACKGROUND SVG
-.background-svg { // SVG
-  position:fixed;
-  z-index:-2;
-  height:100%;
-  opacity:0.2;
-  transform:scale(1.4);
-  top:2%;
-  overflow:hidden;
-  
- 
+.background-svg {
+  // SVG
+  position: fixed;
+  z-index: -2;
+  height: 100%;
+  opacity: 0.2;
+  transform: scale(1.4);
+  top: 2%;
+  overflow: hidden;
 }
