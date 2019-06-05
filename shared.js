@@ -53,7 +53,7 @@ const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
   //ELF ANIMATING IN, ON AGE PAGE (1st PAGE)
-  elfSpeechAnimation();
+
   setTimeout(() => {
     // TweenMax.from(gameContainer,1, {x:1500});
     // TweenMax.to(gameContainer,1, {display:'grid'});
@@ -143,8 +143,31 @@ function validateAge(userYear, userMonth, userDay) {
   if (age >= 18) {
     playStart();
   } else {
-    alert("you have to be over 18");
+    showSpeechBubble();
   }
+}
+
+let elfSpeech = document.querySelector("#elf-speech");
+
+function elfSpeechAnimation() {
+  TweenMax.to(elfSpeech, 0, { opacity: 1 });
+  TweenMax.from(elfSpeech, 1, { x: -500 });
+  TweenMax.to(elfSpeech, 1, {
+    x: 0
+  });
+}
+
+let speechBubbleOverlay = document.querySelector(".speech-bubble-overlay");
+let speechBubble = document.querySelector(".speech-bubble");
+
+function showSpeechBubble() {
+  elfSpeechAnimation();
+  speechBubbleOverlay.style.display = "block";
+  speechBubble.style.display = "flex";
+  TweenMax.to(speechBubbleOverlay, 0, { opacity: 0 });
+  TweenMax.to(speechBubble, 0, { opacity: 0 });
+  TweenMax.to(speechBubbleOverlay, 1, { opacity: 1 });
+  TweenMax.to(speechBubble, 1, { opacity: 1 });
 }
 
 // DAY, also FOCUSING on the next INPUT FIELD
@@ -516,13 +539,6 @@ nameInput.addEventListener("input", () => {
 });
 
 // ELF ANIMATIONS
-
-let elfSpeech = document.querySelector("#elf-speech");
-
-function elfSpeechAnimation() {
-  TweenMax.to(elfSpeech, 0, { opacity: 1 });
-  TweenMax.from(elfSpeech, 1, { x: -500 });
-}
 
 let elfDescription = document.querySelector("#elf-description");
 function elfDescriptionAnimation() {
