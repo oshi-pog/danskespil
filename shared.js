@@ -595,7 +595,7 @@ function resetAfterEmail() {
   firstCard, secondCard;
 
   // Score variable
-  playerScore = 0;
+  
   playerWrong = 0;
 
   // CHANGING THE OPACITY OF EACH HEART INSIDE OF THE HEARTS ARRAY BACK TO 1

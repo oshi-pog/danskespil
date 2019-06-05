@@ -93,8 +93,8 @@ html {
 }
 
 .number-ticker-coin {
-  position: absolute;
-  bottom: -10%;
+  position: fixed;
+  bottom: -50%;
   z-index: 20;
   display: none;
 }
