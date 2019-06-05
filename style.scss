@@ -18,6 +18,10 @@ input {
   text-align: center;
 }
 
+img {
+  max-width: 100%;
+}
+
 //Font variable
 $theFont: "Open Sans", sans-serif;
 //Specifying the fluid and responsive font size that will always fit the browser

@@ -1,5 +1,4 @@
-
-  #game-description-page {
+#game-description-page {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -23,6 +22,8 @@
     justify-items: center;
     margin-top: -25%;
 
+    p {
+    }
     // CHANGING PRIZE GRID, TO TAKE UP ONE COLUMN!
 
     // STYLING THE HEADINGS AND DESCRIPTION
@@ -41,7 +42,7 @@
       margin-top: 3vmin;
       line-height: 1.6;
       span {
-      font-weight:bold;
+        font-weight: bold;
       }
       h3 {
         text-align: center;
@@ -120,7 +121,6 @@
   }
 }
 
-
 //TABLET STYLES
 @media screen and (min-width: 720px) {
   #game-description-page {
@@ -176,27 +176,28 @@
     height: 80% !important;
     margin-top: 5% !important;
 
-    
+    p {
+      line-height: 2;
+      text-align: center;
+      width: 46%;
+    }
   }
 
   .game-description-header {
-    font-size: 10vmin !important;
-    width: 90% !important;
-    font-weight:800 !important;
-   
+    font-size: 3vw !important;
+    width: 28% !important;
+    font-weight: 800 !important;
+    line-height: 1.4 !important;
   }
-
-  
 
   .game-description-subheader {
     font-size: 3vmin !important;
     margin-top: 0 !important;
     line-height: 4vmin !important;
-    width:88% !important;
-    
-    
+    width: 88% !important;
+
     span {
-      font-weight:bold !important;
+      font-weight: bold !important;
       // margin-top:200vmin;
       // margin-top:5vmin !important;
     }
