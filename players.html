@@ -52,6 +52,7 @@
         <thead>
           <th class="player-name-header">Name</th>
           <th class="player-email-header">Email</th>
+          <th class="player-remove-header">Remove player</th>
         </thead>
         <tbody class="student-list-body"></tbody>
       </table>
@@ -60,7 +61,9 @@
       <tr class="player">
         <td class="player-name"></td>
         <td class="player-email"></td>
-        <td class="player-birthdate"></td>
+        <td class="player-remove" data-id="#">
+          <button data-action="remove">Remove</button>
+        </td>
       </tr>
     </template>
 

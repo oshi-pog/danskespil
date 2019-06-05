@@ -32,7 +32,7 @@ function prepareObjects(jsonData) {
 
     playerArray.push(player);
 
-    console.log(playerArray);
+    //  console.log(playerArray);
   });
 }
 
@@ -48,6 +48,7 @@ function showSinglePlayer(player) {
   //console.log(player.Name);
   copy.querySelector(".player-email").innerHTML = player.Email;
   // console.log(player.Email);
+  copy.querySelector(".player-remove").dataset.id = player._id;
 
   document.querySelector(".student-list-body").appendChild(copy);
 }
@@ -62,3 +63,31 @@ function sortByName() {
 document
   .querySelector(".sortby-name-button")
   .addEventListener("click", sortByName);
+
+//REMOVE PLAYERS
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#player-list").addEventListener("click", clickList);
+});
+
+function clickList(e) {
+  const action = event.target.dataset.action;
+  console.log(action);
+
+  if (action === "remove") {
+    clickRemove(event);
+  }
+}
+
+function clickRemove(event) {
+  event.preventDefault();
+  let id = event.target.dataset.id;
+
+  removeById(id);
+  showPlayers();
+}
+
+function removeById(id) {
+  let index = playerArray.findIndex(player => player.id === id);
+
+  playerArray.splice(index, 1);
+}
