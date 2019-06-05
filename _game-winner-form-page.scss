@@ -4,8 +4,8 @@
   height:100%;
   position:fixed;
   display:grid;
-  // display:none;
-  // opacity:0;
+  display:none;
+  opacity:0;
   align-items:center;
   justify-items:center;
   background:#cab188;
@@ -79,7 +79,7 @@
 
   .game-winner-header{
     font-weight:800;
-          font-size:10vmin;
+          font-size:8vmin;
           line-height: 12vmin;
           color:white;
   }
@@ -93,9 +93,80 @@
   #final-form {
     width:100%;
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns:1fr;
+    text-align: center;
+    
     input {
-      width:auto !important;
+      width:100%;
+
+      #label-name-final {
+        grid-column:1/4 !important;
+      }
     }
+
+      #name-final    {
+             grid-column: 1/3;
+             // field 
+             border-radius: 50px;
+            border: none;
+            background: white;
+            height: 40px;
+            
+            
+             
+      }
+
+      #email-final {
+        grid-column: 1/3;
+             // field 
+             border-radius: 50px;
+            border: none;
+            background: white;
+            height: 40px;
+            
+      }
+    
+
+    #birthday-final-grid {
+      grid-column:1/3;
+      display:grid;
+      grid-template-rows: 6vmin 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 20px;  
+      text-align: center;
+      
+
+      #day-final {
+        width:100% !important;
+        border-radius: 50px;
+        border: none;
+        background: white;
+        height: 40px;
+        text-align: center;
+      }
+
+      #month-final {
+        width:100% !important;
+        border-radius: 50px;
+        border: none;
+        background: white;
+        height: 40px;
+        text-align: center;
+      }
+
+      #year-final {
+        
+        width:100% !important;
+        border-radius: 50px;
+        border: none;
+        background: white;
+        height: 40px;
+        text-align: center;
+      }
+
+    }
+
+
+
   }
 

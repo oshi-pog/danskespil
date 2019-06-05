@@ -242,27 +242,30 @@
           <h3 class="game-winner-subheader">You've won 1000kr.!</h3>
 
           <form id="final-form">
+            <!-- FULL NAME-->
             <label for="name-final" id="label-name-final">Your full name:</label>
             <input type="text" name="" id="name-final">
-            <label for="email-final" id="label-email-final">Day</label>
+            <!-- EMAIL-->
+            <label for="email-final" id="label-email-final">Email Address</label>
             <input type="text" name="" id="email-final">
-            <label for="year" id="label-year-final">Year</label>
-            <input type="number" name="month" id="month-final">
+
+            <!--BIRTHDAY-->
+            <div id="birthday-final-grid">
+            
+            <label for="day-final" id="label-day-final">Day</label>
+            <label for="month-final" id="label-month-final">Month</label>
+            <label for="year-final" id="label-year-final">Year</label>
+            
             <input type="number" name="day" id="day-final">
+            <input type="number" name="month" id="month-final">
+            
             <input type="number" name="year" id="year-final">
+          </div>
             
             
-            <!-- <fieldset id="final-birthdate">
-              <label for="month" id="label-month">Month</label>
-              <label for="day" id="label-day">Day</label>
-              <label for="year" id="label-year">Year</label>
-              <input type="number" name="month" id="month">
-              <input type="number" name="day" id="day">
-              <input type="number" name="year" id="year">
-              
-            </fieldset> -->
+            <input type="submit" value="Give me my reward" class="game-winner-cta">
           </form>
-          <button class="game-winner-cta">Give me my reward</button>
+         
         </div>
       </section>
     </main>
