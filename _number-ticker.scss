@@ -18,13 +18,14 @@ html {
   height: 100%;
   display: grid;
   align-items: center;
+  justify-items: center;
 }
 
 .number-ticker-container {
   display: grid;
   justify-items: center;
   align-items: center;
-  margin: auto;
+  margin-top:-10%;
 
   height: 60%;
   width: 90%;

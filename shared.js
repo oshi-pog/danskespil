@@ -234,8 +234,11 @@ const gameDescriptionCTA = document.querySelector(".game-description-cta");
 
 gameDescriptionCTA.addEventListener("click", () => {
   // The game slides out
-  TweenMax.from(gamePage, 1, { x: 1500 });
-  TweenMax.to(gamePage, 1, { display: "grid" });
+  // TweenMax.from(gamePage, 1, { x: 1500 });
+  // TweenMax.to(gamePage, 1, { display: "grid" });
+  TweenMax.from(gameNameInputPage, 1 , {x:1500});
+  TweenMax.to(gameNameInputPage, 1, { display: "grid" });
+  
 
   document.addEventListener("keydown", event => {
     if (event.key == "Enter") {
@@ -283,7 +286,9 @@ function checkNameInput() {
   } else {
     personObject.Name = nameInput.value;
     console.log(personObject);
-    TweenMax.to(gameNameInputCont, 1, { display: "none", x: -1500 });
+    TweenMax.to(gameNameInputPage, 1, { display: "none", x: -1500 });
+    TweenMax.from(gamePage, 1, { display: "none", x: 1500 });
+    TweenMax.to(gamePage, 1, { display: "grid"});
   }
 }
 
@@ -553,7 +558,7 @@ emailInputField.addEventListener("input", () => {
 
 // VARIABLES TO ANIMATE ON EMAIL PAGE - DURING GAMEPLAY
 const emailInputCTA = document.querySelector(".game-input-input-cta");
-const gameNameInputCont = document.querySelector("#game-name-input-page");
+const gameNameInputPage = document.querySelector("#game-name-input-page");
 const gameEmailInputCont = document.querySelector("#game-email-input");
 const gameEmailInputPage = document.querySelector("#email-input-page");
 
@@ -572,6 +577,7 @@ function showEmailInput() {
 
   gameEmailInputPage.style.display = "grid";
   TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
+  TweenMax.from(gameEmailInputPage, 1, { y:2000});
   // WHEN THE EMAIL INPUT IS ACCEPTED TO CONTINUE, THE USER GETS MORE TURNS
   emailInputCTA.addEventListener("click", () => {
     gameEmailInputPage.style.opacity = "0";
