@@ -8,14 +8,17 @@
   display: grid;
   align-items: center;
   justify-items: center;
-  background-color: #cab188;
+    // background:filter-gradient(#a48551, #a48551, vertical);
+    background: #eacda3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: none;
   line-height: 22px;
 
   #game-description {
     width: 80%;
     height: 50%;
-    background-color: #cab188;
+    
     z-index: 3;
     display: grid;
     align-items: center;
@@ -45,7 +48,7 @@
 
 
 
-      
+
       margin-top: 3vmin;
       line-height: 1.6;
       span {
