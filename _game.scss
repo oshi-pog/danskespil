@@ -48,7 +48,7 @@
     height: 100%;
     align-items:center;
     justify-items:center;
-    background:hsla(37, 38%, 78%, 1);
+    // background:hsla(37, 38%, 78%, 1);
     border-radius:50px;
     
     margin-bottom:5%;
@@ -116,15 +116,60 @@
   transform-style: preserve-3d;
   transition: transform 0.5s;
   
-  background: white;
-  width: 100%;
-  height:100%;
-  border-radius: 5px;
+  
+  // border-radius: 5px;
   margin: auto;
   display: grid;
   justify-items: center;
   align-items: center;
   cursor: pointer;
+  width: 70%; height: 70%;
+	
+	background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	
+	position: relative;
+
+}
+
+.memory-card:after, .memory-card:before {
+	content: '';
+	position: absolute;
+
+  z-index: -1;
+  background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+  
+}
+
+// .memory-card:after {
+// 	width: 40%; height: 40%;
+// 	top:10%; left: -10%;
+	
+// 	border-radius: 100px;
+// 	-webkit-border-radius: 100px;
+// 	-moz-border-radius: 100px;
+// }
+
+.memory-card:before {
+	width: 150%; height: 70%;
+	top: 30%; right: -25%;
+	z-index:-2;
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
 }
 
 .memory-card:active {
@@ -140,7 +185,7 @@
 .front-face,
 .back-face {
   width: auto;
-
+  margin-top:10%;
   height: 50%;
   position: absolute;
   border-radius: 5px;
@@ -234,7 +279,7 @@
       height: 40% !important;
       align-items:center;
       justify-items:center;
-      background:hsla(37, 38%, 78%, 1);
+      // background:hsla(37, 38%, 78%, 1);
       border-radius:50px;
       
       margin-bottom:5%;

@@ -210,7 +210,7 @@ const numberTickerPage = document.querySelector("#number-ticker-landing-page");
 
 numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
-  TweenMax.to(numberTicker, 1, { display: "none", x:-1500 });
+  TweenMax.to(numberTickerPage, 1, { display: "none", x:-1500 });
   // Elf Animation
   elfDescriptionAnimation();
 });
