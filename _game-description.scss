@@ -22,8 +22,12 @@
     justify-items: center;
     margin-top: -25%;
 
-    p {
+    h3 {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 12px;
     }
+
     // CHANGING PRIZE GRID, TO TAKE UP ONE COLUMN!
 
     // STYLING THE HEADINGS AND DESCRIPTION
@@ -176,7 +180,7 @@
     height: 80% !important;
     margin-top: 0 !important;
 
-    p {
+    h3 {
       line-height: 2;
       text-align: center;
       width: 46%;

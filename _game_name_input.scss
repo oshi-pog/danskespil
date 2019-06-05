@@ -70,9 +70,10 @@
 #elf-name-input {
   position: fixed;
   bottom: 0;
-  left: -10%;
-  z-index: 5;
-  height: 30%;
+  left: -11%;
+  opacity: 0;
+  z-index: 10;
+  width: 40%;
 }
 
 // WHITE BOTTOM SVG STYLING
@@ -112,7 +113,7 @@
   .game-name-input-header {
     font-size: 5vw !important;
     width: 60%;
-    line-height: 1 !important;
+    text-align: center;
   }
   .game-name-input-subheader {
     font-size: 2.5vw !important;
@@ -127,8 +128,10 @@
   #elf-name-input {
     position: fixed;
     bottom: 0;
-    left: -5% !important;
-    z-index: 100 !important;
+    left: -5%;
+    opacity: 0;
+    z-index: 10;
+    width: 25%;
   }
 }
 
@@ -140,12 +143,14 @@
   }
 
   .game-name-input-header {
-    font-size: 10vmin !important;
-    width: 100% !important;
+    font-size: 3vw !important;
+    width: 28% !important;
+    font-weight: 800 !important;
+    line-height: 1.4 !important;
   }
 
   .game-name-input-subheader {
-    font-size: 4vmin !important;
+    font-size: 1.5vw !important;
     margin-top: 0 !important;
     line-height: 1 !important;
 

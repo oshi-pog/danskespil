@@ -243,6 +243,8 @@ gameDescriptionCTA.addEventListener("click", () => {
     }
   });
   TweenMax.to(gameDescriptionPage, 1, { display: "none", x: -1500 });
+
+  elfNameAnimation();
 });
 
 // Code for the birthday input form
@@ -507,6 +509,14 @@ function elfDescriptionAnimation() {
   setTimeout(() => {
     TweenMax.to(elfDescription, 0, { opacity: 1 }),
       TweenMax.from(elfDescription, 1, { x: -1500 });
+  }, 1000);
+}
+
+let elfNameInput = document.querySelector("#elf-name-input");
+function elfNameAnimation() {
+  setTimeout(() => {
+    TweenMax.to(elfNameInput, 0, { opacity: 1 }),
+      TweenMax.from(elfNameInput, 1, { x: -1500 });
   }, 1000);
 }
 
