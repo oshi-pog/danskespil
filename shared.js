@@ -53,7 +53,7 @@ const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
   //ELF ANIMATING IN, ON AGE PAGE (1st PAGE)
-  elfAgeAnimation();
+  elfSpeechAnimation();
   setTimeout(() => {
     // TweenMax.from(gameContainer,1, {x:1500});
     // TweenMax.to(gameContainer,1, {display:'grid'});
@@ -517,10 +517,11 @@ nameInput.addEventListener("input", () => {
 
 // ELF ANIMATIONS
 
-let elfAge = document.querySelector("#elf-age");
-function elfAgeAnimation() {
-  TweenMax.to(elfAge, 0, { opacity: 1 });
-  TweenMax.from(elfAge, 1, { x: -500 });
+let elfSpeech = document.querySelector("#elf-speech");
+
+function elfSpeechAnimation() {
+  TweenMax.to(elfSpeech, 0, { opacity: 1 });
+  TweenMax.from(elfSpeech, 1, { x: -500 });
 }
 
 let elfDescription = document.querySelector("#elf-description");

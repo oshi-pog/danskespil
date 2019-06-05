@@ -9,18 +9,26 @@
   z-index: 4;
 
   // MODAL STYLING - background  #CAB188
-    // background:filter-gradient(#a48551, #a48551, vertical);
-    background: #eacda3;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background:filter-gradient(#a48551, #a48551, vertical);
+  background: #eacda3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #d6ae7b,
+    #eacda3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #d6ae7b,
+    #eacda3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #543503;
 
   #age-container {
     width: 80%;
     height: 60%;
     border-radius: 4px;
-    
-    background-color: #ECD8BE;
+
+    background-color: #ecd8be;
     align-self: center;
     justify-self: center;
     display: grid;
@@ -34,7 +42,6 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
 
     #warning-h1 {
-      
       line-height: 9vmin;
       text-align: center;
       font-size: 9.5vmin;
@@ -42,19 +49,14 @@
     }
 
     #description-p {
-      
       text-align: center;
-      
-     
     }
 
     #description-p-2 {
-     
       text-align: center;
-      width:90%;
-      
-      font-weight:600;
-      
+      width: 90%;
+
+      font-weight: 600;
     }
 
     #birthday-form {
@@ -126,37 +128,27 @@
       }
     }
   }
-  #elf-age {
-    position: absolute;
-    bottom: 5%;
-    left: -10%;
-    opacity: 0;
-    width: 40%;
-  }
-  // white bottom 
+
+  // white bottom
   .white-bottom-age-modal {
     position: absolute;
-    
-    bottom:0;
-    left:0;
+
+    bottom: 0;
+    left: 0;
     opacity: 1;
-    width:100%;
+    width: 100%;
 
     img {
-      object-fit:cover;
-      overflow:hidden;
-      height:200px;
+      object-fit: cover;
+      overflow: hidden;
+      height: 200px;
     }
-   
   }
 }
-
-
 
 //TABLET STYLES
 @media screen and (min-width: 720px) {
   #age-container {
-    
     #warning-h1 {
       font-size: 5vw !important;
     }
@@ -178,13 +170,12 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
   #age-container {
-    background-color: #ECD8BE !important;
+    background-color: #ecd8be !important;
     width: 60% !important;
     height: 40% !important;
-    margin-top:-5% !important;
+    margin-top: -5% !important;
     #warning-h1 {
       font-size: 2.5vw !important;
     }
   }
-  
 }
