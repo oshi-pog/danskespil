@@ -1,6 +1,7 @@
 import { TweenMax, Power2, TimelineLite } from "gsap/TweenMax";
 let counters = document.getElementsByClassName("number-ticker");
 let coinArray = document.querySelectorAll(".number-ticker-coin");
+const playBtn = document.querySelector("#play-btn");
 console.log(coinArray);
 
 let defaultDigitNode = document.createElement("div");
@@ -37,14 +38,16 @@ for (let i = 0; i < 10; i++) {
       setDigit(i, s[i] || 0);
     }
 
-    animateCoins();
+    if (playBtn.dataset.status == "clicked") {
+      animateCoins();
+    }
   }
 
   function animateCoins() {
     for (let x = 0; x < coinArray.length; x++) {
       setTimeout(() => {
         TweenMax.from(coinArray[x], 1, { y: -1500 });
-      }, (1000 * x) / 2);
+      }, 1000 * x + 2);
     }
   }
 

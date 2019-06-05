@@ -258,6 +258,7 @@ playBtn.addEventListener("click", function(e) {
 function playStart(e) {
   console.log("play button clicked");
   TweenMax.to(ageModal, 1, { opacity: 0, display: "none" });
+  playBtn.dataset.status = "clicked";
   // Preventing the page from reloading
 }
 // Code for name input form
@@ -602,23 +603,28 @@ function resetAfterEmail() {
 let documentHeight = document.documentElement.clientHeight;
 console.log(documentHeight);
 
-document.querySelector('main').style.height = `${documentHeight}px`;
+document.querySelector("main").style.height = `${documentHeight}px`;
 ageModal.style.height = `${documentHeight}px`;
 numberTickerPage.style.height = `${documentHeight}px`;
 gameDescriptionPage.style.height = `${documentHeight}px`;
 gameEmailInputPage.style.height = `${documentHeight}px`;
 gameWinnerFormPage.style.height = `${documentHeight}px`;
-document.querySelector('#game-name-input-page').style.height = `${documentHeight}px`;
-document.querySelector('#game-page').style.height = `${documentHeight}px`; 
+document.querySelector(
+  "#game-name-input-page"
+).style.height = `${documentHeight}px`;
+document.querySelector("#game-page").style.height = `${documentHeight}px`;
 
 // ON SUBMIT, PREVENTING DOUBLE SUBMITTING FUNCTION
 const submitBtn1 = document.querySelectorAll("input[type=submit]")[0];
 const submitBtn2 = document.querySelectorAll("input[type=submit]")[1];
 const submitBtn3 = document.querySelectorAll("input[type=submit]")[2];
 
-submitBtn1.addEventListener('submit', ()=>{submitBtn1.disabled=true});
-submitBtn2.addEventListener('submit', ()=>{submitBtn2.disabled=true});
+submitBtn1.addEventListener("submit", () => {
+  submitBtn1.disabled = true;
+});
+submitBtn2.addEventListener("submit", () => {
+  submitBtn2.disabled = true;
+});
 // submitBtn3.addEventListener('submit', ()=>{submitBtn3.disabled=true}); ERROR NOT FOUND, PROBABLY BECAUSE DISPLAY:NONE
-
 
 // .addEventListener('submit', ()=>("input[type=submit]")[0].disabled=true});
