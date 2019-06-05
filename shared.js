@@ -210,7 +210,7 @@ const numberTickerPage = document.querySelector("#number-ticker-landing-page");
 
 numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
-  TweenMax.to(numberTickerPage, 1, { display: "none", x:-1500 });
+  TweenMax.to(numberTickerPage, 1, { display: "none", x: -1500 });
   // Elf Animation
   elfDescriptionAnimation();
 });
@@ -236,9 +236,8 @@ gameDescriptionCTA.addEventListener("click", () => {
   // The game slides out
   // TweenMax.from(gamePage, 1, { x: 1500 });
   // TweenMax.to(gamePage, 1, { display: "grid" });
-  TweenMax.from(gameNameInputPage, 1 , {x:1500});
+  TweenMax.from(gameNameInputPage, 1, { x: 1500 });
   TweenMax.to(gameNameInputPage, 1, { display: "grid" });
-  
 
   document.addEventListener("keydown", event => {
     if (event.key == "Enter") {
@@ -288,7 +287,7 @@ function checkNameInput() {
     console.log(personObject);
     TweenMax.to(gameNameInputPage, 1, { display: "none", x: -1500 });
     TweenMax.from(gamePage, 1, { display: "none", x: 1500 });
-    TweenMax.to(gamePage, 1, { display: "grid"});
+    TweenMax.to(gamePage, 1, { display: "grid" });
   }
 }
 
@@ -384,7 +383,7 @@ function checkTurns() {
   //   console.log('lol turn down')
   // } else if
   // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
-  
+
   turnsCount.textContent = turnsCounter;
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
@@ -423,7 +422,7 @@ function disableCards() {
   } else if (playerScore === 6) {
     // prizeLvl4.classList.remove("inactive");
     // prizeLvl4.classList.add("active");
-    console.log('should be now')
+    console.log("should be now");
     // FUNCTION TO SHOW THE GAME WINNER INPUT PAGE, WHEN THE PLAYERS SCORE IS 6
     showWinnerFormPage();
   }
@@ -465,13 +464,11 @@ function unflipCards() {
     case 10:
       TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
       // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
-      emailHeader.innerHTML =
-      "More Hearts!";
+      emailHeader.innerHTML = "More Hearts!";
       emailInputCTA.value = "Try again!";
       emailStatusemailStatus = true;
       break;
   }
-
 
   setTimeout(() => {
     firstCard.classList.remove("flip");
@@ -577,12 +574,11 @@ let emailHeader = document.querySelector(".game-email-input-header");
 // SHOWING THE EMAIL FIELD
 function showEmailInput() {
   if (turnsCounter === 0) {
-    
   }
 
   gameEmailInputPage.style.display = "grid";
   TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
-  TweenMax.from(gameEmailInputPage, 1, { y:2000});
+  TweenMax.from(gameEmailInputPage, 1, { y: 2000 });
   // WHEN THE EMAIL INPUT IS ACCEPTED TO CONTINUE, THE USER GETS MORE TURNS
   emailInputCTA.addEventListener("click", () => {
     gameEmailInputPage.style.opacity = "0";
@@ -658,7 +654,6 @@ submitBtn2.addEventListener("submit", () => {
 // submitBtn3.addEventListener('submit', ()=>{submitBtn3.disabled=true}); ERROR NOT FOUND, PROBABLY BECAUSE DISPLAY:NONE
 
 // .addEventListener('submit', ()=>("input[type=submit]")[0].disabled=true});
-
 
 // let coinGroup = document.querySelector('#coin_copy');
 
