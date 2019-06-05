@@ -125,6 +125,9 @@ ageModalYear.addEventListener("keypress", e => {
   }
 });
 
+let speechBubbleHeader = null;
+let speechBubbleSubHeader = null;
+
 //See if user is over 18
 // https://stackoverflow.com/questions/10008050/get-age-from-birthdate/10008175
 function validateAge(userYear, userMonth, userDay) {
@@ -143,6 +146,8 @@ function validateAge(userYear, userMonth, userDay) {
   if (age >= 18) {
     playStart();
   } else {
+    speechBubbleHeader = "To play in the casino you have to be over 18.";
+    speechBubbleSubHeader = "";
     showSpeechBubble();
   }
 }
@@ -159,8 +164,14 @@ function elfSpeechAnimation() {
 
 let speechBubbleOverlay = document.querySelector(".speech-bubble-overlay");
 let speechBubble = document.querySelector(".speech-bubble");
+let speechBubbleHeaderNode = document.querySelector(".speech-bubble-header");
+let speechBubbleSubHeaderNode = document.querySelector(
+  ".speech-bubble-subheader"
+);
 
 function showSpeechBubble() {
+  speechBubbleHeaderNode.innerHTML = speechBubbleHeader;
+  speechBubbleSubHeaderNode.innerHTML = speechBubbleSubHeader;
   elfSpeechAnimation();
   speechBubbleOverlay.style.display = "block";
   speechBubble.style.display = "flex";
