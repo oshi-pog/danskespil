@@ -24,7 +24,7 @@ function openOverlayMenu() {
   bottomMenuOverlay.style.height = "80%";
 
   menuStatus = "open";
-  console.log(menuStatus);
+  //console.log(menuStatus);
 }
 
 function closeOverlayMenu() {
@@ -38,5 +38,5 @@ function closeOverlayMenu() {
   setTimeout(() => {
     bottomOverlay.style.height = "0";
   }, 300);
-  console.log(menuStatus);
+  //console.log(menuStatus);
 }

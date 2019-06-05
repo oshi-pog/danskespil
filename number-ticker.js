@@ -54,7 +54,7 @@ for (let i = 0; i < 10; i++) {
 
     for (let x = 0; x < coinArray.length; x++) {
       setTimeout(() => {
-        TweenMax.from(coinArray[x], 1, { y: -1500 });
+        TweenMax.from(coinArray[x], 2, { ease: Power2.easeIn, y: -1500 });
       }, 1000 * x + 2);
     }
   }
