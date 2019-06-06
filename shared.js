@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
       TweenMax.to(ageModalDay, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      speechBubbleHeader = "Hey! You forgot to put in your age!";
+      speechBubbleHeader = "Hey! You forgot to put in your age.";
       showSpeechBubble();
       console.log("hello");
     }
@@ -84,14 +84,14 @@ window.addEventListener("DOMContentLoaded", () => {
       TweenMax.to(ageModalMonth, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      speechBubbleHeader = "Hey! You forgot to put in your age!";
+      speechBubbleHeader = "Hey! You forgot to put in your age.";
       showSpeechBubble();
     }
     if (!ageModalYear.value) {
       TweenMax.to(ageModalYear, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      speechBubbleHeader = "Hey! You forgot to put in your age!";
+      speechBubbleHeader = "Hey! You forgot to put in your age.";
       showSpeechBubble();
     }
   });
@@ -375,6 +375,7 @@ function playStart(e) {
   //console.log("play button clicked");
 
   TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
+  hideSpeechBubble();
   //TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
 
