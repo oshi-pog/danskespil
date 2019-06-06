@@ -722,7 +722,10 @@ function showEmailInput() {
   if (turnsCounter === 0) {
   }
   speechBubbleHeader = `It really is your lucky day!`;
-  showSpeechBubble();
+  setTimeout(()=>{
+    showSpeechBubble();
+  },1000);
+  
   gameEmailInputPage.style.display = "grid";
   TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
   TweenMax.from(gameEmailInputPage, 1, { y: 2000 });
@@ -751,7 +754,10 @@ function showWinnerFormPage() {
   //ADD VALUE FOR NAME
   const finalName = document.querySelector("#name-final");
   finalName.value = personObject.Name;
-
+  speechBubbleHeader = `You'll receive your prize in your email address. Thanks for playing!`;
+  setTimeout(()=>{
+    showSpeechBubble();
+  },1000);
   //ADD VALUE FOR EMAIL IF IT IS ALREADY ADDED
   if (emailStatus == true) {
     const finalEmail = document.querySelector("#email-final");
