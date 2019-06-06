@@ -347,6 +347,7 @@ const birthdayForm = document.querySelector("#birthday-form");
 function playStart(e) {
   //console.log("play button clicked");
   TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
+  TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
 
   numberTickerCTA.addEventListener("click", () => {
@@ -500,28 +501,37 @@ function disableCards() {
   playerScore++;
   console.log(playerScore);
   // Applying styling to levels based on score
-  if (playerScore === 2) {
+  if (playerScore === 1) {
    
     scoreContainer.removeChild(score0);
-   scoreContainer.appendChild(score100);
+   
    TweenMax.to(score100, 0, {display:'block'})
-   TweenMax.from(score100, 1, {y:1000})
+   TweenMax.from(score100, 1, {y:-1000, x:-100, scale:6})
     // prizeLvl2.classList.remove("inactive");
     // prizeLvl2.classList.add("active");
-  } else if (playerScore === 4) {
-    // prizeLvl3.classList.remove("inactive");
-    // prizeLvl3.classList.add("active");
-    if (emailStatus == true) {
-      return;
-    } else {
-      showEmailInput();
-    }
+  } else if (playerScore === 3) {
+    scoreContainer.removeChild(score100);
+   
+   TweenMax.to(score250, 0, {display:'block'})
+   TweenMax.from(score250, 1, {y:-1000, x:-100, scale:6})
+    
+  } else if (playerScore === 5) {
+    scoreContainer.removeChild(score250);
+   
+   TweenMax.to(score500, 0, {display:'block'})
+   TweenMax.from(score500, 1, {y:-1000, x:-100, scale:6})
   } else if (playerScore === 6) {
-    // prizeLvl4.classList.remove("inactive");
-    // prizeLvl4.classList.add("active");
-    console.log("should be now");
-    // FUNCTION TO SHOW THE GAME WINNER INPUT PAGE, WHEN THE PLAYERS SCORE IS 6
+    scoreContainer.removeChild(score500);
+   
+   TweenMax.to(score1000, 0, {display:'block'});
+   TweenMax.from(score1000, 1, {y:-1000, x:-100, scale:6})
+   // TIME OUT FOR EMAIL PAGE
+   setTimeout(() => {
+    
+
     showWinnerFormPage();
+  }, 1500);
+    
   }
 }
 
