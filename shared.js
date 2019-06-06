@@ -76,25 +76,24 @@ window.addEventListener("DOMContentLoaded", () => {
       TweenMax.to(ageModalDay, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      speechBubbleHeader = 'Hey! You forgot to put in your age!'
+      speechBubbleHeader = "Hey! You forgot to put in your age!";
       showSpeechBubble();
-      console.log('hello');
-    } 
-    if(!ageModalMonth.value) {
+      console.log("hello");
+    }
+    if (!ageModalMonth.value) {
       TweenMax.to(ageModalMonth, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      speechBubbleHeader = 'Hey! You forgot to put in your age!'
+      speechBubbleHeader = "Hey! You forgot to put in your age!";
       showSpeechBubble();
     }
     if (!ageModalYear.value) {
       TweenMax.to(ageModalYear, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      speechBubbleHeader = 'Hey! You forgot to put in your age!'
+      speechBubbleHeader = "Hey! You forgot to put in your age!";
       showSpeechBubble();
     }
-   
   });
 });
 
@@ -185,7 +184,6 @@ function validateAge(userYear, userMonth, userDay) {
     // playStart();
 
     if ((userDay.length < 2) | (userMonth.length < 2) | (userYear.length < 4)) {
-      console.log("fasz");
     } else {
       playBtn.addEventListener("click", function(e) {
         playStart(e);
@@ -513,7 +511,6 @@ function checkTurns() {
   turnsCount.textContent = turnsCounter;
   if (turnsCounter === 0) {
     cards.forEach(card => card.removeEventListener("click", flipCard));
-    showEmailInput();
   }
 }
 
@@ -599,6 +596,7 @@ function unflipCards() {
     case 10:
       TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
       // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
+      showEmailInput();
       emailHeader.innerHTML = "More Hearts!";
       emailInputCTA.value = "Try again!";
       emailStatus = true;
@@ -729,6 +727,24 @@ const gameWinnerFormPage = document.querySelector("#game-winner-form-page");
 function showWinnerFormPage() {
   gameWinnerFormPage.style.display = "grid";
   TweenMax.to(gameWinnerFormPage, 1, { opacity: 1 });
+
+  //ADD VALUE FOR NAME
+  const finalName = document.querySelector("#name-final");
+  finalName.value = personObject.Name;
+
+  //ADD VALUE FOR EMAIL IF IT IS ALREADY ADDED
+  if (emailStatus == true) {
+    const finalEmail = document.querySelector("#email-final");
+    finalEmail.value = personObject.Email;
+  }
+
+  //ADD VALUE FOR BIRTHDATE
+  const dayFinal = document.querySelector("#day-final");
+  dayFinal.value = personObject.BirthDate.slice(6, 8);
+  const monthFinal = document.querySelector("#month-final");
+  monthFinal.value = personObject.BirthDate.slice(4, 6);
+  const yearFinal = document.querySelector("#year-final");
+  yearFinal.value = personObject.BirthDate.slice(0, 4);
 }
 
 // FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
