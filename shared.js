@@ -53,7 +53,9 @@ const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
   // ELF LOADS IN LANDING ANIMATION
-  
+  playBtn.addEventListener("click", function(e) {
+    playStart(e);
+  });
   elfSpeechAnimation();
   // speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
   // setTimeout(() => {
@@ -147,9 +149,7 @@ function validateAge(userYear, userMonth, userDay) {
  // TO DO 1
   if (age >= 18) {
     // playStart();
-    playBtn.addEventListener("click", function(e) {
-      playStart(e);
-    });
+    
     hideSpeechBubble();
     playBtn.value = 'START WINNING';
   } else {
