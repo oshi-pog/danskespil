@@ -71,6 +71,28 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   nameInputCTA.addEventListener("click", checkNameInput);
+
+  // AGE MODAL INITIAL EVENT LISTENER TO SEE IF BLANK
+  playBtn.addEventListener("click", function(e) {
+    if (!ageModalDay.value) {
+      TweenMax.to(ageModalDay, 0, {
+        boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+      });
+      console.log('hello');
+    } 
+    if(!ageModalMonth.value) {
+      TweenMax.to(ageModalMonth, 0, {
+        boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+      });
+    }
+    if(!ageModalYear.value) {
+      TweenMax.to(ageModalYear, 0, {
+        boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+      });
+    }
+    speechBubbleHeader = 'Hey! You forgot to put in your age!'
+    showSpeechBubble();
+  });
 });
 
 // AGE MODAL PAGE VALIDATION !!
@@ -163,6 +185,20 @@ function validateAge(userYear, userMonth, userDay) {
       console.log("fasz");
     } else {
       playBtn.addEventListener("click", function(e) {
+        if (!ageModalDay.value) {
+          TweenMax.to(ageModalDay, 0, {
+            boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+          });
+          console.log('hello');
+        } else if(!ageModalMonth.value) {
+          TweenMax.to(ageModalMonth, 0, {
+            boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+          });
+        } else if(!ageModalYear.value) {
+          TweenMax.to(ageModalYear, 0, {
+            boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
+          });
+        }
         playStart(e);
       });
     }
@@ -205,7 +241,7 @@ function showSpeechBubble() {
   //Add text to speech bubbles
   speechBubbleHeaderNode.innerHTML = speechBubbleHeader;
   speechBubbleSubHeaderNode.innerHTML = speechBubbleSubHeader;
-
+  console.log('speech bubble shown')
   //rotate elf
   TweenMax.to(elfSpeech, 0.2, { rotation: -1 });
   setTimeout(() => {
@@ -350,6 +386,7 @@ const birthdayForm = document.querySelector("#birthday-form");
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
   //console.log("play button clicked");
+  
   TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
   TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
