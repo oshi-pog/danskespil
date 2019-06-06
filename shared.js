@@ -388,7 +388,7 @@ function playStart(e) {
   //console.log("play button clicked");
   
   TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
-  TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
+  //TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
 
   numberTickerCTA.addEventListener("click", () => {
@@ -417,6 +417,7 @@ function checkNameInput() {
     TweenMax.to(gameNameInputPage, 1, { display: "none", x: -1500 });
     TweenMax.from(gamePage, 1, { display: "none", x: 1500 });
     TweenMax.to(gamePage, 1, { display: "grid" });
+    hideSpeechBubble();
   }
 }
 
