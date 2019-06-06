@@ -51,7 +51,7 @@ const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
   // ELF LOADS IN LANDING ANIMATION
-
+  shuffle();
   elfSpeechAnimation();
   // speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
   // setTimeout(() => {
