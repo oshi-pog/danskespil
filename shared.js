@@ -76,17 +76,11 @@ window.addEventListener("DOMContentLoaded", () => {
       TweenMax.to(ageModalDay, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-<<<<<<< HEAD
-      console.log("hello");
-    }
-    if (!ageModalMonth.value) {
-=======
       speechBubbleHeader = 'Hey! You forgot to put in your age!'
       showSpeechBubble();
       console.log('hello');
     } 
     if(!ageModalMonth.value) {
->>>>>>> 4ad81f42cbb66e77d91994d613e8c24e840ed9f1
       TweenMax.to(ageModalMonth, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
@@ -100,12 +94,7 @@ window.addEventListener("DOMContentLoaded", () => {
       speechBubbleHeader = 'Hey! You forgot to put in your age!'
       showSpeechBubble();
     }
-<<<<<<< HEAD
-    speechBubbleHeader = "Hey! You forgot to put in your age!";
-    showSpeechBubble();
-=======
    
->>>>>>> 4ad81f42cbb66e77d91994d613e8c24e840ed9f1
   });
 });
 
@@ -199,24 +188,6 @@ function validateAge(userYear, userMonth, userDay) {
       console.log("fasz");
     } else {
       playBtn.addEventListener("click", function(e) {
-<<<<<<< HEAD
-        if (!ageModalDay.value) {
-          TweenMax.to(ageModalDay, 0, {
-            boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
-          });
-          console.log("hello");
-        } else if (!ageModalMonth.value) {
-          TweenMax.to(ageModalMonth, 0, {
-            boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
-          });
-        } else if (!ageModalYear.value) {
-          TweenMax.to(ageModalYear, 0, {
-            boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
-          });
-        }
-=======
-        
->>>>>>> 4ad81f42cbb66e77d91994d613e8c24e840ed9f1
         playStart(e);
       });
     }
