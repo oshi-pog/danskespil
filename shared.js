@@ -114,15 +114,14 @@ let userMonth = ageModalMonth.value;
 let userYear = ageModalYear.value;
 // adding input listeners to each input field
 // KEYPRESS CHECKING FOR NUMBERS ONLY!!
+
 function keyPressCheck(event) {
   let char = event.which;
-  //console.log(char);
-  // Checking to see if characters being input via the key press event, match any alphabetical letters, if so, prevent the textbox from allowing it
   if (char > 31 && (char < 48 || char > 57)) {
     event.preventDefault();
-    console.log(userYear[0]);
   }
 }
+
 // Maximum days check
 // function maxDaysCheck(e, regDay){
 //   if (){
@@ -132,6 +131,8 @@ function keyPressCheck(event) {
 
 // Adding keypress with event when ageModalDay has a value entered
 ageModalDay.addEventListener("keypress", e => {
+  keyPressCheck(e);
+
   if (userDay.length >= 1) {
     ageModalDay.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
@@ -139,13 +140,14 @@ ageModalDay.addEventListener("keypress", e => {
       addPersonObjectAge();
     });
   }
-  keyPressCheck(e);
 });
 ageModalMonth.addEventListener("keypress", e => {
   keyPressCheck(e);
+
   if (userMonth.length >= 1) {
     ageModalMonth.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
+
       addPersonObjectAge();
     });
   }
@@ -153,11 +155,10 @@ ageModalMonth.addEventListener("keypress", e => {
 ageModalYear.addEventListener("keypress", e => {
   keyPressCheck(e);
 
-  //Create date string for validation
-
   if (userYear.length >= 3) {
     ageModalYear.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
+
       addPersonObjectAge();
     });
   }
@@ -815,6 +816,7 @@ const gameWinnerCTA = document.querySelector(".game-winner-cta");
 
 gameWinnerCTA.addEventListener("click", () => {
   event.preventDefault();
+  personObject.Email = userEmail;
   postData(personObject);
 
   gameWinnerCTA.disabled = "true";
