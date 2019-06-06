@@ -25,11 +25,11 @@
     justify-items: center;
     
 
-    h3 {
-      text-align: center;
-      font-size: 16px;
-      margin-top: 12px;
-    }
+    // h3 {
+    //   text-align: center;
+    //   font-size: 16px;
+    //   margin-top: 12px;
+    // }
 
     // CHANGING PRIZE GRID, TO TAKE UP ONE COLUMN!
 
@@ -44,20 +44,14 @@
     }
 
     .game-description-subheader {
-      font-weight: 200;
-
-
-
 
       margin-top: 3vmin;
       line-height: 1.6;
+      font-size: 5vmin;
       span {
         font-weight: bold;
       }
-      h3 {
-        text-align: center;
-        font-size: 5vw;
-      }
+      
     }
 
     .game-description-cta {
@@ -96,6 +90,32 @@
   opacity: 0;
   z-index: 10;
   width: 40%;
+}
+
+// SCORE GRID DESCRIPTION PAGE
+#game-description-score-container {
+  display:grid;
+  width:50%;
+  height:auto;
+  grid-template-columns:1fr 0.2fr 1fr;
+  align-items:center;
+  justify-items:center;
+  
+ 
+  
+  img {
+    width:auto;
+    height:5vmin;
+  }
+
+  .score-amount {
+    font-size:4vmin;
+   
+  }
+
+  .equals {
+    font-size:6vmin;
+  }
 }
 
 // PRIZE GRID ON DESCRIPTION PAGE
@@ -194,8 +214,8 @@
   }
 
   .game-description-header {
-    font-size: 3vw !important;
-    width: 28% !important;
+    font-size: 8vmin !important;
+    width: 100% !important;
     font-weight: 800 !important;
     line-height: 1.4 !important;
   }
@@ -203,8 +223,9 @@
   .game-description-subheader {
     font-size: 3vmin !important;
     margin-top: 0 !important;
-    line-height: 4vmin !important;
-    width: 88% !important;
+    line-height: 5vmin !important;
+    width: 100% !important;
+    font-weight:200;
 
     span {
       font-weight: bold !important;

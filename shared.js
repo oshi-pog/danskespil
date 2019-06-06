@@ -329,6 +329,7 @@ numberTickerCTA.addEventListener("click", function(e) {
   TweenMax.to(numberTickerPage, 1, { display: "none", x: -1500 });
   // Elf Animation
   //elfDescriptionAnimation();
+  
 });
 
 // Storing the game description here
@@ -340,6 +341,7 @@ function startDescription(e) {
   console.log("it should run");
   TweenMax.from(gameDescriptionPage, 1, { x: 1500 });
   TweenMax.to(gameDescriptionPage, 1, { display: "grid" });
+  
 
   // Bottom menu slides away
   TweenMax.to(bottomMenu, 1, { y: 500, display: "none" });
@@ -816,3 +818,15 @@ gameWinnerCTA.addEventListener("click", () => {
 
   gameWinnerCTA.disabled = "true";
 });
+
+// ANIMATING SCORES
+// let scoreAmountArray = document.querySelectorAll('.score-amount');
+// let scoreEquals = document.querySelectorAll('.equals');
+
+// let scoreSVG = document.querySelectorAll('.score-svg-description');
+
+// function scoreAnimateDescriptionPage () {
+//   scoreAmountArray.forEach(scoreAmount => {
+//     TweenMax.from(scoreAmount, 1, {opacity:0})
+//   })
+// }

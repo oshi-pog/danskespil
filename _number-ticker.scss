@@ -155,9 +155,10 @@ html {
 //DESKTOP STYLES
 @media screen and (min-width: 1024px) {
   .number-ticker-content-1 {
-    font-size: 6vmin;
+    font-size: 6vmin !important;
     width: 100% !important;
   }
+  
   .number-ticker-content-2 {
     font-size: 1.5vw;
     width: 100% !important;
