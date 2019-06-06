@@ -198,9 +198,7 @@ function validateAge(userYear, userMonth, userDay) {
       playStart(e);
     });
     playBtn.value = "SORRY, TOO YOUNG!";
-    playBtn.onclick = function() {
-      window.location.replace("https://www.arkadium.com/free-online-games/");
-    };
+    
     playBtn.disable;
     // TweenMax.to(ageModalDay, 1, {opacity:0})
     speechBubbleHeader = "Oh no! You have to be over 18 to play Casino.";
@@ -415,7 +413,7 @@ function checkNameInput() {
 
 function openOverlayMenu() {
   bottomMenuContent.style.height = "100%";
-  bottomMenuOverlay.style.height = "82.5%";
+  bottomMenuOverlay.style.height = `92.5%`;
 
   menuStatus = "open";
   console.log(menuStatus);
