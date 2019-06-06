@@ -824,10 +824,12 @@ submitBtn2.addEventListener("submit", () => {
 
 //WINNER FORM
 const gameWinnerCTA = document.querySelector(".game-winner-cta");
+const finalEmail = document.querySelector("#email-final");
 
 gameWinnerCTA.addEventListener("click", () => {
   event.preventDefault();
-  personObject.Email = userEmail;
+
+  personObject.Email = finalEmail.value;
   postData(personObject);
 
   gameWinnerCTA.disabled = "true";
