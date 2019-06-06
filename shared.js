@@ -223,7 +223,7 @@ function showSpeechBubble() {
   TweenMax.to(speechBubble, 0, { y: -1000 });
   TweenMax.to(speechBubble, 1, { y: 0 });
 
-  document.querySelector("body").addEventListener("click", hideSpeechBubble);
+  speechBubble.addEventListener("click", hideSpeechBubble);
 }
 
 function hideSpeechBubble() {
@@ -237,7 +237,7 @@ function hideSpeechBubble() {
   //   // speechBubbleOverlay.style.display = "none";
   //   speechBubble.style.display = "none";
   // }, 1000);
-  document.querySelector("body").removeEventListener("click", hideSpeechBubble);
+  speechBubble.removeEventListener("click", hideSpeechBubble);
 }
 
 // DAY, also FOCUSING on the next INPUT FIELD
@@ -433,12 +433,12 @@ turnsCount.textContent = turnsCounter;
 // let prizeLvl4 = document.querySelector("#lvl4");
 
 // SCORE VARIABLES
-let score0 = document.querySelector('.score-0');
-let score100 = document.querySelector('.score-100');
-let score250 = document.querySelector('.score-250');
-let score500 = document.querySelector('.score-500');
-let score1000 = document.querySelector('.score-1000');
-let scoreContainer = document.querySelector('#score-main');
+let score0 = document.querySelector(".score-0");
+let score100 = document.querySelector(".score-100");
+let score250 = document.querySelector(".score-250");
+let score500 = document.querySelector(".score-500");
+let score1000 = document.querySelector(".score-1000");
+let scoreContainer = document.querySelector("#score-main");
 // STYLING THE HEARTS
 let playerHeart1 = document.querySelector("#heart-1");
 let playerHeart2 = document.querySelector("#heart-2");
@@ -508,36 +508,31 @@ function disableCards() {
   console.log(playerScore);
   // Applying styling to levels based on score
   if (playerScore === 1) {
-   
     scoreContainer.removeChild(score0);
-   
-   TweenMax.to(score100, 0, {display:'block'})
-   TweenMax.from(score100, 1, {y:-1000, x:-100, scale:6})
+
+    TweenMax.to(score100, 0, { display: "block" });
+    TweenMax.from(score100, 1, { y: -1000, x: -100, scale: 6 });
     // prizeLvl2.classList.remove("inactive");
     // prizeLvl2.classList.add("active");
   } else if (playerScore === 3) {
     scoreContainer.removeChild(score100);
-   
-   TweenMax.to(score250, 0, {display:'block'})
-   TweenMax.from(score250, 1, {y:-1000, x:-100, scale:6})
-    
+
+    TweenMax.to(score250, 0, { display: "block" });
+    TweenMax.from(score250, 1, { y: -1000, x: -100, scale: 6 });
   } else if (playerScore === 5) {
     scoreContainer.removeChild(score250);
-   
-   TweenMax.to(score500, 0, {display:'block'})
-   TweenMax.from(score500, 1, {y:-1000, x:-100, scale:6})
+
+    TweenMax.to(score500, 0, { display: "block" });
+    TweenMax.from(score500, 1, { y: -1000, x: -100, scale: 6 });
   } else if (playerScore === 6) {
     scoreContainer.removeChild(score500);
-   
-   TweenMax.to(score1000, 0, {display:'block'});
-   TweenMax.from(score1000, 1, {y:-1000, x:-100, scale:6})
-   // TIME OUT FOR EMAIL PAGE
-   setTimeout(() => {
-    
 
-    showWinnerFormPage();
-  }, 1500);
-    
+    TweenMax.to(score1000, 0, { display: "block" });
+    TweenMax.from(score1000, 1, { y: -1000, x: -100, scale: 6 });
+    // TIME OUT FOR EMAIL PAGE
+    setTimeout(() => {
+      showWinnerFormPage();
+    }, 1500);
   }
 }
 
