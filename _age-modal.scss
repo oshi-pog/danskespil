@@ -50,6 +50,8 @@
 
     #description-p {
       text-align: center;
+      font-size:4vmin;
+      align-self:center;
     }
 
     #description-p-2 {
@@ -178,4 +180,11 @@
       font-size: 2.5vw !important;
     }
   }
+
+  #description-p {
+    text-align: center;
+    font-size:3vmin !important;
+    align-self:center;
+  }
+  
 }

@@ -53,12 +53,12 @@ window.addEventListener("DOMContentLoaded", () => {
   // ELF LOADS IN LANDING ANIMATION
   shuffle();
   elfSpeechAnimation();
-  // speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
-  // setTimeout(() => {
-  //   // TweenMax.from(gameContainer,1, {x:1500});
-  //   // TweenMax.to(gameContainer,1, {display:'grid'});
-  // }, 1000);
-  //Add event listener to burger icon and run function to open or close it based on it's current status
+  speechBubbleHeader = 'Enter your birthday above to start playing.';
+  setTimeout(() => {
+    showSpeechBubble();
+  }, 500);
+  
+
   burgerIcon.addEventListener("click", () => {
     event.preventDefault();
     if (menuStatus == "closed") {
@@ -330,6 +330,8 @@ const numberTickerPage = document.querySelector("#number-ticker-landing-page");
 
 numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
+  hideSpeechBubble();
+  // TweenMax.to(elfSpeech,0.5, {display:'none'});
   TweenMax.to(numberTickerPage, 1, { display: "none", x: -1500 });
   // Elf Animation
   //elfDescriptionAnimation();
@@ -382,6 +384,10 @@ function playStart(e) {
   hideSpeechBubble();
   //TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
+  speechBubbleHeader = `Now's your chance to win up to 1000 kroner!`;
+  setTimeout(() => {
+    showSpeechBubble();
+  }, 1200);
 
   numberTickerCTA.addEventListener("click", () => {
     let coinArray = document.querySelectorAll(".number-ticker-coin");
@@ -409,7 +415,12 @@ function checkNameInput() {
     TweenMax.to(gameNameInputPage, 1, { display: "none", x: -1500 });
     TweenMax.from(gamePage, 1, { display: "none", x: 1500 });
     TweenMax.to(gamePage, 1, { display: "grid" });
-    hideSpeechBubble();
+    hideSpeechBubble();7
+    TweenMax.to(elfSpeech, 0.5, {opacity:0, display:'none'});
+    setTimeout(()=>{
+      elfSpeechAnimation();
+    }, 1000);
+    
   }
 }
 

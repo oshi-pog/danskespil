@@ -216,16 +216,16 @@
   }
 
   .game-description-header {
-    font-size: 8vmin !important;
+    font-size: 7vmin !important;
     width: 100% !important;
     font-weight: 800 !important;
-    line-height: 1.4 !important;
+    line-height: 7vmin !important;
   }
 
   .game-description-subheader {
-    font-size: 3vmin !important;
+    font-size: 2vmin !important;
     margin-top: 0 !important;
-    line-height: 5vmin !important;
+    line-height: 3vmin !important;
     width: 100% !important;
     font-weight:200;
 
@@ -241,5 +241,13 @@
         font-size: 2.5vw !important;
       }
     }
+  }
+
+  .game-description-hearts-image {
+    margin: 0 !important;
+  }
+
+  .game-description-cta {
+      width:30% !important;
   }
 }

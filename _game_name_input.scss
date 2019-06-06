@@ -52,6 +52,7 @@
 
     .game-name-input-subheader {
       font-weight: 200;
+      text-align:center;
       span {
         font-weight: 800 !important;
       }
@@ -141,21 +142,21 @@
 //DESKTOP STYLES
 @media screen and (min-width: 1024px) {
   #game-name-input {
-    height: 65% !important;
-    margin-top: 0% !important;
+    height: 60% !important;
+    margin-top: -10% !important;
   }
 
   .game-name-input-header {
-    font-size: 9vmin !important;
-    width: 80% !important;
+    font-size: 7vmin !important;
+    width: 100% !important;
     font-weight: 800 !important;
-    line-height: 1.4 !important;
+    line-height: 7vmin !important;
   }
 
   .game-name-input-subheader {
     font-size: 4vmin !important;
     margin-top: 0 !important;
-    line-height: 1 !important;
+    line-height: 4vmin !important;
 
     span {
       font-weight: 800 !important;
@@ -189,6 +190,6 @@
 
   #name-input-field {
     width:20% !important;
-    font-size:100% !important;
+    
   }
 }
