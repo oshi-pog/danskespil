@@ -222,9 +222,12 @@ function showSpeechBubble() {
   TweenMax.to(speechBubble, 1, { opacity: 1 });
   TweenMax.to(speechBubble, 0, { y: -1000 });
   TweenMax.to(speechBubble, 1, { y: 0 });
+
+  document.querySelector("body").addEventListener("click", hideSpeechBubble);
 }
 
 function hideSpeechBubble() {
+  console.log("close that shit");
   // TweenMax.to(speechBubbleOverlay, 0, { opacity: 1 });
   // TweenMax.to(speechBubble, 0, { opacity: 1 });
   // TweenMax.to(speechBubbleOverlay, 1, { opacity: 0 });
@@ -234,6 +237,7 @@ function hideSpeechBubble() {
   //   // speechBubbleOverlay.style.display = "none";
   //   speechBubble.style.display = "none";
   // }, 1000);
+  document.querySelector("body").removeEventListener("click", hideSpeechBubble);
 }
 
 // DAY, also FOCUSING on the next INPUT FIELD
@@ -301,7 +305,7 @@ numberTickerCTA.addEventListener("click", function(e) {
   startDescription(e);
   TweenMax.to(numberTickerPage, 1, { display: "none", x: -1500 });
   // Elf Animation
-  elfDescriptionAnimation();
+  //elfDescriptionAnimation();
 });
 
 // Storing the game description here
@@ -335,7 +339,7 @@ gameDescriptionCTA.addEventListener("click", () => {
   });
   TweenMax.to(gameDescriptionPage, 1, { display: "none", x: -1500 });
 
-  elfNameAnimation();
+  //elfNameAnimation();
 });
 
 // Code for the birthday input form
@@ -365,7 +369,9 @@ function playStart(e) {
 // source: https://www.w3resource.com/javascript/form/non-empty-field.php
 function checkNameInput() {
   if (nameInput.value.length == 0) {
-    alert("Please add your name to start winning the trillions.");
+    speechBubbleHeader = "Oh no! You forgot to add your name!.";
+    speechBubbleSubHeader = "";
+    showSpeechBubble();
     return false;
   } else {
     personObject.Name = nameInput.value;
