@@ -80,9 +80,9 @@ const ageModalYear = document.querySelector("#year");
 
 //// VALIDATING THE INPUT FOR DAY, MONTH, YEAR
 // Regular expressions, how they should match
-let regDay = /^[0-9]{2,2}$/;
-let regMonth = /^[0-9]{2,2}$/;
-let regYear = /^[0-9]{4,4}$/;
+let regDay = /(0)([1-9])|(1|2)([0-9])|(3)(0|1)/;
+let regMonth = /^(0[1-9]|1[012])$/;
+let regYear = /^(19|20)\d{2}$/;
 
 // The value of the inputs on the age modal
 let userDay = ageModalDay.value;
