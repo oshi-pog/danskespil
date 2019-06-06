@@ -52,11 +52,14 @@ let nameInput = document.querySelector("#name-input-field");
 const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
-  speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
-  setTimeout(() => {
-    // TweenMax.from(gameContainer,1, {x:1500});
-    // TweenMax.to(gameContainer,1, {display:'grid'});
-  }, 1000);
+  // ELF LOADS IN LANDING ANIMATION
+  
+  elfSpeechAnimation();
+  // speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
+  // setTimeout(() => {
+  //   // TweenMax.from(gameContainer,1, {x:1500});
+  //   // TweenMax.to(gameContainer,1, {display:'grid'});
+  // }, 1000);
   //Add event listener to burger icon and run function to open or close it based on it's current status
   burgerIcon.addEventListener("click", () => {
     event.preventDefault();
@@ -141,11 +144,23 @@ function validateAge(userYear, userMonth, userDay) {
   if (userMonth - 1 == today_month && today_day < userDay) {
     age--;
   }
-
+ // TO DO 1
   if (age >= 18) {
-    playStart();
+    // playStart();
+    playBtn.addEventListener("click", function(e) {
+      playStart(e);
+    });
+    hideSpeechBubble();
+    playBtn.value = 'START WINNING';
   } else {
-    speechBubbleHeader = "To play in the casino you have to be over 18.";
+    // The speech bubble will show
+    playBtn.removeEventListener("click", function(e) {
+      playStart(e);
+    });
+    playBtn.value = 'SORRY, TOO YOUNG!';
+    playBtn.disable;
+    // TweenMax.to(ageModalDay, 1, {opacity:0})
+    speechBubbleHeader = "Oh no! You have to be over 18 to play Casino.";
     speechBubbleSubHeader = "";
     showSpeechBubble();
   }
@@ -153,43 +168,53 @@ function validateAge(userYear, userMonth, userDay) {
 
 let elfSpeech = document.querySelector("#elf-speech");
 
+
+
 function elfSpeechAnimation() {
-  TweenMax.to(elfSpeech, 0, { opacity: 1 });
+  TweenMax.to(elfSpeech, 0, { opacity: 1, display:'block' });
   TweenMax.from(elfSpeech, 1, { x: -500 });
-  TweenMax.to(elfSpeech, 1, {
-    x: 0
-  });
 }
 
-let speechBubbleOverlay = document.querySelector(".speech-bubble-overlay");
+// let speechBubbleOverlay = document.querySelector(".speech-bubble-overlay");
 let speechBubble = document.querySelector(".speech-bubble");
 let speechBubbleHeaderNode = document.querySelector(".speech-bubble-header");
 let speechBubbleSubHeaderNode = document.querySelector(
   ".speech-bubble-subheader"
 );
 
+// Showing the speech bubble
 function showSpeechBubble() {
   speechBubbleHeaderNode.innerHTML = speechBubbleHeader;
   speechBubbleSubHeaderNode.innerHTML = speechBubbleSubHeader;
-  elfSpeechAnimation();
-  speechBubbleOverlay.style.display = "block";
+  // elfSpeechAnimation();
+  // speechBubbleOverlay.style.display = "block";
+  // ELF ROTATES WHEN THE SPEECH BUBBLE IS SHOWN
+  TweenMax.to(elfSpeech, 0.2, {rotation:-1})
+  setTimeout(()=>{
+    TweenMax.to(elfSpeech, 0.2, {rotation:2})
+  }, 200)
+
+  setTimeout(()=>{
+    TweenMax.to(elfSpeech, 0.2, {rotation:0})
+  }, 401)
   speechBubble.style.display = "flex";
-  TweenMax.to(speechBubbleOverlay, 0, { opacity: 0 });
-  TweenMax.to(speechBubble, 0, { opacity: 0 });
-  TweenMax.to(speechBubbleOverlay, 1, { opacity: 1 });
+  // TweenMax.to(speechBubbleOverlay, 0, { opacity: 0 });
+  // TweenMax.to(speechBubble, 0, { opacity: 0 });
+  // TweenMax.to(speechBubbleOverlay, 1, { opacity: 1 });
   TweenMax.to(speechBubble, 1, { opacity: 1 });
+  TweenMax.from(speechBubble, 5, { scale:0 });
 }
 
 function hideSpeechBubble() {
-  TweenMax.to(speechBubbleOverlay, 0, { opacity: 1 });
-  TweenMax.to(speechBubble, 0, { opacity: 1 });
-  TweenMax.to(speechBubbleOverlay, 1, { opacity: 0 });
-  TweenMax.to(speechBubble, 1, { opacity: 0 });
+  // TweenMax.to(speechBubbleOverlay, 0, { opacity: 1 });
+  // TweenMax.to(speechBubble, 0, { opacity: 1 });
+  // TweenMax.to(speechBubbleOverlay, 1, { opacity: 0 });
+  TweenMax.to(speechBubble, 1, { opacity: 0, display:'none'});
 
-  setTimeout(() => {
-    speechBubbleOverlay.style.display = "none";
-    speechBubble.style.display = "none";
-  }, 1000);
+  // setTimeout(() => {
+  //   // speechBubbleOverlay.style.display = "none";
+  //   speechBubble.style.display = "none";
+  // }, 1000);
 }
 
 // DAY, also FOCUSING on the next INPUT FIELD
@@ -299,9 +324,7 @@ const playBtn = document.querySelector("#play-btn");
 const ageModal = document.querySelector("#age-modal");
 const birthdayForm = document.querySelector("#birthday-form");
 
-playBtn.addEventListener("click", function(e) {
-  playStart(e);
-});
+
 
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
