@@ -53,9 +53,7 @@ const bottomMenu = document.querySelector("#bottom-menu");
 
 window.addEventListener("DOMContentLoaded", () => {
   // ELF LOADS IN LANDING ANIMATION
-  playBtn.addEventListener("click", function(e) {
-    playStart(e);
-  });
+
   elfSpeechAnimation();
   // speechBubbleOverlay.addEventListener("click", hideSpeechBubble);
   // setTimeout(() => {
@@ -110,16 +108,27 @@ function keyPressCheck(event) {
 
 // Adding keypress with event when ageModalDay has a value entered
 ageModalDay.addEventListener("keypress", e => {
+  if (userDay.length >= 1) {
+    ageModalDay.addEventListener("keyup", () => {
+      validateAge(userYear, userMonth, userDay);
+    });
+  }
   keyPressCheck(e);
 });
 ageModalMonth.addEventListener("keypress", e => {
   keyPressCheck(e);
+  if (userMonth.length >= 1) {
+    ageModalMonth.addEventListener("keyup", () => {
+      validateAge(userYear, userMonth, userDay);
+    });
+  }
 });
 ageModalYear.addEventListener("keypress", e => {
   keyPressCheck(e);
 
   //Create date string for validation
-  if (userYear.length == 3) {
+
+  if (userYear.length >= 3) {
     ageModalYear.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
 
@@ -150,14 +159,25 @@ function validateAge(userYear, userMonth, userDay) {
   if (age >= 18) {
     // playStart();
 
-    hideSpeechBubble();
+    if ((userDay.length < 2) | (userMonth.length < 2) | (userYear.length < 4)) {
+      console.log("fasz");
+    } else {
+      playBtn.addEventListener("click", function(e) {
+        playStart(e);
+      });
+    }
+
     playBtn.value = "START WINNING";
   } else {
     // The speech bubble will show
+
     playBtn.removeEventListener("click", function(e) {
       playStart(e);
     });
     playBtn.value = "SORRY, TOO YOUNG!";
+    playBtn.onclick = function() {
+      window.location.replace("https://www.arkadium.com/free-online-games/");
+    };
     playBtn.disable;
     // TweenMax.to(ageModalDay, 1, {opacity:0})
     speechBubbleHeader = "Oh no! You have to be over 18 to play Casino.";
@@ -196,12 +216,11 @@ function showSpeechBubble() {
   }, 401);
 
   //Show bubble
+  speechBubble.style.display = "flex";
 
   //Animate bubble
-  setTimeout(() => {
-    speechBubble.style.opacity = "1";
-  }, 1000);
-  TweenMax.from(speechBubble, 0, { y: -1000 });
+  TweenMax.to(speechBubble, 1, { opacity: 1 });
+  TweenMax.to(speechBubble, 0, { y: -1000 });
   TweenMax.to(speechBubble, 1, { y: 0 });
 }
 
@@ -326,7 +345,7 @@ const birthdayForm = document.querySelector("#birthday-form");
 
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
-  console.log("play button clicked");
+  //console.log("play button clicked");
   TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
 
