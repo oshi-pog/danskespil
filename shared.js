@@ -135,6 +135,8 @@ ageModalDay.addEventListener("keypress", e => {
   if (userDay.length >= 1) {
     ageModalDay.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
+
+      addPersonObjectAge();
     });
   }
   keyPressCheck(e);
@@ -144,6 +146,7 @@ ageModalMonth.addEventListener("keypress", e => {
   if (userMonth.length >= 1) {
     ageModalMonth.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
+      addPersonObjectAge();
     });
   }
 });
@@ -155,12 +158,14 @@ ageModalYear.addEventListener("keypress", e => {
   if (userYear.length >= 3) {
     ageModalYear.addEventListener("keyup", () => {
       validateAge(userYear, userMonth, userDay);
-
-      personObject.BirthDate = userYear + userMonth + userDay;
-      console.log(personObject);
+      addPersonObjectAge();
     });
   }
 });
+
+function addPersonObjectAge() {
+  personObject.BirthDate = userYear + userMonth + userDay;
+}
 
 let speechBubbleHeader = null;
 let speechBubbleSubHeader = null;
@@ -198,7 +203,7 @@ function validateAge(userYear, userMonth, userDay) {
       playStart(e);
     });
     playBtn.value = "SORRY, TOO YOUNG!";
-    
+
     playBtn.disable;
     // TweenMax.to(ageModalDay, 1, {opacity:0})
     speechBubbleHeader = "Oh no! You have to be over 18 to play Casino.";
@@ -327,7 +332,6 @@ numberTickerCTA.addEventListener("click", function(e) {
   TweenMax.to(numberTickerPage, 1, { display: "none", x: -1500 });
   // Elf Animation
   //elfDescriptionAnimation();
-  
 });
 
 // Storing the game description here
@@ -339,7 +343,6 @@ function startDescription(e) {
   console.log("it should run");
   TweenMax.from(gameDescriptionPage, 1, { x: 1500 });
   TweenMax.to(gameDescriptionPage, 1, { display: "grid" });
-  
 
   // Bottom menu slides away
   TweenMax.to(bottomMenu, 1, { y: 500, display: "none" });
@@ -596,7 +599,7 @@ function unflipCards() {
       break;
     case 10:
       TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
-      
+
       // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
       showEmailInput();
       emailHeader.innerHTML = "More Hearts!";
