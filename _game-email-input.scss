@@ -8,13 +8,15 @@
   z-index: 10;
   display: none;
   opacity: 0;
+  // display:grid;
   align-items: center;
   justify-items: center;
 }
 
 #game-email-input {
   width: 80%;
-  height: 70%;
+  height: 60%;
+  margin-top:-10%;
   color: darkblue;
   display: grid;
   align-items: center;
@@ -50,8 +52,8 @@
 
 .game-email-input-header {
   font-weight: 800;
-  font-size: 8vmin;
-  line-height: 12vmin;
+  font-size: 10vmin;
+  line-height: 11vmin;
   color: white;
   text-align: center;
 }
@@ -59,6 +61,10 @@
 .game-email-input-subheader {
   font-weight: 200;
   color: white;
+  text-align:center;
+  span {
+    font-weight:800 !important;
+  }
 }
 
 //TABLET STYLES
@@ -105,12 +111,12 @@
 @media screen and (min-width: 1024px) {
   #game-email-input {
     height: 65% !important;
-    margin-top: 5% !important;
+    margin-top: -5% !important;
   }
 
   .game-email-input-header {
-    font-size: 4vw !important;
-    width: 45%;
+    font-size: 7vmin !important;
+    width: 100%;
   }
 
   .game-email-input-subheader {

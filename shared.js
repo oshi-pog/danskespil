@@ -614,8 +614,8 @@ function unflipCards() {
 
       // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
       showEmailInput();
-      emailHeader.innerHTML = "More Hearts!";
-      emailInputCTA.value = "Try again!";
+      emailHeader.innerHTML = "We've got more hearts for you!";
+      emailInputCTA.value = "TRY AGAIN";
       emailStatus = true;
       break;
     case 20:
@@ -721,7 +721,8 @@ let emailHeader = document.querySelector(".game-email-input-header");
 function showEmailInput() {
   if (turnsCounter === 0) {
   }
-
+  speechBubbleHeader = `It really is your lucky day!`;
+  showSpeechBubble();
   gameEmailInputPage.style.display = "grid";
   TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
   TweenMax.from(gameEmailInputPage, 1, { y: 2000 });
@@ -733,7 +734,7 @@ function showEmailInput() {
 
     // FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
     resetAfterEmail();
-
+    hideSpeechBubble();
     setTimeout(() => {
       gameEmailInputPage.style.display = "none";
     }, 300);
