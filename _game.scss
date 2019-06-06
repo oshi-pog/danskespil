@@ -277,189 +277,7 @@
   
 }
 
-@media screen and (min-width: 1024px) {
-  #game-page {
-    width: 100%;
-    height: 100%;
-    display: none;
-    grid-template-columns:1fr 1fr;
-    align-items: center;
-    justify-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    
-    background:filter-gradient(#a48551, #a48551, vertical);
-  
-  
-  }
-  
-  .game-container {
-    width: 100%;
-    height: 70%;
 
-    display: grid;
-    margin-top:10% !important;
-  
-  
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.1fr 0.8fr;
-    align-items: center;
-    justify-items: center;
-  
-    #game-topbar {
-      display: grid;
-      grid-column: 1/4;
-      grid-template-columns: repeat(5, 1fr);
-      box-shadow: 0 1px 3px 1px rgba(0,0,0,0.5) inset;
-      width: 82%;
-      height: 40% !important;
-      align-items:center;
-      justify-items:center;
-      // background:hsla(37, 38%, 78%, 1);
-      border-radius:50px;
-      
-      margin-bottom:5%;
-      
-  
-      // NEW PLAYER HEART IMAGES !!
-      .player-heart {
-        filter: drop-shadow( 1px 1px 2px rgba(0, 0, 0, .5 ));
-        width:10% !important;
-      
-        
-      }
-    }
-    #player-hearts {
-      // HIDE, REPLACING WITH HEARTS
-      display: none;
-      grid-column: 1/4;
-  
-      
-      align-items: center;
-      p{
-        font-size: 7vmin;
-      }
-    }
-    #turns {
-      // HIDE, REPLACING WITH HEARTS
-      display: none;
-      align-items: center;
-      margin: auto;
-      border-radius: 20px;
-      height: 50%;
-      width: 100%;
-      grid-column: 4/5;
-      background-color: white;
-      color: black;
-  
-      p {
-        font-size: 4vmin;
-        margin: auto;
-        text-align: start;
-      }
-    }
-  }
-  
-  
-  
-  
-  .memory-game {
-    grid-column: 1/4;
-    width: 80%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-row-gap: 4vmin;
-    grid-column-gap: 4vmin;
-    grid-template-columns: repeat(3, 1fr);
-   
-  }
-  
-  #game {
-  }
-  
-  .memory-card {
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    
-    background: white;
-    width: 100%;
-    height:100%;
-    border-radius: 5px;
-    margin: auto;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .memory-card:active {
-    transform: scale(0.97);
-    transition: transform 0.2s;
-  }
-  
-  .memory-card.flip {
-    transform: rotateY(180deg);
-    cursor: default;
-  }
-  
-  .front-face,
-  .back-face {
-    width: auto;
-  
-    height: 50%;
-    position: absolute;
-    border-radius: 5px;
-  
-    backface-visibility: hidden;
-  }
-  
-  .front-face {
-    transform: rotateY(180deg);
-  }
-  
-  // Styling of the prize grid below the game - setting width of section to be same as the game above, just change later
-  #prize-grid-game {
-    grid-column: 1/4;
-    width: 10%;
-    display: grid;
-    grid-row-gap:10%;
-    
-  
-  
-    .prize {
-      //3 column grid, text in middle, icon on right
-      box-sizing: border-box;
-      border-radius: 50px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      p {
-        grid-column: 2/3;
-        justify-self: center;
-      }
-    }
-  
-    .active {
-      background-color: #a88852;
-      color: #ffffff;
-      border: 1px solid #a88852;
-    }
-  
-    .inactive {
-      background-color: #484848;
-      border: 1px solid #a88852;
-      color: #6c6c6c;
-    }
-  }
-  // ELF CONTAINER SHOWING ON WEB VERSION
-  .elf-container-web {
-    display:grid !important;
-  }
-
-}
 
 // ELF FOR MOBILE VERSION !! 
 #elf-game {
@@ -502,5 +320,348 @@
     
     filter: drop-shadow( 5px 6px 5px rgb(212, 194, 194));
   }
+
+}
+
+
+// DESKTOP STYLES
+@media screen and (min-width: 1024px) {
+  // setting main game-container to be a grid, so that it is easy to align and justify items, setting position to fixed for good positioning when landing page is loaded
+
+//TO DO, add greensock animation when the dom is loaded
+
+// ADDED GAME-PAGE, THIS CONTAINS THE WHOLE GAME, SO IT CAN BE CENTERED PROPERLY
+
+#game-page {
+  grid-template-columns:1fr 1fr !important;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  
+  // background:filter-gradient(#a48551, #a48551, vertical);
+  // background: #eacda3;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to bottom, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to bottom, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #2980B9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+
+  #elf-game {
+    position:fixed;
+    bottom:0;
+    right:10% !important;
+    -webkit-transform: scaleX(-1) !important;
+    transform: scaleX(-1) !important;
+    z-index:4;
+    -webkit-filter:drop-shadow( 1px 6px 2px rgba(0, 0, 0, .5 ));
+    filter: drop-shadow( 1px 6px 2px rgba(0, 0, 0, .5 ));
+    // #elf-game {
+    //   position:fixed;
+    //   bottom:0;
+    //   left:0;
+    //   height:25%;
+    //   z-index:4;
+    //   -webkit-filter:drop-shadow( 1px 6px 2px rgba(0, 0, 0, .5 ));
+    //   filter: drop-shadow( 1px 6px 2px rgba(0, 0, 0, .5 ));
+    // }
+  }
+}
+
+.game-container {
+  width: 100%;
+  height: 70%;
+  display: grid;
+  
+
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 0.8fr;
+  align-items: center;
+  justify-items: center;
+
+  #game-topbar {
+    display: grid;
+    grid-column: 1/4;
+    grid-template-columns: repeat(5, 1fr);
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.5) inset;
+    width: 82%;
+    height: 50% !important;
+    align-items:center;
+    justify-items:center;
+    // background:hsla(37, 38%, 78%, 1);
+    border-radius:50px;
+    
+    margin-bottom:5%;
+    
+
+    // NEW PLAYER HEART IMAGES !!
+    .player-heart {
+      filter: drop-shadow( 1px 1px 2px rgba(0, 0, 0, .5 ));
+      width:20% !important;
+    
+      
+    }
+  }
+  #player-hearts {
+    // HIDE, REPLACING WITH HEARTS
+    display: none;
+    grid-column: 1/4;
+
+    
+    align-items: center;
+    p{
+      font-size: 7vmin;
+    }
+  }
+  #turns {
+    // HIDE, REPLACING WITH HEARTS
+    display: none;
+    align-items: center;
+    margin: auto;
+    border-radius: 20px;
+    height: 50%;
+    width: 100%;
+    grid-column: 4/5;
+    background-color: white;
+    color: black;
+
+    p {
+      font-size: 4vmin;
+      margin: auto;
+      text-align: start;
+    }
+  }
+}
+
+
+
+
+.memory-game {
+  grid-column: 1/4;
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-row-gap: 2vmin !important;
+  grid-column-gap:2vmin !important;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: 5000;
+}
+
+#game {
+}
+
+.memory-card {
+  transform: scale(1);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.5s;
+  
+  
+  // border-radius: 5px;
+  margin: auto;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+  width: 80% !important; 
+  height: 100% !important;
+	
+	background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	
+	position: relative;
+
+}
+
+.memory-card:after, .memory-card:before {
+	content: '';
+	position: absolute;
+
+  z-index: -1;
+  background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+  
+}
+
+// .memory-card:after {
+// 	width: 40%; height: 40%;
+// 	top:10%; left: -10%;
+	
+// 	border-radius: 100px;
+// 	-webkit-border-radius: 100px;
+// 	-moz-border-radius: 100px;
+// }
+
+.memory-card:before {
+	width: 150%; height: 70%;
+	top: 30%; right: -25%;
+	z-index:-2;
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+.front-face,
+.back-face {
+  width: auto;
+  margin-top:10%;
+  height: 50%;
+  position: absolute;
+  border-radius: 5px;
+
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+// Styling of the prize grid below the game - setting width of section to be same as the game above, just change later
+#prize-grid-game {
+  
+  grid-column: 3/4;
+  width:60%;
+  display: grid;
+  grid-row-gap:10%;
+  margin-right:20%;
+  
+ 
+
+
+  .prize {
+    //3 column grid, text in middle, icon on right
+    box-sizing: border-box;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    p {
+      grid-column: 1/4;
+      justify-self: center;
+    }
+  }
+
+  .active {
+    background-color: #a88852;
+    color: #ffffff;
+    border: 1px solid #a88852;
+  }
+
+  .inactive {
+    background-color: #484848;
+    border: 1px solid #a88852;
+    color: #6c6c6c;
+  }
+}
+
+// ELF CONTAINER NOT SHOWING IN MOBILE
+.elf-container-web {
+  display:none;
+}
+
+// NEW SCORE GRID 
+
+ 
+
+  
+  
+
+ 
+
+.score-100, .score-250, .score-500, .score-1000 {
+  
+  display:none;
+}
+
+
+
+
+#score-main {
+  display:block;
+  align-items:center;
+  justify-items:center;
+  height:50vmin;
+  position:fixed;
+  width:40vmin;
+  left:56.5% !important;
+  bottom:12%;
+  animation: float-up-down 2s infinite!important;
+  z-index:2002;
+
+  img {
+    width:100%;
+    height:20%;
+    position:absolute;
+  }
+  
+}
+
+
+
+// ELF FOR MOBILE VERSION !! 
+
+
+#hill-svg {
+  position:absolute;
+  bottom:-65% !important;
+  left:0;
+}
+
+#pot-hill-gold {
+  position:absolute;
+  bottom:0;
+  left:-10%;
+  
+
+  #hill {
+    display:none;
+    transform:translateY(1000px);
+    width:2000px;
+  }
+
+  #gold-pot {
+    transform: translateY(200px);
+    position:absolute;
+    z-index:103
+  }
+  #shining {
+    
+    transform: translateY(-120px);
+    opacity:0.4;
+    
+    filter: drop-shadow( 5px 6px 5px rgb(212, 194, 194));
+  }
+
+}
+
 
 }

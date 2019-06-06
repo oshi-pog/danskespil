@@ -115,7 +115,7 @@
 
   .game-name-input-header {
     font-size: 5vw !important;
-    width: 60%;
+    width: 80%;
     text-align: center;
   }
   .game-name-input-subheader {
@@ -146,14 +146,14 @@
   }
 
   .game-name-input-header {
-    font-size: 3vw !important;
-    width: 28% !important;
+    font-size: 9vmin !important;
+    width: 80% !important;
     font-weight: 800 !important;
     line-height: 1.4 !important;
   }
 
   .game-name-input-subheader {
-    font-size: 1.5vw !important;
+    font-size: 4vmin !important;
     margin-top: 0 !important;
     line-height: 1 !important;
 
@@ -174,7 +174,8 @@
   }
 
   #name-input-field::placeholder {
-    // font-size:3vmin !important;
+    // font-size:3vmin !important;7
+    font-size:4vmin !important;
   }
 
   .game-name-input-cta {
@@ -184,5 +185,10 @@
 
   #elf-name-input {
     height: auto !important;
+  }
+
+  #name-input-field {
+    width:20% !important;
+    font-size:100% !important;
   }
 }
