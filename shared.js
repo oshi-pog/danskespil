@@ -40,8 +40,6 @@ const game = document.querySelector("#game");
 const gamePage = document.querySelector("#game-page");
 const nameInputCTA = document.querySelector(".game-name-input-cta");
 
-const gameWinnerCTA = document.querySelector(".game-winner.cta");
-
 const winnerInputCont = document.querySelector("#game-form-input");
 
 let menuStatus = burgerIcon.dataset.status;
@@ -78,19 +76,19 @@ window.addEventListener("DOMContentLoaded", () => {
       TweenMax.to(ageModalDay, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
-      console.log('hello');
-    } 
-    if(!ageModalMonth.value) {
+      console.log("hello");
+    }
+    if (!ageModalMonth.value) {
       TweenMax.to(ageModalMonth, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
     }
-    if(!ageModalYear.value) {
+    if (!ageModalYear.value) {
       TweenMax.to(ageModalYear, 0, {
         boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
       });
     }
-    speechBubbleHeader = 'Hey! You forgot to put in your age!'
+    speechBubbleHeader = "Hey! You forgot to put in your age!";
     showSpeechBubble();
   });
 });
@@ -189,12 +187,12 @@ function validateAge(userYear, userMonth, userDay) {
           TweenMax.to(ageModalDay, 0, {
             boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
           });
-          console.log('hello');
-        } else if(!ageModalMonth.value) {
+          console.log("hello");
+        } else if (!ageModalMonth.value) {
           TweenMax.to(ageModalMonth, 0, {
             boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
           });
-        } else if(!ageModalYear.value) {
+        } else if (!ageModalYear.value) {
           TweenMax.to(ageModalYear, 0, {
             boxShadow: "inset 0px 0px 2px 2px rgba(245,23,19,0.4)"
           });
@@ -241,7 +239,7 @@ function showSpeechBubble() {
   //Add text to speech bubbles
   speechBubbleHeaderNode.innerHTML = speechBubbleHeader;
   speechBubbleSubHeaderNode.innerHTML = speechBubbleSubHeader;
-  console.log('speech bubble shown')
+  console.log("speech bubble shown");
   //rotate elf
   TweenMax.to(elfSpeech, 0.2, { rotation: -1 });
   setTimeout(() => {
@@ -386,7 +384,7 @@ const birthdayForm = document.querySelector("#birthday-form");
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
   //console.log("play button clicked");
-  
+
   TweenMax.to(ageModal, 0, { opacity: 0, display: "none" });
   //TweenMax.to(elfSpeech, 0, { opacity: 0, display: "none" });
   playBtn.dataset.status = "clicked";
@@ -724,7 +722,6 @@ function showEmailInput() {
     gameEmailInputPage.style.opacity = "0";
 
     personObject.Email = emailInputField.value;
-    postData(personObject);
 
     // FUNCTION TO RESET THE GAME AFTER THE EMAIL IS INPUT
     resetAfterEmail();
@@ -798,3 +795,13 @@ submitBtn2.addEventListener("submit", () => {
 // let coinGroup = document.querySelector('#coin_copy');
 
 // TweenMax.to(coinGroup, 10, {x:-1500});
+
+//WINNER FORM
+const gameWinnerCTA = document.querySelector(".game-winner-cta");
+
+gameWinnerCTA.addEventListener("click", () => {
+  event.preventDefault();
+  postData(personObject);
+
+  gameWinnerCTA.disabled = "true";
+});
