@@ -495,24 +495,24 @@ function flipCard() {
 
   secondCard = this;
   checkForMatch();
-  checkTurns();
+  // checkTurns();
 }
 
 // When two cards are flipped, the users turns will be lowered by one, and when those turns reach zero, the game is hidden, TO DO IMPORTANT
-function checkTurns() {
-  turnsCounter--;
-  // if (turnsCounter === 9 ) {
-  //   // playerHeart1.src = `img/halfheart.svg`;
-  //   TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
-  //   console.log('lol turn down')
-  // } else if
-  // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
+// function checkTurns() {
+//   turnsCounter--;
+//   // if (turnsCounter === 9 ) {
+//   //   // playerHeart1.src = `img/halfheart.svg`;
+//   //   TweenMax.to(playerHeart1, 0.5, {opacity:0.5});
+//   //   console.log('lol turn down')
+//   // } else if
+//   // DOING A SWITCH CASE TO CHANGE THE OPACITY OF HEARTS BASED ON HOW MANY TURNS THERE ARE
 
-  turnsCount.textContent = turnsCounter;
-  if (turnsCounter === 0) {
-    cards.forEach(card => card.removeEventListener("click", flipCard));
-  }
-}
+//   turnsCount.textContent = turnsCounter;
+//   if (turnsCounter === 0) {
+//     s
+//   }
+// }
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
@@ -595,12 +595,15 @@ function unflipCards() {
       break;
     case 10:
       TweenMax.to(playerHeart5, 0.5, { opacity: 0 });
+      
       // SHOWING THE EMAIL FORM IF PLAYERS DONT HAVE ANY MORE HEARTS
       showEmailInput();
       emailHeader.innerHTML = "More Hearts!";
       emailInputCTA.value = "Try again!";
       emailStatus = true;
       break;
+    case 20:
+      cards.forEach(card => card.removeEventListener("click", flipCard));
   }
 
   setTimeout(() => {
