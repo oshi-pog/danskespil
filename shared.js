@@ -406,6 +406,13 @@ turnsCount.textContent = turnsCounter;
 // let prizeLvl3 = document.querySelector("#lvl3");
 // let prizeLvl4 = document.querySelector("#lvl4");
 
+// SCORE VARIABLES
+let score0 = document.querySelector('.score-0');
+let score100 = document.querySelector('.score-100');
+let score250 = document.querySelector('.score-250');
+let score500 = document.querySelector('.score-500');
+let score1000 = document.querySelector('.score-1000');
+let scoreContainer = document.querySelector('#score-main');
 // STYLING THE HEARTS
 let playerHeart1 = document.querySelector("#heart-1");
 let playerHeart2 = document.querySelector("#heart-2");
@@ -475,6 +482,11 @@ function disableCards() {
   console.log(playerScore);
   // Applying styling to levels based on score
   if (playerScore === 2) {
+   
+    scoreContainer.removeChild(score0);
+   scoreContainer.appendChild(score100);
+   TweenMax.to(score100, 0, {display:'block'})
+   TweenMax.from(score100, 1, {y:1000})
     // prizeLvl2.classList.remove("inactive");
     // prizeLvl2.classList.add("active");
   } else if (playerScore === 4) {
