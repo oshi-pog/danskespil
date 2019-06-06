@@ -146,18 +146,18 @@ function validateAge(userYear, userMonth, userDay) {
   if (userMonth - 1 == today_month && today_day < userDay) {
     age--;
   }
- // TO DO 1
+  // TO DO 1
   if (age >= 18) {
     // playStart();
-    
+
     hideSpeechBubble();
-    playBtn.value = 'START WINNING';
+    playBtn.value = "START WINNING";
   } else {
     // The speech bubble will show
     playBtn.removeEventListener("click", function(e) {
       playStart(e);
     });
-    playBtn.value = 'SORRY, TOO YOUNG!';
+    playBtn.value = "SORRY, TOO YOUNG!";
     playBtn.disable;
     // TweenMax.to(ageModalDay, 1, {opacity:0})
     speechBubbleHeader = "Oh no! You have to be over 18 to play Casino.";
@@ -168,10 +168,8 @@ function validateAge(userYear, userMonth, userDay) {
 
 let elfSpeech = document.querySelector("#elf-speech");
 
-
-
 function elfSpeechAnimation() {
-  TweenMax.to(elfSpeech, 0, { opacity: 1, display:'block' });
+  TweenMax.to(elfSpeech, 0, { opacity: 1, display: "block" });
   TweenMax.from(elfSpeech, 1, { x: -500 });
 }
 
@@ -184,32 +182,34 @@ let speechBubbleSubHeaderNode = document.querySelector(
 
 // Showing the speech bubble
 function showSpeechBubble() {
+  //Add text to speech bubbles
   speechBubbleHeaderNode.innerHTML = speechBubbleHeader;
   speechBubbleSubHeaderNode.innerHTML = speechBubbleSubHeader;
-  // elfSpeechAnimation();
-  // speechBubbleOverlay.style.display = "block";
-  // ELF ROTATES WHEN THE SPEECH BUBBLE IS SHOWN
-  TweenMax.to(elfSpeech, 0.2, {rotation:-1})
-  setTimeout(()=>{
-    TweenMax.to(elfSpeech, 0.2, {rotation:2})
-  }, 200)
 
-  setTimeout(()=>{
-    TweenMax.to(elfSpeech, 0.2, {rotation:0})
-  }, 401)
-  speechBubble.style.display = "flex";
-  // TweenMax.to(speechBubbleOverlay, 0, { opacity: 0 });
-  // TweenMax.to(speechBubble, 0, { opacity: 0 });
-  // TweenMax.to(speechBubbleOverlay, 1, { opacity: 1 });
-  TweenMax.to(speechBubble, 1, { opacity: 1 });
-  TweenMax.from(speechBubble, 5, { scale:0 });
+  //rotate elf
+  TweenMax.to(elfSpeech, 0.2, { rotation: -1 });
+  setTimeout(() => {
+    TweenMax.to(elfSpeech, 0.2, { rotation: 2 });
+  }, 200);
+  setTimeout(() => {
+    TweenMax.to(elfSpeech, 0.2, { rotation: 0 });
+  }, 401);
+
+  //Show bubble
+
+  //Animate bubble
+  setTimeout(() => {
+    speechBubble.style.opacity = "1";
+  }, 1000);
+  TweenMax.from(speechBubble, 0, { y: -1000 });
+  TweenMax.to(speechBubble, 1, { y: 0 });
 }
 
 function hideSpeechBubble() {
   // TweenMax.to(speechBubbleOverlay, 0, { opacity: 1 });
   // TweenMax.to(speechBubble, 0, { opacity: 1 });
   // TweenMax.to(speechBubbleOverlay, 1, { opacity: 0 });
-  TweenMax.to(speechBubble, 1, { opacity: 0, display:'none'});
+  TweenMax.to(speechBubble, 1, { opacity: 0, display: "none" });
 
   // setTimeout(() => {
   //   // speechBubbleOverlay.style.display = "none";
@@ -323,8 +323,6 @@ gameDescriptionCTA.addEventListener("click", () => {
 const playBtn = document.querySelector("#play-btn");
 const ageModal = document.querySelector("#age-modal");
 const birthdayForm = document.querySelector("#birthday-form");
-
-
 
 //Function below will be run when the playBtn is clicked
 function playStart(e) {
