@@ -11,6 +11,27 @@
   padding: 1em;
   overflow-y: scroll;
   color: black;
+  font-size: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+.sortby-name-button {
+  text-align: center;
+  background: #a61f6c;
+  border: 0;
+  color: white;
+  padding: 0.5em;
+  border-radius: 50px;
+  transition: 0.2s;
+  &:hover {
+    box-shadow: 0 6px 20px 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: #a61f6c;
+    box-shadow: 0 6px 20px 5px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .player-remove-header {
@@ -18,11 +39,25 @@
 }
 
 .player-name {
-  padding: 1em;
+  padding: 1em 0;
 }
 
 .player-remove {
   text-align: center;
+  button {
+    background: #a61f6c;
+    border: 0;
+    color: white;
+    padding: 0.5em;
+    border-radius: 50px;
+    transition: 0.2s;
+    &:hover {
+      box-shadow: 0 6px 20px 5px rgba(0, 0, 0, 0.2);
+      background-color: white;
+      color: #a61f6c;
+      box-shadow: 0 6px 20px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
 }
 
 #player-list {
@@ -40,4 +75,18 @@ th {
 .player-email,
 .player-email-header {
   text-align: right;
+}
+
+//TABLET STYLES
+@media screen and (min-width: 720px) {
+  #player-list-container {
+    font-size: 12px;
+  }
+}
+
+//DESKTOP STYLES
+@media screen and (min-width: 1024px) {
+  #player-list-container {
+    font-size: 16px;
+  }
 }

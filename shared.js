@@ -53,11 +53,10 @@ window.addEventListener("DOMContentLoaded", () => {
   // ELF LOADS IN LANDING ANIMATION
   shuffle();
   elfSpeechAnimation();
-  speechBubbleHeader = 'Enter your birthday above to start playing.';
+  speechBubbleHeader = "Enter your birthday above to start playing.";
   setTimeout(() => {
     showSpeechBubble();
   }, 500);
-  
 
   burgerIcon.addEventListener("click", () => {
     event.preventDefault();
@@ -254,7 +253,6 @@ function showSpeechBubble() {
 }
 
 function hideSpeechBubble() {
-  console.log("close that shit");
   // TweenMax.to(speechBubbleOverlay, 0, { opacity: 1 });
   // TweenMax.to(speechBubble, 0, { opacity: 1 });
   // TweenMax.to(speechBubbleOverlay, 1, { opacity: 0 });
@@ -415,12 +413,12 @@ function checkNameInput() {
     TweenMax.to(gameNameInputPage, 1, { display: "none", x: -1500 });
     TweenMax.from(gamePage, 1, { display: "none", x: 1500 });
     TweenMax.to(gamePage, 1, { display: "grid" });
-    hideSpeechBubble();7
-    TweenMax.to(elfSpeech, 0.5, {opacity:0, display:'none'});
-    setTimeout(()=>{
+    hideSpeechBubble();
+    7;
+    TweenMax.to(elfSpeech, 0.5, { opacity: 0, display: "none" });
+    setTimeout(() => {
       elfSpeechAnimation();
     }, 1000);
-    
   }
 }
 
@@ -722,10 +720,10 @@ function showEmailInput() {
   if (turnsCounter === 0) {
   }
   speechBubbleHeader = `It really is your lucky day!`;
-  setTimeout(()=>{
+  setTimeout(() => {
     showSpeechBubble();
-  },1000);
-  
+  }, 1000);
+
   gameEmailInputPage.style.display = "grid";
   TweenMax.to(gameEmailInputPage, 1, { opacity: 1 });
   TweenMax.from(gameEmailInputPage, 1, { y: 2000 });
@@ -755,9 +753,9 @@ function showWinnerFormPage() {
   const finalName = document.querySelector("#name-final");
   finalName.value = personObject.Name;
   speechBubbleHeader = `You'll receive your prize in your email address. Thanks for playing!`;
-  setTimeout(()=>{
+  setTimeout(() => {
     showSpeechBubble();
-  },1000);
+  }, 1000);
   //ADD VALUE FOR EMAIL IF IT IS ALREADY ADDED
   if (emailStatus == true) {
     const finalEmail = document.querySelector("#email-final");
