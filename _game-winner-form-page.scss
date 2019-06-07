@@ -1,180 +1,187 @@
-
-#game-winner-form-page{
-  width:100%;
-  height:100%;
-  position:fixed;
+#game-winner-form-page {
+  width: 100%;
+  height: 100%;
+  position: fixed;
   // display:grid;
-  display:none;
-  opacity:0;
-  align-items:center;
-  justify-items:center;
-    // background:filter-gradient(#a48551, #a48551, vertical);
-    background: #eacda3;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  left:0;
-  top:0;
-  z-index:10;
+  display: none;
+  opacity: 0;
+  align-items: center;
+  justify-items: center;
+  // background:filter-gradient(#a48551, #a48551, vertical);
+  background: #eacda3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #d6ae7b,
+    #eacda3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #d6ae7b,
+    #eacda3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  left: 0;
+  top: 0;
+  z-index: 10;
 }
 
 #game-form-input {
-    // position: absolute;
-    width: 50%;
-    height: 50%;
-    // bottom: 0;
-    // left: 0;
-    margin-top:-10%;
+  // position: absolute;
+  width: 90%;
+  height: 50%;
+  // bottom: 0;
+  // left: 0;
+  margin-top: -10%;
 
-    z-index: 2;
-    display: grid;
-    
-    align-items: center;
-    justify-items: center;
-    // flex-direction: column;
-    // opacity: 0;
-    // display: none;
-  }
+  z-index: 2;
+  display: grid;
+
+  align-items: center;
+  justify-items: center;
+  // flex-direction: column;
+  // opacity: 0;
+  // display: none;
+}
 
 #prize-grid-game-winner {
-    grid-column: 1/4;
-    width: 50%;
+  grid-column: 1/4;
+  width: 50%;
+  display: grid;
+  grid-row-gap: 10%;
+  justify-self: left;
+  margin-left: 10%;
+
+  .prize {
+    //3 column grid, text in middle, icon on right
+    box-sizing: border-box;
+    border-radius: 50px;
     display: grid;
-    grid-row-gap:10%;
-    justify-self:left;
-    margin-left:10%;
-  
-  
-    .prize {
-      //3 column grid, text in middle, icon on right
-      box-sizing: border-box;
-      border-radius: 50px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      p {
-        grid-column: 2/3;
-        justify-self: center;
-      }
-    }
-  
-    .active {
-      background-color: #a88852;
-      color: #ffffff;
-      border: 1px solid #a88852;
-    }
-  
-    .inactive {
-      background-color: #484848;
-      border: 1px solid #a88852;
-      color: #6c6c6c;
+    grid-template-columns: 1fr 1fr 1fr;
+    p {
+      grid-column: 2/3;
+      justify-self: center;
     }
   }
 
-  .game-winner-cta {
+  .active {
+    background-color: #a88852;
+    color: #ffffff;
+    border: 1px solid #a88852;
+  }
+
+  .inactive {
+    background-color: #484848;
+    border: 1px solid #a88852;
+    color: #6c6c6c;
+  }
+}
+
+.game-winner-cta {
+  border: none;
+
+  background: #a61f6c;
+  height: 55px;
+  border-radius: 50px;
+  width: 80%;
+  color: white;
+  font-weight: 800;
+  font-size: 100%;
+  margin-top: 5vmin;
+}
+
+.game-winner-header {
+  font-weight: 800;
+  font-size: 8vmin;
+  line-height: 12vmin;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.game-winner-subheader {
+  font-weight: 200;
+  font-size: 5vmin;
+  color: white;
+  margin-bottom: 5vmin;
+}
+
+#final-form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+
+  input {
+    width: 100%;
+
+    #label-name-final {
+      grid-column: 1/4 !important;
+    }
+  }
+
+  #name-final {
+    grid-column: 1/3;
+    // field
+    border-radius: 50px;
     border: none;
-
-      background: #a61f6c;
-      height: 55px;
-      border-radius: 50px;
-      width: 80%;
-      color: white;
-      font-weight: 800;
-      font-size: 100%;
-      margin-top:5vmin;
+    background: white;
+    height: 40px;
   }
 
-  .game-winner-header{
-    font-weight:800;
-          font-size:8vmin;
-          line-height: 12vmin;
-          color:white;
-          width:100%;
-          text-align:center;
-  }
-  
-  .game-winner-subheader {
-    font-weight:200;
-    font-size:5vmin;
-    color:white;
-    margin-bottom:5vmin;
+  #email-final {
+    grid-column: 1/3;
+    // field
+    border-radius: 50px;
+    border: none;
+    background: white;
+    height: 40px;
   }
 
-  #final-form {
-    width:100%;
-    display:grid;
-    grid-template-columns:1fr;
+  #birthday-final-grid {
+    grid-column: 1/3;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
     text-align: center;
-    
-    input {
-      width:100%;
 
-      #label-name-final {
-        grid-column:1/4 !important;
-      }
-    }
-
-      #name-final    {
-             grid-column: 1/3;
-             // field 
-             border-radius: 50px;
-            border: none;
-            background: white;
-            height: 40px;
-            
-            
-             
-      }
-
-      #email-final {
-        grid-column: 1/3;
-             // field 
-             border-radius: 50px;
-            border: none;
-            background: white;
-            height: 40px;
-            
-      }
-    
-
-    #birthday-final-grid {
-      grid-column:1/3;
-      display:grid;
-      grid-template-rows: 0.5fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-column-gap: 20px;  
+    #day-final {
+      width: 100% !important;
+      border-radius: 50px;
+      border: none;
+      background: white;
+      height: 40px;
       text-align: center;
-      
-
-      #day-final {
-        width:100% !important;
-        border-radius: 50px;
-        border: none;
-        background: white;
-        height: 40px;
-        text-align: center;
-      }
-
-      #month-final {
-        width:100% !important;
-        border-radius: 50px;
-        border: none;
-        background: white;
-        height: 40px;
-        text-align: center;
-      }
-
-      #year-final {
-        
-        width:100% !important;
-        border-radius: 50px;
-        border: none;
-        background: white;
-        height: 40px;
-        text-align: center;
-      }
-
     }
 
+    #month-final {
+      width: 100% !important;
+      border-radius: 50px;
+      border: none;
+      background: white;
+      height: 40px;
+      text-align: center;
+    }
 
-
+    #year-final {
+      width: 100% !important;
+      border-radius: 50px;
+      border: none;
+      background: white;
+      height: 40px;
+      text-align: center;
+    }
   }
+}
 
+.gold-pile {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+//DESKTOP STYLES
+@media screen and (min-width: 1024px) {
+  #game-form-input {
+    width: 50% !important;
+  }
+}
